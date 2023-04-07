@@ -1,0 +1,35 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  height: 100vh;
+  font-family: "DM Serif Display", serif;
+}
+.login-container .login-header h2 {
+  font-size: 2.1875rem;
+  font-weight: 600;
+}
+.login-container .login-body form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-container .login-body form input.input-field {
+  font-family: "DM Sans", sans-serif;
+  border: none;
+  font-size: 16px;
+  padding: 15px 60px 15px 45px;
+  border-radius: 15px;
+}
+.login-container.light {
+  background-color: #fbfbfb;
+}
+.login-container.light .login-header h2 {
+  color: #3a414a;
+}
+.login-container.light .login-body input.input-field {
+  background-color: #ededed;
+  color: #3a414a;
+}

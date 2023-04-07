@@ -1,0 +1,51 @@
+@use "sass:math";
+
+//------- UI colors -----------------------------------------------
+
+// input background on light mode
+$input-background-light-gray: #ededed;
+$input-text-light-gray: #979ea8;
+
+// main text dark gray and light gray
+$main-text-color: #3a414a;
+$misc-text-color: #979ea8;
+
+// backgrounds
+$main-background-light: #fbfbfb;
+
+// -------- Themes -------------------------------------------------
+
+// Blue theme & light theme
+$theme-light-bg-blue: #eef6ff;
+$theme-light-btn-bg-blue: #dbeafe;
+$theme-dark-btn-bg-blue: #6b9dee;
+$theme-blue-text-btn: #3f84f2;
+
+// -------- Misc Variables ------------------------------------------
+$input-border-radius: 15px;
+$list-container-radius: 6px;
+
+// -------- Typography -----------------------------------------
+$font-serif: "DM Serif Display", serif;
+$font-sans-serif: "DM Sans", sans-serif;
+
+$font-size-heading-large: 35px;
+$font-size-heading: 25px;
+$font-size-subheading: 16px;
+$font-size-body: 12px;
+$font-size-small: 10px;
+
+// Calculate rem values based on root font size
+$rem: 1rem; // set base rem value
+$rem-value: 16px; // set root font size
+$rem-factor: math.div(
+  $rem-value,
+  $rem
+); // calculate rem factor based on root font size
+
+// Define font sizes in rem units
+$font-size-heading-large-rem: math.div($font-size-heading-large, $rem-factor);
+$font-size-heading-rem: math.div($font-size-heading, $rem-factor);
+$font-size-subheading-rem: math.div($font-size-subheading, $rem-factor);
+$font-size-body-rem: math.div($font-size-body, $rem-factor);
+$font-size-small-rem: math.div($font-size-small, $rem-factor);

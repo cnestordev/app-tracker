@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -16,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "compile:sass": "sass src/sass:src/styles",
+    "watch:sass": "gulp watch"
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {
@@ -36,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "sass": "^1.61.0"
   }
 }
