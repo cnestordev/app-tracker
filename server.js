@@ -15,6 +15,9 @@ const MongoStore = require("connect-mongo");
 
 const User = require("./models/User");
 const store = require("./config/MongoStore");
+const authRouter = require("./routes/auth");
+// const apiRouter = require("./routes/api");
+// const userRoute = require("./routes/user");
 
 // ------------------- middleware setup ------------------------------------------------------------------
 
@@ -61,6 +64,10 @@ passport.deserializeUser(User.deserializeUser());
 app.get("/api/welcome", (req, res) => {
   res.status(200).json({ data: "Hi world" });
 });
+
+// app.use("/api", apiRouter);
+app.use("/auth", authRouter);
+// app.use("/user", userRoute);
 
 // ------------------------------ end of routes ---------------------
 

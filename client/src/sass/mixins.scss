@@ -1,0 +1,13 @@
+@use "shared.scss";
+
+@mixin button($width, $bgColor, $textColor, $fontSize) {
+  border: none;
+  background-color: $bgColor;
+  font-size: $fontSize;
+  padding: 10px;
+  border-radius: shared.$big-btn-radius;
+  font-family: shared.$font-sans-serif;
+  width: $width;
+  cursor: pointer;
+  color: $textColor;
+}

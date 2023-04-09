@@ -1,4 +1,5 @@
 @use "./shared.scss";
+@use "./mixins.scss";
 
 .login-container {
   display: flex;
@@ -20,27 +21,90 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      input.input-field {
-        font-family: shared.$font-sans-serif;
-        border: none;
-        font-size: 16px;
-        padding: 15px 60px 15px 45px;
-        border-radius: 15px;
+      .input-label {
+        position: relative;
+        svg {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 15px;
+          width: shared.$font-size-large-icons-rem;
+        }
+        input.input-field {
+          font-family: shared.$font-sans-serif;
+          border: none;
+          font-size: 16px;
+          padding: 15px 60px 15px 45px;
+          border-radius: 15px;
+        }
+        &.password-field {
+          cursor: pointer;
+        }
+      }
+      .info {
+        cursor: pointer;
+        margin-top: 15px;
+        span {
+          font-family: shared.$font-sans-serif;
+        }
       }
     }
   }
   &.light {
-    background-color: shared.$main-background-light;
+    background-color: shared.$theme-light-login-bg;
     .login-header {
       h2 {
-        color: shared.$main-text-color;
+        color: shared.$theme-light-header;
       }
     }
     .login-body {
       input.input-field {
-        background-color: shared.$input-background-light-gray;
-        color: shared.$main-text-color;
+        background-color: shared.$theme-light-input-bg;
+        color: shared.$theme-light-input-text;
       }
+    }
+    .submit-btn {
+      @include mixins.button(
+        70%,
+        shared.$theme-light-login-btn-bg,
+        shared.$theme-light-login-btn-text,
+        shared.$font-size-subheading-rem
+      );
+    }
+    .info {
+      span {
+        color: shared.$theme-light-info-text;
+      }
+    }
+  }
+  &.dark {
+    background-color: shared.$theme-dark-login-bg;
+    .login-header {
+      h2 {
+        color: shared.$theme-dark-header;
+      }
+    }
+    .login-body {
+      svg {
+        color: shared.$theme-dark-header;
+      }
+      input.input-field {
+        background-color: shared.$theme-dark-input-bg;
+        color: shared.$theme-dark-input-text;
+      }
+      .info {
+        span {
+          color: shared.$theme-dark-info-text;
+        }
+      }
+    }
+    .submit-btn {
+      @include mixins.button(
+        70%,
+        shared.$theme-dark-login-btn-bg,
+        shared.$theme-dark-login-btn-text,
+        shared.$font-size-subheading-rem
+      );
     }
   }
 }

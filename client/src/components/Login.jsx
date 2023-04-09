@@ -1,20 +1,18 @@
 import { useState } from "react";
 import "../styles/Login.css";
 
+import { Eye, User } from "react-feather";
+
+import { handleLoginSubmit } from "../utils/auth";
+
 const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   // const history = useHistory();
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    // Call your login API here
-    if (false) {
-      // history.push("/dashboard");
-    } else {
-      alert("Incorrect username or password");
-    }
-  }
+  const handleSubmit = (event) => {
+    handleLoginSubmit(username, password, event);
+  };
 
   return (
     <div className="login-container light">
@@ -24,6 +22,7 @@ const Login = (props) => {
       <div className="login-body">
         <form onSubmit={handleSubmit}>
           <label className="input-label">
+            <User />
             <input
               className="input-field"
               type="text"
@@ -32,7 +31,8 @@ const Login = (props) => {
             />
           </label>
           <br />
-          <label className="input-label">
+          <label className="input-label password-field">
+            <Eye />
             <input
               className="input-field"
               type="password"
@@ -41,7 +41,12 @@ const Login = (props) => {
             />
           </label>
           <br />
-          <button type="submit">Login</button>
+          <button className="submit-btn" type="submit">
+            Login
+          </button>
+          <div className="info">
+            <span>Already registred? Login here.</span>
+          </div>
         </form>
       </div>
     </div>

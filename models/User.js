@@ -11,8 +11,14 @@ const UserSchema = Schema({
     required: [true, "something went wrong!"],
   },
   theme: {
-    type: String,
-    color: String,
+    type: {
+      type: String,
+      default: "light",
+    },
+    color: {
+      type: String,
+      default: "blue",
+    },
   },
   id: String,
   created: String,
