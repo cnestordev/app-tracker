@@ -12,24 +12,29 @@ import {
 
 import { handleLoginSubmit } from "../utils/auth";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/features/userSlice";
 import { setMessage } from "../redux/features/messageSlice";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Login = (props) => {
   const dispatch = useDispatch();
+  const darkModeTheme = useSelector((state) => state.user.theme.type);
   console.log("%c login component rendered", "color: yellow;");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-  // const history = useHistory();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const res = await handleLoginSubmit(username, password, isRegistering);
+      const res = await handleLoginSubmit(
+        username,
+        password,
+        darkModeTheme,
+        isRegistering
+      );
       dispatch(login(res.data.newUserObj));
-      // history.push('/dashboard');
     } catch (error) {
       const responseMessage = error.response.data.message;
       dispatch(setMessage({ message: responseMessage, type: DANGER }));
@@ -37,7 +42,11 @@ const Login = (props) => {
   };
 
   return (
-    <div className="login-container light">
+    <div className={`login-container ${darkModeTheme}`}>
+      <div className={`dark-mode-container ${darkModeTheme}`}>
+        <DarkModeToggle component="login" />
+        <span>{darkModeTheme} mode</span>
+      </div>
       <div className="login-header">
         <h2>Create an account</h2>
       </div>

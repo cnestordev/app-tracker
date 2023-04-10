@@ -24,9 +24,12 @@ export const userSlice = createSlice({
     logout: (state) => {
       return anonymousUser;
     },
+    updateUserTheme: (state, action) => {
+      state.theme.type = action.payload.theme.type;
+    },
   },
 });
 
-export const { login, logout } = userSlice.actions;
+export const { login, logout, updateUserTheme } = userSlice.actions;
 
 export default userSlice.reducer;

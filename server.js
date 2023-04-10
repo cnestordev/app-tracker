@@ -17,7 +17,7 @@ const User = require("./models/User");
 const store = require("./config/MongoStore");
 const authRouter = require("./routes/auth");
 // const apiRouter = require("./routes/api");
-// const userRoute = require("./routes/user");
+const userRoute = require("./routes/user");
 
 // ------------------- middleware setup ------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ app.get("/api/welcome", (req, res) => {
 
 // app.use("/api", apiRouter);
 app.use("/auth", authRouter);
-// app.use("/user", userRoute);
+app.use("/user", userRoute);
 
 // ------------------------------ end of routes ---------------------
 

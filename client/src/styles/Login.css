@@ -7,6 +7,23 @@
   height: 100vh;
   font-family: "DM Serif Display", serif;
 }
+.login-container .dark-mode-container {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+.login-container .dark-mode-container.light {
+  color: #3a414a;
+}
+.login-container .dark-mode-container.dark {
+  color: #d9d9d9;
+}
 .login-container .login-header h2 {
   font-size: 2.1875rem;
   font-weight: 600;

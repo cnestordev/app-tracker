@@ -8,9 +8,9 @@ const passport = require("passport");
 const checkAuth = require("../middleware/authMiddleware");
 
 router.post("/register", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, theme } = req.body;
   try {
-    const user = new User({ username });
+    const user = new User({ username, theme });
     const newUser = await User.register(user, password);
     req.login(newUser, (err) => {
       if (err) {
