@@ -1,0 +1,29 @@
+@use "shared.scss";
+
+.error-container {
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  padding: 1.2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 25rem;
+  gap: 10px;
+  font-family: shared.$font-sans-serif;
+  .error-body {
+    line-height: 1.2;
+  }
+  &.light.success {
+    background-color: #e4ffe5;
+    color: #0c8610;
+  }
+  &.light.danger {
+    background-color: #ffe4e4;
+    color: #b30300;
+  }
+  &.light.warning {
+    background-color: #fff7b0;
+    color: #9e8d02;
+  }
+}

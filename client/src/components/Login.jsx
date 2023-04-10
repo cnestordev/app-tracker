@@ -7,12 +7,14 @@ import {
   REGISTER_MSG_INFO,
   LOGIN_MSG_BTN,
   REGISTER_MSG_BTN,
+  DANGER,
 } from "../utils/constants";
 
 import { handleLoginSubmit } from "../utils/auth";
 
 import { useDispatch } from "react-redux";
 import { login } from "../redux/features/userSlice";
+import { setMessage } from "../redux/features/messageSlice";
 
 const Login = (props) => {
   const dispatch = useDispatch();
@@ -29,8 +31,8 @@ const Login = (props) => {
       dispatch(login(res.data.newUserObj));
       // history.push('/dashboard');
     } catch (error) {
-      console.log(error);
-      alert("Incorrect username or password");
+      const responseMessage = error.response.data.message;
+      dispatch(setMessage({ message: responseMessage, type: DANGER }));
     }
   };
 
