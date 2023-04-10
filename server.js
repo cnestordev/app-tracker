@@ -62,7 +62,7 @@ passport.deserializeUser(User.deserializeUser());
 // ------------------- routes setup ---------------------------------
 
 app.get("/api/welcome", (req, res) => {
-  res.status(200).json({ data: "Hi world" });
+  res.status(200).json("Hi world");
 });
 
 // app.use("/api", apiRouter);

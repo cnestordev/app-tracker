@@ -11,7 +11,11 @@ import {
 
 import { handleLoginSubmit } from "../utils/auth";
 
+import { useDispatch } from "react-redux";
+import { login } from "../redux/features/userSlice";
+
 const Login = (props) => {
+  const dispatch = useDispatch();
   console.log("%c login component rendered", "color: yellow;");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +25,8 @@ const Login = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await handleLoginSubmit(username, password, isRegistering);
+      const res = await handleLoginSubmit(username, password, isRegistering);
+      dispatch(login(res.data.newUserObj));
       // history.push('/dashboard');
     } catch (error) {
       console.log(error);

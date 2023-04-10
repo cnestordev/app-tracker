@@ -5,6 +5,8 @@ require("dotenv").config();
 const axios = require("axios");
 const passport = require("passport");
 
+const checkAuth = require("../middleware/authMiddleware");
+
 router.post("/register", async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -43,6 +45,20 @@ router.post("/login", (req, res, next) => {
       });
     });
   })(req, res, next);
+});
+
+router.get("/getuser", checkAuth, async (req, res) => {
+  try {
+    const username = req.user.username;
+    const user = await User.findOne({ username });
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while retrieving user data.",
+    });
+  }
 });
 
 router.post("/logout", (req, res) => {
