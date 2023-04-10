@@ -4,7 +4,10 @@ const User = require("../models/User");
 require("dotenv").config();
 const axios = require("axios");
 const passport = require("passport");
-const { registerSchema } = require("../validations/authValidation");
+const {
+  registerSchema,
+  loginSchema,
+} = require("../validations/authValidation");
 
 const checkAuth = require("../middleware/authMiddleware");
 
