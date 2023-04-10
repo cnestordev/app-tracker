@@ -15,9 +15,6 @@ export const messageSlice = createSlice({
       state.message = action.payload.message;
       state.isDisplayed = true;
       state.type = action.payload.type;
-      setTimeout(() => {
-        resetMessage();
-      }, 3000);
     },
     resetMessage: (state) => {
       return defaultMessage;

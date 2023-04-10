@@ -4,11 +4,22 @@ const User = require("../models/User");
 require("dotenv").config();
 const axios = require("axios");
 const passport = require("passport");
+const { registerSchema } = require("../validations/authValidation");
 
 const checkAuth = require("../middleware/authMiddleware");
 
+// Register user and, if successful, login user
 router.post("/register", async (req, res) => {
   const { username, password, theme } = req.body;
+
+  // Validate the request body
+  const { error } = registerSchema.validate({ username, password, theme });
+
+  // return a 400 response with error message if validation fails
+  if (error) {
+    return res.status(400).json({ message: error.message });
+  }
+
   try {
     const user = new User({ username, theme });
     const newUser = await User.register(user, password);
@@ -24,7 +35,18 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// login user
 router.post("/login", (req, res, next) => {
+  const { username, password } = req.body;
+
+  // Validate request body
+  const { error } = loginSchema.validate({ username, password });
+
+  // return a 400 response with error message if validation fails
+  if (error) {
+    return res.status(400).json({ message: error.message });
+  }
+
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       return next(err);
@@ -47,9 +69,10 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+// check if user is logged in.  If so, return user object.  if not, middleware returns 401.
 router.get("/getuser", checkAuth, async (req, res) => {
   try {
-    const username = req.user.username;
+    const { username } = req.user;
     const user = await User.findOne({ username });
     res.status(200).json({ success: true, user });
   } catch (error) {
@@ -61,10 +84,11 @@ router.get("/getuser", checkAuth, async (req, res) => {
   }
 });
 
+// log out user
 router.post("/logout", (req, res) => {
   req.logout((err) => {
     if (err)
-      return res.status(500).json({
+      return res.status(400).json({
         success: false,
         message: "something went wrong with logging you out",
       });
