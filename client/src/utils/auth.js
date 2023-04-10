@@ -1,12 +1,7 @@
 import axios from "axios";
 
-export const handleLoginSubmit = (username, password, event) => {
-  event.preventDefault();
+export const handleLoginSubmit = (username, password, isRegistering) => {
+  const endpoint = isRegistering ? "/auth/register" : "/auth/login";
   const newUser = { username, password };
-  axios.post("/auth/register", newUser);
-  if (false) {
-    // history.push("/dashboard");
-  } else {
-    alert("Incorrect username or password");
-  }
+  return axios.post(endpoint, newUser);
 };

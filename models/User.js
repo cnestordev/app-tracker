@@ -20,7 +20,6 @@ const UserSchema = Schema({
       default: "blue",
     },
   },
-  id: String,
   created: String,
   applications: [
     {
