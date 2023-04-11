@@ -10,3 +10,13 @@ export const handleLoginSubmit = (
   const newUser = { username, password, theme: { type: darkMode } };
   return axios.post(endpoint, newUser);
 };
+
+export const fetchUser = async () => {
+  try {
+    const res = await axios.get("/auth/getuser");
+    const user = res.data.user;
+    return user;
+  } catch (error) {
+    throw error;
+  }
+};

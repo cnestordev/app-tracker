@@ -1,43 +1,49 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+
 import Login from "./components/Login";
-import ErrorCard from "./components/ErrorCard";
+import Dashboard from "./components/Dashboard";
+import PrivateRoutes from "./components/PrivateRoutes";
+import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { login } from "./redux/features/userSlice";
-import axios from "axios";
+import { fetchUser } from "./utils/auth";
 
 function App() {
-  console.log("%c app component rendered", "color: red;");
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const dispatch = useDispatch();
-  const message = useSelector((state) => state.message);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const getUser = async () => {
       try {
-        const res = await axios.get("/auth/getuser");
-        const user = res.data.user;
-        console.log(user);
-        dispatch(login(user));
+        const res = await fetchUser();
+        setUser(res);
+        dispatch(login(res));
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
+        setIsLoading(false);
       }
     };
-
-    fetchUser();
+    getUser();
   }, [dispatch]);
 
-  return (
-    <>
-      {message.isDisplayed && (
-        <ErrorCard
-          type={message.type}
-          message={message.message}
-          isDisplayed={message.isDisplayed}
-        />
-      )}
-      <Login />
-    </>
-  );
+  if (isLoading) {
+    return;
+  } else {
+    return (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<PrivateRoutes user={user} />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
