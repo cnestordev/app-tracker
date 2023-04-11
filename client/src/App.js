@@ -10,7 +10,6 @@ import { login } from "./redux/features/userSlice";
 import { fetchUser } from "./utils/auth";
 
 function App() {
-  console.log("app mounted");
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const showMessage = useSelector((state) => state.message.isDisplayed);
@@ -26,7 +25,7 @@ function App() {
         dispatch(login(res));
         setIsLoading(false);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         setIsLoading(false);
       }
     };

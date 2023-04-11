@@ -20,7 +20,6 @@ import DarkModeToggle from "./DarkModeToggle";
 import Overlay from "./Overlay";
 
 const Login = (props) => {
-  console.log("%c login component rendered", "color: yellow;");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const darkModeTheme = useSelector((state) => state.user.theme.type);
@@ -36,7 +35,7 @@ const Login = (props) => {
         navigate("/dashboard");
       } catch (error) {
         setIsLoading(false);
-        console.log(error);
+        // console.log(error);
       }
     };
     getUser();
