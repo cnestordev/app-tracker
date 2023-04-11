@@ -51,8 +51,10 @@ const Login = (props) => {
         darkModeTheme,
         isRegistering
       );
-      dispatch(login(res.data.newUserObj));
+      dispatch(login(res.data.signedInUser));
+      // navigate("/dashboard");
     } catch (error) {
+      console.log(error);
       const responseMessage = error.response.data.message;
       dispatch(setMessage({ message: responseMessage, type: DANGER }));
     }

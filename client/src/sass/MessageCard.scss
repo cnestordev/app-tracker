@@ -1,6 +1,6 @@
 @use "shared.scss";
 
-.error-container {
+.message-container {
   display: flex;
   border-radius: 5px;
   align-items: center;
@@ -11,7 +11,12 @@
   width: 25rem;
   gap: 10px;
   font-family: shared.$font-sans-serif;
-  .error-body {
+  z-index: 2;
+  .message-header {
+    display: flex;
+    align-items: center;
+  }
+  .message-body {
     line-height: 1.2;
   }
   &.light.success {

@@ -1,4 +1,4 @@
-.error-container {
+.message-container {
   display: flex;
   border-radius: 5px;
   align-items: center;
@@ -9,19 +9,24 @@
   width: 25rem;
   gap: 10px;
   font-family: "DM Sans", sans-serif;
+  z-index: 2;
 }
-.error-container .error-body {
+.message-container .message-header {
+  display: flex;
+  align-items: center;
+}
+.message-container .message-body {
   line-height: 1.2;
 }
-.error-container.light.success {
+.message-container.light.success {
   background-color: #e4ffe5;
   color: #0c8610;
 }
-.error-container.light.danger {
+.message-container.light.danger {
   background-color: #ffe4e4;
   color: #b30300;
 }
-.error-container.light.warning {
+.message-container.light.warning {
   background-color: #fff7b0;
   color: #9e8d02;
 }
