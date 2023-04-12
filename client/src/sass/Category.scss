@@ -1,0 +1,23 @@
+@use "shared.scss";
+
+.category-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  width: 85%;
+  svg {
+    width: 18px;
+  }
+  h3 {
+    font-size: 18px;
+  }
+  &.light {
+    background-color: shared.$theme-light-btn-bg-blue;
+    color: shared.$theme-light-header;
+    svg {
+      color: shared.$theme-light-dark-blue-text-btn;
+    }
+  }
+}

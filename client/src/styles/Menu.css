@@ -1,0 +1,54 @@
+.menu-container {
+  background-color: #eef6ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  font-family: "DM Sans", sans-serif;
+}
+.menu-container .menu-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu-container .menu-header h2 {
+  font-size: 25px;
+  font-weight: 600;
+}
+.menu-container .menu-header button {
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  align-self: flex-start;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.menu-container .menu-header button span {
+  font-size: 16px;
+}
+.menu-container .menu-header button svg {
+  width: 18px;
+}
+.menu-container .menu-body .categories-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu-container .menu-footer {
+  display: flex;
+  cursor: pointer;
+  border-radius: 6px;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  padding: 8px 0 8px 8px;
+}
+.menu-container.light .menu-header button {
+  background-color: #6b9dee;
+  color: #fff;
+}
+.menu-container.light .menu-footer {
+  background-color: #dbeafe;
+}

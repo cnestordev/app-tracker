@@ -1,0 +1,21 @@
+.category-container {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 15px;
+  border-radius: 50px;
+  width: 85%;
+}
+.category-container svg {
+  width: 18px;
+}
+.category-container h3 {
+  font-size: 18px;
+}
+.category-container.light {
+  background-color: #dbeafe;
+  color: #3a414a;
+}
+.category-container.light svg {
+  color: #3f84f2;
+}

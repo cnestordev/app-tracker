@@ -1,0 +1,62 @@
+@use "shared.scss";
+
+.menu-container {
+  background-color: shared.$theme-light-bg-blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  font-family: shared.$font-sans-serif;
+  .menu-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h2 {
+      font-size: 25px;
+      font-weight: 600;
+    }
+    button {
+      border: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      align-self: flex-start;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      span {
+        font-size: 16px;
+      }
+      svg {
+        width: 18px;
+      }
+    }
+  }
+  .menu-body {
+    .categories-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  .menu-footer {
+    display: flex;
+    cursor: pointer;
+    border-radius: 6px;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+    padding: 8px 0 8px 8px;
+  }
+  &.light {
+    .menu-header {
+      button {
+        background-color: shared.$theme-light-dark-btn-bg-blue;
+        color: #fff;
+      }
+    }
+    .menu-footer {
+      background-color: shared.$theme-light-btn-bg-blue;
+    }
+  }
+}
