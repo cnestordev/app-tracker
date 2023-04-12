@@ -27,12 +27,14 @@ const ApplicationSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
+  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
 });
-
-ApplicationSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("Application", ApplicationSchema);

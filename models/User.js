@@ -23,8 +23,14 @@ const UserSchema = Schema({
   created: String,
   applications: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Application",
+    },
+  ],
+  categories: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
     },
   ],
 });
