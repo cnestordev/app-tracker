@@ -6,4 +6,13 @@ const checkAuth = (req, res, next) => {
   }
 };
 
-module.exports = checkAuth;
+const checkIdMatch = (req, res, next) => {
+  const userId = req.params.id;
+  if (req.user._id.equals(userId)) {
+    next();
+  } else {
+    res.status(401).json({ message: "Unauthorized access" });
+  }
+};
+
+module.exports = { checkAuth, checkIdMatch };

@@ -1,11 +1,14 @@
 import "../styles/Category.css";
 import { Briefcase } from "react-feather";
 
-const Category = (props) => {
+const Category = ({ handleFilter, category }) => {
   return (
-    <div className="category-container light">
+    <div
+      onClick={() => handleFilter(category)}
+      className="category-container light"
+    >
       <Briefcase />
-      <h3>Category</h3>
+      <h3>{category.name}</h3>
     </div>
   );
 };

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "./redux/features/userSlice";
 import { fetchUser } from "./utils/auth";
 
-function App() {
+const App = () => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const showMessage = useSelector((state) => state.message.isDisplayed);
@@ -57,6 +57,6 @@ function App() {
       </>
     );
   }
-}
+};
 
 export default App;

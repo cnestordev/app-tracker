@@ -9,7 +9,7 @@ const {
   loginSchema,
 } = require("../validations/authValidation");
 
-const checkAuth = require("../middleware/authMiddleware");
+const { checkAuth } = require("../middleware/authMiddleware");
 
 // Register user and, if successful, login user
 router.post("/register", async (req, res) => {
@@ -59,14 +59,22 @@ router.post("/login", (req, res, next) => {
         .status(401)
         .json({ success: false, message: "Invalid username or password" });
     }
-    req.logIn(user, (err) => {
+    req.logIn(user, async (err) => {
       if (err) {
         return next(err);
       }
       const { hash, salt, ...signedInUser } = user.toObject();
+      const populatedUser = await User.findById(signedInUser._id)
+        .populate({
+          path: "categories",
+          select: "name",
+        })
+        .populate("applications")
+        .exec();
+      console.log(populatedUser);
       return res.status(200).json({
         success: true,
-        signedInUser,
+        populatedUser,
       });
     });
   })(req, res, next);
@@ -76,7 +84,12 @@ router.post("/login", (req, res, next) => {
 router.get("/getuser", checkAuth, async (req, res) => {
   try {
     const { username } = req.user;
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ username })
+      .populate({
+        path: "categories",
+        select: "name",
+      })
+      .populate("applications");
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.error(error);

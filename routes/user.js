@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const checkAuth = require("../middleware/authMiddleware");
+const { checkAuth, checkIdMatch } = require("../middleware/authMiddleware");
 const axios = require("axios");
 const User = require("../models/User");
+const Category = require("../models/Category");
+const Application = require("../models/Application");
 
 router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
   const { type } = req.body;
@@ -22,5 +24,20 @@ router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
     });
   }
 });
+
+// router.get("/:id/userdata", checkAuth, checkIdMatch, async (req, res) => {
+//   const userId = req.params.id;
+//   try {
+//     const user = await User.findById(userId)
+//       .populate({
+//         path: "categories",
+//         select: "name",
+//       })
+//       .populate("applications");
+//     res.status(200).json({ success: true, user });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 module.exports = router;

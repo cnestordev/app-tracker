@@ -9,6 +9,7 @@ const anonymousUser = {
     type: LIGHT,
     color: BLUE,
   },
+  categories: [],
 };
 
 export const userSlice = createSlice({
@@ -20,6 +21,7 @@ export const userSlice = createSlice({
       state._id = action.payload._id;
       state.applications = action.payload.applications;
       state.theme = action.payload.theme;
+      state.categories = action.payload.categories;
     },
     logout: (state) => {
       return anonymousUser;

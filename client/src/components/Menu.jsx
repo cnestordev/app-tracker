@@ -3,7 +3,7 @@ import "../styles/Menu.css";
 import { Plus, Settings } from "react-feather";
 import Category from "./Category";
 
-const Menu = (props) => {
+const Menu = ({ handleFilter, categories }) => {
   return (
     <div className="menu-container light">
       <div className="menu-header">
@@ -15,8 +15,15 @@ const Menu = (props) => {
       </div>
       <div className="menu-body">
         <div className="categories-container">
-          <Category />
-          <Category />
+          {categories.map((category) => {
+            return (
+              <Category
+                handleFilter={handleFilter}
+                key={category._id}
+                category={category}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="menu-footer">
