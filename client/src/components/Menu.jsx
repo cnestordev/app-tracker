@@ -1,15 +1,41 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../styles/Menu.css";
 import { Plus, Settings, LogOut } from "react-feather";
 import Category from "./Category";
+import { handleLogout } from "../utils/auth";
+import { useNavigate } from "react-router-dom";
 
 const Menu = ({ handleFilter, categories, activeCategory }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const menuFooterRef = useRef(null);
+  const navigate = useNavigate();
 
-  const handleLogout = () => {
+  const handleUserLogout = async () => {
     setToggleMenu(false);
-    alert("logged out");
+    try {
+      const res = await handleLogout();
+      console.log(res);
+      navigate("/login");
+    } catch (error) {
+      console.log(error);
+    }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        menuFooterRef.current &&
+        !menuFooterRef.current.contains(e.target) &&
+        toggleMenu
+      ) {
+        setToggleMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuFooterRef, toggleMenu]);
 
   console.log(categories);
   return (
@@ -36,6 +62,7 @@ const Menu = ({ handleFilter, categories, activeCategory }) => {
         </div>
       </div>
       <div
+        ref={menuFooterRef}
         onClick={(e) => {
           e.stopPropagation();
           setToggleMenu(!toggleMenu);
@@ -43,7 +70,7 @@ const Menu = ({ handleFilter, categories, activeCategory }) => {
         className="menu-footer"
       >
         <div className={`user-settings ${toggleMenu ? "active" : "hidden"}`}>
-          <div onClick={() => handleLogout()} className="user-setting">
+          <div onClick={() => handleUserLogout()} className="user-setting">
             <LogOut />
             <span>Sign Out</span>
           </div>

@@ -11,6 +11,10 @@ export const handleLoginSubmit = (
   return axios.post(endpoint, newUser);
 };
 
+export const handleLogout = () => {
+  return axios.post("/auth/logout");
+};
+
 export const fetchUser = async () => {
   try {
     const res = await axios.get("/auth/getuser");
