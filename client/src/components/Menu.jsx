@@ -1,9 +1,16 @@
-import React from "react";
+import { useState } from "react";
 import "../styles/Menu.css";
-import { Plus, Settings } from "react-feather";
+import { Plus, Settings, LogOut } from "react-feather";
 import Category from "./Category";
 
 const Menu = ({ handleFilter, categories }) => {
+  const [toggleMenu, setToggleMenu] = useState(false);
+
+  const handleLogout = () => {
+    setToggleMenu(false);
+    alert("logged out");
+  };
+
   console.log(categories);
   return (
     <div className="menu-container light">
@@ -27,7 +34,23 @@ const Menu = ({ handleFilter, categories }) => {
           })}
         </div>
       </div>
-      <div className="menu-footer">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          setToggleMenu(!toggleMenu);
+        }}
+        className="menu-footer"
+      >
+        <div className={`user-settings ${toggleMenu ? "active" : "hidden"}`}>
+          <div onClick={() => handleLogout()} className="user-setting">
+            <LogOut />
+            <span>Sign Out</span>
+          </div>
+          <div className="user-setting">
+            <Plus />
+            <span>Sign Out</span>
+          </div>
+        </div>
         <Settings />
         <h2>User</h2>
       </div>

@@ -52,6 +52,42 @@
     gap: 5px;
     font-size: 16px;
     padding: 8px 0 8px 8px;
+    position: relative;
+    .user-settings {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 15px;
+      position: absolute;
+      // top: -120px;
+      // bottom: -350%;
+      // animation: slieUp 200ms ease-in-out forwards;
+      left: 0;
+      width: 100%;
+      &.hidden {
+        animation: slideDown 200ms ease-in-out forwards;
+      }
+      &.active {
+        animation: slideUp 200ms ease-in-out forwards;
+      }
+      .user-setting {
+        border-radius: 5px;
+        color: #575757;
+        padding: 7px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: 200ms;
+        &:hover {
+          background-color: #ebebeb;
+          transition: 200ms;
+        }
+      }
+    }
   }
   &.light {
     .menu-header {
@@ -64,5 +100,36 @@
     .menu-footer {
       background-color: shared.$theme-light-btn-bg-blue;
     }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    bottom: 130%;
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    bottom: 130%;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    bottom: 0%;
+    opacity: 0;
   }
 }

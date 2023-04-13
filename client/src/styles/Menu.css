@@ -51,6 +51,39 @@
   gap: 5px;
   font-size: 16px;
   padding: 8px 0 8px 8px;
+  position: relative;
+}
+.menu-container .menu-footer .user-settings {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px;
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+.menu-container .menu-footer .user-settings.hidden {
+  animation: slideDown 200ms ease-in-out forwards;
+}
+.menu-container .menu-footer .user-settings.active {
+  animation: slideUp 200ms ease-in-out forwards;
+}
+.menu-container .menu-footer .user-settings .user-setting {
+  border-radius: 5px;
+  color: #575757;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 200ms;
+}
+.menu-container .menu-footer .user-settings .user-setting:hover {
+  background-color: #ebebeb;
+  transition: 200ms;
 }
 .menu-container.light .menu-header {
   color: #3a414a;
@@ -61,4 +94,34 @@
 }
 .menu-container.light .menu-footer {
   background-color: #dbeafe;
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: 0%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    bottom: 130%;
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  0% {
+    bottom: 130%;
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    bottom: 0%;
+    opacity: 0;
+  }
 }
