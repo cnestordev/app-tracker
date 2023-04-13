@@ -10,19 +10,30 @@ const Dashboard = (props) => {
   const categories = useSelector((state) => state.user.categories);
   const applications = useSelector((state) => state.user.applications);
 
+  const [activeCategory, setActiveCategory] = useState("");
   const [filteredApplications, setFilteredApplications] =
     useState(applications);
 
   const handleFilterByCategory = (category) => {
-    const filteredApplications = applications.filter(
-      (item) => item.category.id === category._id
-    );
-    setFilteredApplications(filteredApplications);
+    if (category._id === activeCategory._id) {
+      setActiveCategory("");
+      setFilteredApplications(applications);
+    } else {
+      setActiveCategory(category);
+      const filteredApplications = applications.filter(
+        (item) => item.category.id === category._id
+      );
+      setFilteredApplications(filteredApplications);
+    }
   };
 
   return (
     <div className="dashboard-container">
-      <Menu handleFilter={handleFilterByCategory} categories={categories} />
+      <Menu
+        activeCategory={activeCategory}
+        handleFilter={handleFilterByCategory}
+        categories={categories}
+      />
       <Content applications={filteredApplications} />
     </div>
   );

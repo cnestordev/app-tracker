@@ -3,7 +3,7 @@ import "../styles/Menu.css";
 import { Plus, Settings, LogOut } from "react-feather";
 import Category from "./Category";
 
-const Menu = ({ handleFilter, categories }) => {
+const Menu = ({ handleFilter, categories, activeCategory }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleLogout = () => {
@@ -29,6 +29,7 @@ const Menu = ({ handleFilter, categories }) => {
                 handleFilter={handleFilter}
                 key={category._id}
                 category={category}
+                activeCategory={activeCategory}
               />
             );
           })}

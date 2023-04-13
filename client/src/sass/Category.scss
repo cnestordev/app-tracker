@@ -7,7 +7,7 @@
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 50px;
-  width: 85%;
+  width: 100%;
   svg {
     width: 18px;
   }
@@ -16,8 +16,14 @@
     font-weight: 600;
   }
   &.light {
-    background-color: shared.$theme-light-btn-bg-blue;
     color: shared.$theme-light-header;
+    &.active {
+      background-color: shared.$theme-light-btn-bg-blue;
+      svg {
+        fill: shared.$theme-light-dark-blue-text-btn;
+        fill-rule: evenodd;
+      }
+    }
     svg {
       color: shared.$theme-light-dark-blue-text-btn;
     }
