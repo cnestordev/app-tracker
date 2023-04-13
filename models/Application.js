@@ -2,38 +2,126 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const ApplicationSchema = mongoose.Schema({
-  role: String,
-  company: String,
+  role: {
+    value: {
+      type: String,
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  company: {
+    value: {
+      type: String,
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
+  },
   location: {
-    city: String,
-    state: String,
+    city: {
+      value: {
+        type: String,
+      },
+    },
+    state: {
+      value: {
+        type: String,
+      },
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
   },
   date: {
-    type: Date,
-    default: new Date(),
+    value: {
+      type: Date,
+      default: new Date(),
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
   },
-  source: String,
-  status: String,
-  info: String,
+  source: {
+    value: {
+      type: String,
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  status: {
+    value: {
+      type: String,
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  info: {
+    value: {
+      type: String,
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
+  },
   created: {
-    type: Date,
-    default: new Date(),
+    value: {
+      type: Date,
+      default: new Date(),
+    },
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
   },
   isHidden: {
-    type: Boolean,
-    default: false,
+    value: {
+      type: Boolean,
+      default: false,
+    },
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
   },
   isArchived: {
-    type: Boolean,
-    default: false,
+    value: {
+      type: Boolean,
+      default: false,
+    },
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
   },
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Category",
+    },
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
   },
   user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    isShown: {
+      type: Boolean,
+      default: false,
+    },
   },
 });
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Content.css";
 import { DATE, HEADERS, LOCATION } from "../utils/constants";
+import { Settings } from "react-feather";
 
 const Content = ({ applications }) => {
   console.log(applications);
@@ -8,6 +9,14 @@ const Content = ({ applications }) => {
 
   return (
     <div className="content-container">
+      <div className="content-header">
+        <div className="header-title">
+          <h3>Front End Roles</h3>
+        </div>
+        <div className="header-settings">
+          <Settings />
+        </div>
+      </div>
       <div className="table-header">
         {headers.map((header, i) => {
           return (

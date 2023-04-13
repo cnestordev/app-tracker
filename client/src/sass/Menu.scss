@@ -5,8 +5,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 75px;
+  gap: 35px;
   padding: 15px;
+  padding-bottom: 0;
   font-family: shared.$font-sans-serif;
   .menu-header {
     flex-grow: 0;
@@ -54,6 +55,7 @@
   }
   &.light {
     .menu-header {
+      color: shared.$theme-light-header;
       button {
         background-color: shared.$theme-light-dark-btn-bg-blue;
         color: #fff;
