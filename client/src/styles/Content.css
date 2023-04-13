@@ -1,0 +1,25 @@
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 0px;
+  font-family: "DM Sans", sans-serif;
+  background-color: #e7e7e7;
+  padding: 15px 0;
+}
+
+.table-header {
+  margin-bottom: 10px;
+}
+
+.table-row {
+  padding: 25px 0;
+}
+.table-row:nth-child(odd) {
+  background-color: #eef6ff;
+}
+.table-row:nth-child(even) {
+  background-color: #fff;
+}

@@ -4,6 +4,7 @@ import { Plus, Settings } from "react-feather";
 import Category from "./Category";
 
 const Menu = ({ handleFilter, categories }) => {
+  console.log(categories);
   return (
     <div className="menu-container light">
       <div className="menu-header">

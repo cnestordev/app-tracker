@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/Dashboard.css";
 import Menu from "./Menu";
+import Content from "./Content";
 
 import { useSelector } from "react-redux";
-import Content from "./Content";
 
 const Dashboard = (props) => {
   console.log("%c dashboard component rendered", "color: green;");
@@ -15,7 +15,7 @@ const Dashboard = (props) => {
 
   const handleFilterByCategory = (category) => {
     const filteredApplications = applications.filter(
-      (item) => item.category === category._id
+      (item) => item.category.id === category._id
     );
     setFilteredApplications(filteredApplications);
   };

@@ -9,3 +9,13 @@ export const SUCCESS = "success";
 export const LIGHT = "light";
 export const DARK = "dark";
 export const BLUE = "blue";
+
+// HEADERS
+export const ROLE = "role";
+export const COMPANY = "company";
+export const LOCATION = "location";
+export const DATE = "date";
+export const SOURCE = "source";
+export const STATUS = "status";
+export const INFO = "info";
+export const HEADERS = [ROLE, COMPANY, LOCATION, DATE, SOURCE, STATUS, INFO];
