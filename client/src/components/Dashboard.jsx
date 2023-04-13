@@ -4,6 +4,7 @@ import Menu from "./Menu";
 import Content from "./Content";
 
 import { useSelector } from "react-redux";
+import AddApplication from "./AddApplication";
 
 const Dashboard = (props) => {
   console.log("%c dashboard component rendered", "color: green;");
@@ -35,6 +36,7 @@ const Dashboard = (props) => {
         categories={categories}
       />
       <Content applications={filteredApplications} />
+      <AddApplication />
     </div>
   );
 };

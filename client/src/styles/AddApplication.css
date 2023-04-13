@@ -1,0 +1,48 @@
+.new-app-container {
+  background-color: #fff;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 10px;
+  position: absolute;
+  padding: 15px;
+  font-family: "DM Sans", sans-serif;
+  gap: 10px;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 95%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.new-app-container .new-app-heading {
+  font-size: 25px;
+  color: #3a414a;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.new-app-container .new-app-input {
+  position: relative;
+}
+.new-app-container .new-app-input input[type=text],
+.new-app-container .new-app-input .job-info-textarea {
+  background-color: #f6f6f6;
+  border: none;
+  font-size: 16px;
+  padding: 15px 10px 15px 20px;
+  width: 100%;
+  border-radius: 10px;
+}
+.new-app-container .new-app-input .job-info-textarea {
+  height: 200px;
+}
+
+.sdp {
+  position: absolute;
+  background-color: #fff !important;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgb(216, 216, 216) !important;
+  --theme-color: #cacaca !important;
+  --font: shared.$font-sans-serif !important;
+}
