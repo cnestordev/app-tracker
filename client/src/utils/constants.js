@@ -29,3 +29,24 @@ export const HEADERS = [
   STATUS,
   INFO,
 ];
+
+// Application status values
+export const APPLIED = "Applied";
+export const FIRST_INTERVIEW = "1st Interview";
+export const SECOND_INTERVIEW = "2nd Interview";
+export const THIRD_INTERVIEW = "3rd Interview";
+export const REJECTED = "Rejected";
+export const JOB_OFFER = "Job Offer";
+export const ACCEPTED = "Applied Offer";
+export const DECLINED = "Declined Offer";
+
+export const STATUSES = [
+  APPLIED,
+  FIRST_INTERVIEW,
+  SECOND_INTERVIEW,
+  THIRD_INTERVIEW,
+  REJECTED,
+  JOB_OFFER,
+  ACCEPTED,
+  DECLINED,
+];

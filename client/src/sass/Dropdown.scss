@@ -1,0 +1,39 @@
+@use "shared.scss";
+
+$menu-padding: 10px;
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  color: shared.$theme-light-input-text;
+  .dropdown-header {
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $menu-padding;
+    background-color: #f6f6f6;
+    margin-bottom: 10px;
+  }
+  .dropdown-list {
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1px;
+    .dropdown-item {
+      box-sizing: border-box;
+      cursor: pointer;
+      padding: 15px $menu-padding;
+      &:hover {
+        background-color: shared.$theme-light-bg-blue;
+      }
+    }
+    &.hidden {
+      display: none;
+    }
+  }
+}

@@ -4,6 +4,17 @@ import "../styles/sdp.css";
 import DatePicker from "sassy-datepicker";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import {
+  ACCEPTED,
+  APPLIED,
+  FIRST_INTERVIEW,
+  JOB_OFFER,
+  REJECTED,
+  SECOND_INTERVIEW,
+  STATUSES,
+  THIRD_INTERVIEW,
+} from "../utils/constants";
+import Dropdown from "./Dropdown";
 
 const AddApplication = ({ appVisibility }) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -44,6 +55,15 @@ const AddApplication = ({ appVisibility }) => {
     },
   });
 
+  const handleStatusChange = (item) => {
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      status: {
+        value: item,
+      },
+    }));
+  };
+
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -79,15 +99,6 @@ const AddApplication = ({ appVisibility }) => {
       },
     }));
     console.log(formValues);
-  };
-
-  const handleStatusChange = (value) => {
-    setFormValues((prevValues) => ({
-      ...prevValues,
-      status: {
-        value: value,
-      },
-    }));
   };
 
   const handleDatePick = (date) => {
@@ -239,85 +250,11 @@ const AddApplication = ({ appVisibility }) => {
         </div>
       </div>
       <div className="new-app-input">
-        <div className="radio-options">
-          <div
-            className={`radio-input ${
-              formValues.status.value === "applied" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("applied")}
-          >
-            Applied
-          </div>
-          <div
-            className={`radio-input ${
-              formValues.status.value === "1st interview" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("1st interview")}
-          >
-            1st Interview
-          </div>
-          <div
-            className={`radio-input ${
-              formValues.status.value === "2nd interview" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("2nd interview")}
-          >
-            2nd Interview
-          </div>
-          <div
-            className={`radio-input ${
-              formValues.status.value === "3rd interview" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("3rd interview")}
-          >
-            3rd Interview
-          </div>
-          <div
-            className={`radio-input ${
-              formValues.status.value === "rejected" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("rejected")}
-          >
-            Rejected
-          </div>
-          <div
-            className={`radio-input ${
-              formValues.status.value === "job offer" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("job offer")}
-          >
-            Job Offer
-          </div>
-          <div
-            className={`radio-input ${
-              formValues.status.value === "accepted" ? "active" : ""
-            }`}
-            role="radio"
-            tabIndex={0}
-            aria-checked="true"
-            onClick={(e) => handleStatusChange("accepted")}
-          >
-            Accepted
-          </div>
-        </div>
+        <Dropdown
+          title="Application Status"
+          listitems={STATUSES}
+          selectedHandler={handleStatusChange}
+        />
       </div>
       <div className="new-app-input">
         <textarea
