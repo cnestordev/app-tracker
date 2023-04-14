@@ -10,6 +10,7 @@
   grid-template-rows: 1fr;
   grid-column-gap: 15px;
   grid-row-gap: 0px;
+  overflow: hidden;
   /* Styles for sidebar */
   /* Styles for content */
 }

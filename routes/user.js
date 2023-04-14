@@ -25,6 +25,35 @@ router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
   }
 });
 
+router.post(
+  "/:id/newapplication",
+  checkAuth,
+  checkIdMatch,
+  async (req, res) => {
+    const newApplication = new Application(req.body);
+    await newApplication.save();
+    const userId = req.params.id;
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: userId },
+        { $push: { applications: newApplication } },
+        { new: true }
+      );
+      res.status(200).json({
+        success: true,
+        message: "Application successfully added.",
+        data: user,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        success: false,
+        message: "An error occurred while adding your application.",
+      });
+    }
+  }
+);
+
 // router.get("/:id/userdata", checkAuth, checkIdMatch, async (req, res) => {
 //   const userId = req.params.id;
 //   try {

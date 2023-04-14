@@ -14,8 +14,18 @@ export const BLUE = "blue";
 export const ROLE = "role";
 export const COMPANY = "company";
 export const LOCATION = "location";
+export const COMMUTE = "commute";
 export const DATE = "date";
 export const SOURCE = "source";
 export const STATUS = "status";
 export const INFO = "info";
-export const HEADERS = [ROLE, COMPANY, LOCATION, DATE, SOURCE, STATUS, INFO];
+export const HEADERS = [
+  ROLE,
+  COMPANY,
+  LOCATION,
+  COMMUTE,
+  DATE,
+  SOURCE,
+  STATUS,
+  INFO,
+];

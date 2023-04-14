@@ -14,6 +14,7 @@ const Dashboard = (props) => {
   const [activeCategory, setActiveCategory] = useState("");
   const [filteredApplications, setFilteredApplications] =
     useState(applications);
+  const [appVisibility, setAppVisibility] = useState(false);
 
   const handleFilterByCategory = (category) => {
     if (category._id === activeCategory._id) {
@@ -34,9 +35,10 @@ const Dashboard = (props) => {
         activeCategory={activeCategory}
         handleFilter={handleFilterByCategory}
         categories={categories}
+        setAppVisibility={setAppVisibility}
       />
       <Content applications={filteredApplications} />
-      <AddApplication />
+      <AddApplication appVisibility={appVisibility} />
     </div>
   );
 };

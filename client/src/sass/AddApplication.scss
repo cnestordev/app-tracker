@@ -9,13 +9,21 @@
   padding: 15px;
   font-family: shared.$font-sans-serif;
   gap: 10px;
-  right: 15px;
   top: 50%;
   transform: translateY(-50%);
   height: 95%;
   width: 400px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  &.hidden {
+    right: -400px;
+    transition: 200ms;
+  }
+  &.active {
+    right: 15px;
+    transition: 200ms;
+  }
   .new-app-heading {
     font-size: shared.$font-size-heading;
     color: shared.$theme-light-header;
@@ -36,6 +44,36 @@
     .job-info-textarea {
       height: 200px;
     }
+    .radio-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      .radio-input {
+        cursor: pointer;
+        background-color: shared.$input-background-light-gray;
+        color: shared.$input-text-light-gray;
+        padding: 10px 15px;
+        border-radius: 50px;
+        margin: 5px 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.active {
+          background-color: shared.$theme-light-bg-blue;
+          color: shared.$theme-light-dark-blue-text-btn;
+          transition: 250ms;
+        }
+      }
+    }
+  }
+  .submit-btn {
+    background-color: shared.$theme-light-bg-blue;
+    color: shared.$theme-light-dark-blue-text-btn;
+    font-weight: 500;
+    border: none;
+    padding: 16px;
+    border-radius: 10px;
   }
 }
 

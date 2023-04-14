@@ -64,6 +64,16 @@ const ApplicationSchema = mongoose.Schema({
       default: true,
     },
   },
+  commute: {
+    value: {
+      type: String,
+      enum: ["onsite", "remote", "hybrid"],
+    },
+    isShown: {
+      type: Boolean,
+      default: true,
+    },
+  },
   info: {
     value: {
       type: String,

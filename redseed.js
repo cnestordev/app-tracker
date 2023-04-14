@@ -57,6 +57,9 @@ const seedDB = async () => {
     status: {
       value: "Applied",
     },
+    commute: {
+      value: "onsite",
+    },
     info: {
       value: "Job description goes here",
     },
@@ -76,6 +79,8 @@ const seedDB = async () => {
       id: frontEndDevCategory._id,
     },
   });
+
+  console.log(frontEndDevApp1);
 
   const frontEndDevApp2 = new Application({
     role: {
@@ -97,6 +102,9 @@ const seedDB = async () => {
     },
     source: {
       value: "Indeed",
+    },
+    commute: {
+      value: "hybrid",
     },
     status: {
       value: "Applied",
@@ -136,6 +144,9 @@ const seedDB = async () => {
       state: {
         value: "CA",
       },
+    },
+    commute: {
+      value: "remote",
     },
     date: {
       value: new Date("2023-04-12"),
@@ -183,6 +194,9 @@ const seedDB = async () => {
     },
     date: {
       value: new Date("2023-04-17"),
+    },
+    commute: {
+      value: "hybrid",
     },
     source: {
       value: "Glassdoor",

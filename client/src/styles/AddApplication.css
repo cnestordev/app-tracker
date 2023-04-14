@@ -6,13 +6,21 @@
   padding: 15px;
   font-family: "DM Sans", sans-serif;
   gap: 10px;
-  right: 15px;
   top: 50%;
   transform: translateY(-50%);
   height: 95%;
   width: 400px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+}
+.new-app-container.hidden {
+  right: -400px;
+  transition: 200ms;
+}
+.new-app-container.active {
+  right: 15px;
+  transition: 200ms;
 }
 .new-app-container .new-app-heading {
   font-size: 25px;
@@ -34,6 +42,36 @@
 }
 .new-app-container .new-app-input .job-info-textarea {
   height: 200px;
+}
+.new-app-container .new-app-input .radio-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.new-app-container .new-app-input .radio-options .radio-input {
+  cursor: pointer;
+  background-color: #ededed;
+  color: #979ea8;
+  padding: 10px 15px;
+  border-radius: 50px;
+  margin: 5px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.new-app-container .new-app-input .radio-options .radio-input.active {
+  background-color: #eef6ff;
+  color: #3f84f2;
+  transition: 250ms;
+}
+.new-app-container .submit-btn {
+  background-color: #eef6ff;
+  color: #3f84f2;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
 }
 
 .sdp {

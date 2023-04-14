@@ -15,19 +15,21 @@
 .content-container .table-header,
 .content-container .table-row {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 1fr;
   grid-column-gap: 5px;
   grid-row-gap: 0px;
   font-family: "DM Sans", sans-serif;
-  background-color: #e7e7e7;
+  background-color: #fff;
   border-radius: 5px;
   padding: 18px 0;
   padding-left: 25px;
   padding-right: 25px;
 }
 .content-container .table-header {
-  margin-bottom: 10px;
+  color: #686868;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 .content-container .table-row:nth-child(odd) {
   background-color: #eef6ff;

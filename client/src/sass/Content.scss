@@ -18,12 +18,12 @@ $left-padding: 25px;
   .table-header,
   .table-row {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 1fr;
     grid-column-gap: 5px;
     grid-row-gap: 0px;
     font-family: shared.$font-sans-serif;
-    background-color: #e7e7e7;
+    background-color: #fff;
     border-radius: 5px;
     padding: 18px 0;
     padding-left: $left-padding;
@@ -31,7 +31,9 @@ $left-padding: 25px;
   }
 
   .table-header {
-    margin-bottom: 10px;
+    color: #686868;
+    font-weight: 600;
+    margin-bottom: 0;
   }
 
   .table-row {

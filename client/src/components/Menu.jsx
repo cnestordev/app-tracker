@@ -5,7 +5,12 @@ import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 
-const Menu = ({ handleFilter, categories, activeCategory }) => {
+const Menu = ({
+  handleFilter,
+  categories,
+  activeCategory,
+  setAppVisibility,
+}) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const menuFooterRef = useRef(null);
   const navigate = useNavigate();
@@ -42,7 +47,7 @@ const Menu = ({ handleFilter, categories, activeCategory }) => {
     <div className="menu-container light">
       <div className="menu-header">
         <h2>Dashboard</h2>
-        <button>
+        <button onClick={() => setAppVisibility(true)}>
           <span>Create</span>
           <Plus />
         </button>
