@@ -4,16 +4,7 @@ import "../styles/sdp.css";
 import DatePicker from "sassy-datepicker";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import {
-  ACCEPTED,
-  APPLIED,
-  FIRST_INTERVIEW,
-  JOB_OFFER,
-  REJECTED,
-  SECOND_INTERVIEW,
-  STATUSES,
-  THIRD_INTERVIEW,
-} from "../utils/constants";
+import { STATUSES } from "../utils/constants";
 import Dropdown from "./Dropdown";
 
 const AddApplication = ({ appVisibility }) => {
@@ -91,18 +82,15 @@ const AddApplication = ({ appVisibility }) => {
   };
 
   const handleCommuteChange = (value) => {
-    console.log(value);
     setFormValues((prevValues) => ({
       ...prevValues,
       commute: {
         value: value,
       },
     }));
-    console.log(formValues);
   };
 
   const handleDatePick = (date) => {
-    console.log(date.toLocaleDateString());
     setFormValues((prevValues) => ({
       ...prevValues,
       date: {
@@ -130,13 +118,11 @@ const AddApplication = ({ appVisibility }) => {
         },
       },
     };
-    console.log(newApplication);
     try {
       const response = await axios.post(
         `/user/${userId}/newapplication`,
         newApplication
       );
-      console.log(response);
     } catch (error) {
       console.log(error);
     }
