@@ -68,6 +68,7 @@
 .new-app-container .submit-btn {
   background-color: #eef6ff;
   color: #3f84f2;
+  cursor: pointer;
   font-weight: 500;
   border: none;
   padding: 16px;

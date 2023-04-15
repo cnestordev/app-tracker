@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { STATUSES } from "../utils/constants";
 import Dropdown from "./Dropdown";
 
-const AddApplication = ({ appVisibility }) => {
+const AddApplication = ({ appVisibility, setAppVisibility }) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarWrapperRef = useRef(null);
   const calendarRef = useRef(null);
@@ -119,10 +119,8 @@ const AddApplication = ({ appVisibility }) => {
       },
     };
     try {
-      const response = await axios.post(
-        `/user/${userId}/newapplication`,
-        newApplication
-      );
+      await axios.post(`/user/${userId}/newapplication`, newApplication);
+      setAppVisibility(false);
     } catch (error) {
       console.log(error);
     }

@@ -38,7 +38,10 @@ const Dashboard = (props) => {
         setAppVisibility={setAppVisibility}
       />
       <Content applications={filteredApplications} />
-      <AddApplication appVisibility={appVisibility} />
+      <AddApplication
+        setAppVisibility={setAppVisibility}
+        appVisibility={appVisibility}
+      />
     </div>
   );
 };
