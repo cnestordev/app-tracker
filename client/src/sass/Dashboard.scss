@@ -1,7 +1,6 @@
 @use "shared.scss";
 
 .dashboard-container {
-  background-color: shared.$theme-light-bg-blue;
   font-family: shared.$font-sans-serif;
   position: relative;
   width: 100%;
@@ -19,11 +18,14 @@
     width: 100%;
     height: 100%;
   }
+  &.light {
+    /* Styles for content */
+    > :nth-child(2) {
+      background-color: #fff;
+    }
+  }
 
-  /* Styles for content */
-  > :nth-child(2) {
-    background-color: #fff;
-    width: calc(100%);
-    height: 100%;
+  &.blue {
+    background-color: shared.$theme-light-bg-blue;
   }
 }

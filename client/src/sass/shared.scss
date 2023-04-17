@@ -34,10 +34,22 @@ $main-background-light: #fbfbfb;
 // -------- Themes -------------------------------------------------
 
 // Blue theme & light theme
+$theme-light-bg-green: #daffda;
+$theme-light-btn-bg-green: #bdfdbd;
+$theme-light-dark-btn-bg-green: #57c957;
+$theme-light-dark-green-text-btn: #369136;
+
+// Blue theme & light theme
 $theme-light-bg-blue: #eef6ff;
 $theme-light-btn-bg-blue: #dbeafe;
 $theme-light-dark-btn-bg-blue: #6b9dee;
 $theme-light-dark-blue-text-btn: #3f84f2;
+
+// Purple theme & light theme
+$theme-light-bg-purple: #f8eeff;
+$theme-light-btn-bg-purple: #ecd0ff;
+$theme-light-dark-btn-bg-purple: #ac66dd;
+$theme-light-dark-purple-text-btn: #a042e4;
 
 // -------- Misc Variables ------------------------------------------
 $input-border-radius: 15px;

@@ -1,5 +1,4 @@
 .menu-container {
-  background-color: #eef6ff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -92,10 +91,22 @@
   color: #3a414a;
 }
 .menu-container.light .menu-header button {
-  background-color: #6b9dee;
   color: #fff;
 }
-.menu-container.light .menu-footer {
+.menu-container.light .menu-footer .user-settings {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #fff;
+}
+.menu-container.light .menu-footer .user-settings .user-setting {
+  color: #575757;
+}
+.menu-container.light .menu-footer .user-settings .user-setting:hover {
+  background-color: #ebebeb;
+}
+.menu-container.blue .menu-header button {
+  background-color: #6b9dee;
+}
+.menu-container.blue .menu-footer {
   background-color: #dbeafe;
 }
 

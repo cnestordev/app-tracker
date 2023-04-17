@@ -10,7 +10,6 @@
   font-size: 25px;
   font-weight: 600;
   margin-bottom: 10px;
-  color: #3a414a;
 }
 .content-container .table-header,
 .content-container .table-row {
@@ -20,23 +19,31 @@
   grid-column-gap: 5px;
   grid-row-gap: 0px;
   font-family: "DM Sans", sans-serif;
-  background-color: #fff;
   border-radius: 5px;
   padding: 18px 0;
   padding-left: 25px;
   padding-right: 25px;
 }
 .content-container .table-header {
-  color: #686868;
   font-weight: 600;
   margin-bottom: 0;
 }
 .content-container .table-row {
   cursor: pointer;
 }
-.content-container .table-row:nth-child(odd) {
-  background-color: #eef6ff;
+.content-container.light .content-header {
+  color: #3a414a;
 }
-.content-container .table-row:nth-child(even) {
+.content-container.light .table-header,
+.content-container.light .table-row {
   background-color: #fff;
+}
+.content-container.light .table-header {
+  color: #686868;
+}
+.content-container.light .table-row:nth-child(even) {
+  background-color: #fff;
+}
+.content-container.blue .table-row:nth-child(odd) {
+  background-color: #eef6ff;
 }

@@ -8,7 +8,6 @@
 }
 .new-app-container .new-app-heading {
   font-size: 25px;
-  color: #3a414a;
   font-weight: bold;
   margin-bottom: 8px;
 }
@@ -17,7 +16,6 @@
 }
 .new-app-container .new-app-input input[type=text],
 .new-app-container .new-app-input .job-info-textarea {
-  background-color: #f6f6f6;
   border: none;
   font-size: 16px;
   padding: 15px 10px 15px 20px;
@@ -34,8 +32,6 @@
 }
 .new-app-container .new-app-input .radio-options .radio-input {
   cursor: pointer;
-  background-color: #ededed;
-  color: #979ea8;
   padding: 10px 15px;
   border-radius: 50px;
   margin: 5px 0;
@@ -45,8 +41,6 @@
   justify-content: center;
 }
 .new-app-container .new-app-input .radio-options .radio-input.active {
-  background-color: #eef6ff;
-  color: #3f84f2;
   transition: 250ms;
 }
 .new-app-container .form-actions {
@@ -55,13 +49,31 @@
 }
 .new-app-container .form-actions .submit-btn,
 .new-app-container .form-actions .cancel-btn {
-  background-color: #eef6ff;
-  color: #3f84f2;
   cursor: pointer;
   font-weight: 500;
   border: none;
   padding: 16px;
   border-radius: 10px;
+}
+.new-app-container.light .new-app-heading {
+  color: #3a414a;
+}
+.new-app-container.light .new-app-input input[type=text],
+.new-app-container.light .new-app-input .job-info-textarea {
+  background-color: #f6f6f6;
+}
+.new-app-container.light .new-app-input .radio-options .radio-input {
+  background-color: #ededed;
+  color: #979ea8;
+}
+.new-app-container.blue .new-app-input .radio-options .radio-input.active {
+  background-color: #eef6ff;
+  color: #3f84f2;
+}
+.new-app-container.blue .form-actions .submit-btn,
+.new-app-container.blue .form-actions .cancel-btn {
+  background-color: #eef6ff;
+  color: #3f84f2;
 }
 
 .sdp {

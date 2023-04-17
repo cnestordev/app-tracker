@@ -26,7 +26,7 @@ const Content = ({
   };
 
   return (
-    <div className="content-container">
+    <div className="content-container light blue">
       <div className="content-header">
         <div className="header-title">
           <h3>Front End Roles</h3>

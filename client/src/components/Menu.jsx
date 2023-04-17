@@ -54,7 +54,7 @@ const Menu = ({
   }, [menuFooterRef, toggleMenu]);
 
   return (
-    <div className="menu-container light">
+    <div className="menu-container light blue">
       <div className="menu-header">
         <h2>Dashboard</h2>
         <button onClick={() => handleCreateClick()}>

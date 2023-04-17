@@ -1,7 +1,6 @@
 @use "shared.scss";
 
 .menu-container {
-  background-color: shared.$theme-light-bg-blue;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -96,8 +95,27 @@
     .menu-header {
       color: shared.$theme-light-header;
       button {
-        background-color: shared.$theme-light-dark-btn-bg-blue;
         color: #fff;
+      }
+    }
+    .menu-footer {
+      .user-settings {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        background-color: #fff;
+        .user-setting {
+          color: #575757;
+          &:hover {
+            background-color: #ebebeb;
+          }
+        }
+      }
+    }
+  }
+
+  &.blue {
+    .menu-header {
+      button {
+        background-color: shared.$theme-light-dark-btn-bg-blue;
       }
     }
     .menu-footer {

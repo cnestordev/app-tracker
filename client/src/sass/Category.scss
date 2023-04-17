@@ -18,10 +18,17 @@
   &.light {
     color: shared.$theme-light-header;
     &.active {
+      svg {
+        fill-rule: evenodd;
+      }
+    }
+  }
+
+  &.blue {
+    &.active {
       background-color: shared.$theme-light-btn-bg-blue;
       svg {
         fill: shared.$theme-light-dark-blue-text-btn;
-        fill-rule: evenodd;
       }
     }
     svg {

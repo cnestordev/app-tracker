@@ -17,13 +17,15 @@
 .category-container.light {
   color: #3a414a;
 }
-.category-container.light.active {
-  background-color: #dbeafe;
-}
 .category-container.light.active svg {
-  fill: #3f84f2;
   fill-rule: evenodd;
 }
-.category-container.light svg {
+.category-container.blue.active {
+  background-color: #dbeafe;
+}
+.category-container.blue.active svg {
+  fill: #3f84f2;
+}
+.category-container.blue svg {
   color: #3f84f2;
 }

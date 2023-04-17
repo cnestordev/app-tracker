@@ -192,7 +192,7 @@ const AddApplication = ({ handleSetVisibility }) => {
   };
 
   return (
-    <form className="new-app-container" onSubmit={handleSubmit}>
+    <form className="new-app-container light blue" onSubmit={handleSubmit}>
       <h2 className="new-app-heading">AddApplication</h2>
       <div className="new-app-input">
         <input

@@ -26,7 +26,7 @@ const Dropdown = ({ listConfig }) => {
   };
 
   return (
-    <div className="dropdown-container">
+    <div className="dropdown-container light blue">
       <div className="dropdown-header" onClick={handleToggle}>
         <span className="selected-item">
           {selectedItem || listConfig.title || "title prop"}
