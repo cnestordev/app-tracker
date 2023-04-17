@@ -9,21 +9,13 @@ import { STATUSES } from "../utils/constants";
 import Dropdown from "./Dropdown";
 import { PlusCircle } from "react-feather";
 
-const AddApplication = ({
-  appVisibility,
-  setAppVisibility,
-  handleVisibility,
-}) => {
+const AddApplication = ({ handleSetVisibility }) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarWrapperRef = useRef(null);
   const calendarRef = useRef(null);
   const userId = useSelector((state) => state.user._id);
   const categories = useSelector((state) => state.user.categories);
   const dispatch = useDispatch();
-
-  const handleAnimationEnd = () => {
-    handleVisibility(false);
-  };
 
   const [formValues, setFormValues] = useState({
     role: {
@@ -136,7 +128,7 @@ const AddApplication = ({
         `/user/${userId}/application/newapplication`,
         newApplication
       );
-      setAppVisibility(false);
+      handleSetVisibility(false);
     } catch (error) {
       console.log(error);
     }
@@ -197,11 +189,7 @@ const AddApplication = ({
   };
 
   return (
-    <form
-      className={`new-app-container ${appVisibility ? "active" : "hidden"}`}
-      onSubmit={handleSubmit}
-      onAnimationEnd={appVisibility ? undefined : handleAnimationEnd}
-    >
+    <form className="new-app-container" onSubmit={handleSubmit}>
       <h2 className="new-app-heading">AddApplication</h2>
       <div className="new-app-input">
         <input
@@ -320,15 +308,15 @@ const AddApplication = ({
         ></textarea>
       </div>
       <div className="form-actions">
-        <button className="submit-btn" type="submit">
-          Save Application
-        </button>
         <button
-          onClick={() => setAppVisibility(false)}
+          onClick={() => handleSetVisibility(false)}
           className="cancel-btn"
           type="button"
         >
           Cancel
+        </button>
+        <button className="submit-btn" type="submit">
+          Save Application
         </button>
       </div>
     </form>

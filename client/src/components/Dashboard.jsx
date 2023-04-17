@@ -4,7 +4,7 @@ import Menu from "./Menu";
 import Content from "./Content";
 
 import { useSelector } from "react-redux";
-import AddApplication from "./AddApplication";
+import View from "./View";
 
 const Dashboard = (props) => {
   const categories = useSelector((state) => state.user.categories);
@@ -44,7 +44,7 @@ const Dashboard = (props) => {
       />
       <Content applications={filteredApplications} />
       {isMounted && (
-        <AddApplication
+        <View
           setAppVisibility={setAppVisibility}
           appVisibility={appVisibility}
           handleVisibility={handleVisibility}

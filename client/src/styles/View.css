@@ -1,0 +1,43 @@
+.view-container {
+  background-color: #fff;
+  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+  border-radius: 10px;
+  position: absolute;
+  padding: 15px;
+  font-family: "DM Sans", sans-serif;
+  gap: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 95%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.view-container.hidden {
+  animation: slideOut 200ms forwards;
+}
+.view-container.active {
+  animation: slideIn 200ms forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    right: -400px;
+    transition: 200ms;
+  }
+  100% {
+    right: 15px;
+    transition: 200ms;
+  }
+}
+@keyframes slideOut {
+  0% {
+    right: 15px;
+    transition: 200ms;
+  }
+  100% {
+    right: -400px;
+    transition: 200ms;
+  }
+}
