@@ -1,5 +1,4 @@
 import "../styles/Category.css";
-import { Tag } from "react-feather";
 
 const Category = ({ handleFilter, category, activeCategory }) => {
   return (
@@ -9,7 +8,7 @@ const Category = ({ handleFilter, category, activeCategory }) => {
         activeCategory._id === category._id ? "active" : ""
       }`}
     >
-      <Tag />
+      <span className="cat-count">{category.applications.length}</span>
       <h3>{category.value}</h3>
     </div>
   );

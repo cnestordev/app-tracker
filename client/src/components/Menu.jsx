@@ -9,7 +9,6 @@ import { CREATE } from "../utils/constants";
 
 const Menu = ({
   handleFilter,
-  categories,
   activeCategory,
   setAppVisibility,
   handleVisibility,
@@ -19,6 +18,7 @@ const Menu = ({
   const menuFooterRef = useRef(null);
   const navigate = useNavigate();
   const username = useSelector((state) => state.user.username);
+  const categories = useSelector((state) => state.user.categories);
 
   const handleCreateClick = () => {
     setComponentName(CREATE);

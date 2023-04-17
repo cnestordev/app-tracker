@@ -5,7 +5,7 @@
   height: 100vh;
   display: grid;
   padding: 15px;
-  grid-template-columns: 270px 1fr;
+  grid-template-columns: 255px 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 15px;
   grid-row-gap: 0px;
@@ -20,6 +20,9 @@
   /* Styles for content */
 }
 .dashboard-container.light > :nth-child(2) {
+  background-color: #fff;
+}
+.dashboard-container.dark > :nth-child(2) {
   background-color: #fff;
 }
 .dashboard-container.blue {

@@ -14,12 +14,13 @@
     flex-direction: column;
     gap: 10px;
     h2 {
-      font-size: 25px;
+      font-size: shared.$font-size-heading;
       font-weight: 600;
     }
     button {
       border: none;
       cursor: pointer;
+      font-weight: 500;
       padding: 10px 20px;
       align-self: flex-start;
       border-radius: 6px;

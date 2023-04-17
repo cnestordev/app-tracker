@@ -14,12 +14,13 @@
   gap: 10px;
 }
 .menu-container .menu-header h2 {
-  font-size: 25px;
+  font-size: 21px;
   font-weight: 600;
 }
 .menu-container .menu-header button {
   border: none;
   cursor: pointer;
+  font-weight: 500;
   padding: 10px 20px;
   align-self: flex-start;
   border-radius: 6px;
@@ -104,7 +105,7 @@
   background-color: #ebebeb;
 }
 .menu-container.blue .menu-header button {
-  background-color: #6b9dee;
+  background-color: #3c82f5;
 }
 .menu-container.blue .menu-footer {
   background-color: #dbeafe;

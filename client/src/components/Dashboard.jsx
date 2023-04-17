@@ -8,7 +8,6 @@ import View from "./View";
 import { CREATE } from "../utils/constants";
 
 const Dashboard = (props) => {
-  const categories = useSelector((state) => state.user.categories);
   const applications = useSelector((state) => state.user.applications);
 
   const [activeCategory, setActiveCategory] = useState("");
@@ -45,7 +44,6 @@ const Dashboard = (props) => {
       <Menu
         activeCategory={activeCategory}
         handleFilter={handleFilterByCategory}
-        categories={categories}
         setAppVisibility={setAppVisibility}
         handleVisibility={handleVisibility}
         setComponentName={setComponentName}
