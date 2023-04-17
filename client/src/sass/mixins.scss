@@ -11,3 +11,13 @@
   cursor: pointer;
   color: $textColor;
 }
+
+@mixin themeButton {
+  background-color: shared.$theme-light-bg-blue;
+  color: shared.$theme-light-dark-blue-text-btn;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+}

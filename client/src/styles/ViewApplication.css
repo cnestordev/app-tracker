@@ -1,0 +1,75 @@
+.view-app-container {
+  font-family: "DM Sans", sans-serif;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #3a414a;
+}
+.view-app-container .view-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.view-app-container .view-header .header-left {
+  display: flex;
+  flex-direction: column;
+}
+.view-app-container .view-header .header-left .header {
+  font-size: 25px;
+  font-family: "DM Serif Display", serif;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.view-app-container .view-header .header-left .subheader {
+  font-family: "DM Sans", sans-serif;
+  margin-bottom: 2px;
+}
+.view-app-container .view-header .header-left .subheader.company {
+  font-size: 18px;
+}
+.view-app-container .view-header .header-left .subheader.location {
+  font-size: 14px;
+}
+.view-app-container .view-header .header-right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3px;
+}
+.view-app-container .view-header .header-right .metadata {
+  color: #6b6b6b;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.view-app-container .view-header .header-right .metadata.source {
+  margin-bottom: 8px;
+}
+.view-app-container .view-header .header-right .view-app-status {
+  background-color: #50ff7c;
+  font-size: 14px;
+  padding: 5px 9px;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+.view-app-container .view-body {
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  padding: 15px;
+  line-height: 1.4;
+  color: #555555;
+}
+.view-app-container .view-footer {
+  display: flex;
+  margin-top: auto;
+}
+.view-app-container .view-footer button {
+  background-color: #eef6ff;
+  color: #3f84f2;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+}

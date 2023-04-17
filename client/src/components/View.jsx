@@ -1,7 +1,14 @@
 import "../styles/View.css";
+import { CREATE } from "../utils/constants";
 import AddApplication from "./AddApplication";
+import ViewApplication from "./ViewApplication";
 
-const View = ({ appVisibility, handleVisibility, setAppVisibility }) => {
+const View = ({
+  appVisibility,
+  handleVisibility,
+  setAppVisibility,
+  componentName,
+}) => {
   const handleAnimationEnd = () => {
     handleVisibility(false);
   };
@@ -15,7 +22,11 @@ const View = ({ appVisibility, handleVisibility, setAppVisibility }) => {
       className={`view-container ${appVisibility ? "active" : "hidden"}`}
       onAnimationEnd={appVisibility ? undefined : handleAnimationEnd}
     >
-      {<AddApplication handleSetVisibility={handleSetVisibility} />}
+      {componentName.includes(CREATE) ? (
+        <AddApplication handleSetVisibility={handleSetVisibility} />
+      ) : (
+        <ViewApplication handleSetVisibility={handleSetVisibility} />
+      )}
     </div>
   );
 };

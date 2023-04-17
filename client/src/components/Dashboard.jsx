@@ -5,6 +5,7 @@ import Content from "./Content";
 
 import { useSelector } from "react-redux";
 import View from "./View";
+import { CREATE } from "../utils/constants";
 
 const Dashboard = (props) => {
   const categories = useSelector((state) => state.user.categories);
@@ -15,6 +16,7 @@ const Dashboard = (props) => {
     useState(applications);
   const [appVisibility, setAppVisibility] = useState(false);
   const [isMounted, setIsMoutned] = useState(true);
+  const [componentName, setComponentName] = useState(CREATE);
 
   const handleFilterByCategory = (category) => {
     if (category._id === activeCategory._id) {
@@ -41,13 +43,20 @@ const Dashboard = (props) => {
         categories={categories}
         setAppVisibility={setAppVisibility}
         handleVisibility={handleVisibility}
+        setComponentName={setComponentName}
       />
-      <Content applications={filteredApplications} />
+      <Content
+        handleVisibility={handleVisibility}
+        applications={filteredApplications}
+        setAppVisibility={setAppVisibility}
+        setComponentName={setComponentName}
+      />
       {isMounted && (
         <View
           setAppVisibility={setAppVisibility}
           appVisibility={appVisibility}
           handleVisibility={handleVisibility}
+          componentName={componentName}
         />
       )}
     </div>

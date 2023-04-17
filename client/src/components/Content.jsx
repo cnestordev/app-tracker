@@ -1,12 +1,29 @@
 import { useState } from "react";
 import "../styles/Content.css";
-import { DATE, HEADERS, LOCATION } from "../utils/constants";
-import { Settings } from "react-feather";
+import { DATE, HEADERS, INFO, LOCATION, VIEW } from "../utils/constants";
+import { Settings, MoreHorizontal } from "react-feather";
+import {
+  deselectApplication,
+  selectApplication,
+} from "../redux/features/applicationSlice";
+import { useDispatch } from "react-redux";
 
-const Content = ({ applications }) => {
+const Content = ({
+  handleVisibility,
+  setAppVisibility,
+  applications,
+  setComponentName,
+}) => {
   const [headers] = useState(HEADERS);
+  const dispatch = useDispatch();
 
-  console.log(applications);
+  const handleSelectedApplication = async (application) => {
+    dispatch(deselectApplication());
+    dispatch(selectApplication(application));
+    setComponentName(VIEW);
+    handleVisibility(true);
+    setAppVisibility(true);
+  };
 
   return (
     <div className="content-container">
@@ -30,7 +47,11 @@ const Content = ({ applications }) => {
 
       {applications.map((app, i) => {
         return (
-          <div className="table-row" key={i}>
+          <div
+            onClick={() => handleSelectedApplication(app)}
+            className="table-row"
+            key={i}
+          >
             {Object.keys(app)
               .filter((key) => app[key].isShown)
               .map((key) => {
@@ -48,6 +69,12 @@ const Content = ({ applications }) => {
                   return (
                     <div key={`${key}-${i}`} className="header-item">
                       {formattedDate}
+                    </div>
+                  );
+                } else if (key === INFO) {
+                  return (
+                    <div key={`${key}-${i}`} className="header-item">
+                      <MoreHorizontal />
                     </div>
                   );
                 } else {

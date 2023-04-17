@@ -1,0 +1,113 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  height: 100vh;
+  font-family: "DM Serif Display", serif;
+}
+.login-container .dark-mode-container {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+}
+.login-container .dark-mode-container.light {
+  color: #3a414a;
+}
+.login-container .dark-mode-container.dark {
+  color: #d9d9d9;
+}
+.login-container .login-header h2 {
+  font-size: 2.1875rem;
+  font-weight: 600;
+}
+.login-container .login-body form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-container .login-body form .input-label {
+  position: relative;
+}
+.login-container .login-body form .input-label svg {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  width: 1.25rem;
+}
+.login-container .login-body form .input-label input.input-field {
+  font-family: "DM Sans", sans-serif;
+  border: none;
+  font-size: 16px;
+  padding: 15px 60px 15px 45px;
+  border-radius: 15px;
+}
+.login-container .login-body form .input-label.password-field {
+  cursor: pointer;
+}
+.login-container .login-body form .info {
+  cursor: pointer;
+  margin-top: 15px;
+}
+.login-container .login-body form .info span {
+  font-family: "DM Sans", sans-serif;
+}
+.login-container.light {
+  background-color: #fbfbfb;
+}
+.login-container.light .login-header h2 {
+  color: #3a414a;
+}
+.login-container.light .login-body input.input-field {
+  background-color: #ededed;
+  color: #3a414a;
+}
+.login-container.light .submit-btn {
+  border: none;
+  background-color: #c3c3c3;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "DM Sans", sans-serif;
+  width: 70%;
+  cursor: pointer;
+  color: #3a414a;
+}
+.login-container.light .info span {
+  color: #3a414a;
+}
+.login-container.dark {
+  background-color: #161616;
+}
+.login-container.dark .login-header h2 {
+  color: #d9d9d9;
+}
+.login-container.dark .login-body svg {
+  color: #d9d9d9;
+}
+.login-container.dark .login-body input.input-field {
+  background-color: #2e2e2e;
+  color: #a3a3a3;
+}
+.login-container.dark .login-body .info span {
+  color: #d9d9d9;
+}
+.login-container.dark .submit-btn {
+  border: none;
+  background-color: #dfdfdf;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: "DM Sans", sans-serif;
+  width: 70%;
+  cursor: pointer;
+  color: #161616;
+}/*# sourceMappingURL=Login.css.map */

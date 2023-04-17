@@ -1,0 +1,50 @@
+.overlay-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.overlay-container svg {
+  width: 100px;
+  height: 100px;
+  animation: spin 8s linear infinite, blink 1s linear infinite;
+}
+.overlay-container.hidden {
+  display: none;
+}
+.overlay-container.light {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.overlay-container.light svg {
+  color: #cdcdcd;
+}
+.overlay-container.dark {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.overlay-container.dark svg {
+  color: #cdcdcd;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=Overlay.css.map */

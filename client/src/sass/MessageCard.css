@@ -1,0 +1,32 @@
+.message-container {
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  padding: 1.2rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 25rem;
+  gap: 10px;
+  font-family: "DM Sans", sans-serif;
+  z-index: 2;
+}
+.message-container .message-header {
+  display: flex;
+  align-items: center;
+}
+.message-container .message-body {
+  line-height: 1.2;
+}
+.message-container.light.success {
+  background-color: #e4ffe5;
+  color: #0c8610;
+}
+.message-container.light.danger {
+  background-color: #ffe4e4;
+  color: #b30300;
+}
+.message-container.light.warning {
+  background-color: #fff7b0;
+  color: #9e8d02;
+}/*# sourceMappingURL=MessageCard.css.map */

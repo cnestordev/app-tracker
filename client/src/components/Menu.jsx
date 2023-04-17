@@ -5,6 +5,7 @@ import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { CREATE } from "../utils/constants";
 
 const Menu = ({
   handleFilter,
@@ -12,6 +13,7 @@ const Menu = ({
   activeCategory,
   setAppVisibility,
   handleVisibility,
+  setComponentName,
 }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const menuFooterRef = useRef(null);
@@ -19,6 +21,7 @@ const Menu = ({
   const username = useSelector((state) => state.user.username);
 
   const handleCreateClick = () => {
+    setComponentName(CREATE);
     handleVisibility(true);
     setAppVisibility(true);
   };

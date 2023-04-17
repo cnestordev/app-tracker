@@ -1,0 +1,72 @@
+@use "shared.scss";
+@use "mixins.scss";
+
+.view-app-container {
+  font-family: shared.$font-sans-serif;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: shared.$theme-light-header;
+  .view-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      .header {
+        font-size: shared.$font-size-heading;
+        font-family: shared.$font-serif;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      .subheader {
+        font-family: shared.$font-sans-serif;
+        margin-bottom: 2px;
+        &.company {
+          font-size: 18px;
+        }
+        &.location {
+          font-size: 14px;
+        }
+      }
+    }
+    .header-right {
+      display: flex;
+      flex-direction: column;
+      margin-top: 3px;
+      .metadata {
+        color: #6b6b6b;
+        margin-bottom: 5px;
+        font-size: 14px;
+        &.source {
+          margin-bottom: 8px;
+        }
+      }
+      .view-app-status {
+        background-color: #50ff7c;
+        font-size: 14px;
+        padding: 5px 9px;
+        box-sizing: border-box;
+        border-radius: 50px;
+      }
+    }
+  }
+  .view-body {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    padding: 15px;
+    line-height: 1.4;
+    color: #555555;
+  }
+  .view-footer {
+    display: flex;
+    margin-top: auto;
+    button {
+      @include mixins.themeButton;
+      width: 100%;
+    }
+  }
+}

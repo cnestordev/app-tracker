@@ -37,6 +37,7 @@ $left-padding: 25px;
   }
 
   .table-row {
+    cursor: pointer;
     &:nth-child(odd) {
       background-color: shared.$theme-light-bg-blue;
     }

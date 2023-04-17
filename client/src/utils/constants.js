@@ -10,6 +10,10 @@ export const LIGHT = "light";
 export const DARK = "dark";
 export const BLUE = "blue";
 
+// Sidemenu Component Selection
+export const CREATE = "create";
+export const VIEW = "view";
+
 // HEADERS
 export const ROLE = "role";
 export const COMPANY = "company";
