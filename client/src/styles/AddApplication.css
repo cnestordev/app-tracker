@@ -63,7 +63,12 @@
   color: #3f84f2;
   transition: 250ms;
 }
-.new-app-container .submit-btn {
+.new-app-container .form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+.new-app-container .form-actions .submit-btn,
+.new-app-container .form-actions .cancel-btn {
   background-color: #eef6ff;
   color: #3f84f2;
   cursor: pointer;

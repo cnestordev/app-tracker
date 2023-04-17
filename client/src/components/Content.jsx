@@ -6,6 +6,8 @@ import { Settings } from "react-feather";
 const Content = ({ applications }) => {
   const [headers] = useState(HEADERS);
 
+  console.log(applications);
+
   return (
     <div className="content-container">
       <div className="content-header">

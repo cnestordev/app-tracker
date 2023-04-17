@@ -319,9 +319,18 @@ const AddApplication = ({
           onChange={handleInputChange}
         ></textarea>
       </div>
-      <button className="submit-btn" type="submit">
-        Save Application
-      </button>
+      <div className="form-actions">
+        <button className="submit-btn" type="submit">
+          Save Application
+        </button>
+        <button
+          onClick={() => setAppVisibility(false)}
+          className="cancel-btn"
+          type="button"
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };

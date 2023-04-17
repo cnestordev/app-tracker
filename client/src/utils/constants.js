@@ -23,9 +23,9 @@ export const HEADERS = [
   ROLE,
   COMPANY,
   LOCATION,
-  COMMUTE,
   DATE,
   SOURCE,
+  COMMUTE,
   STATUS,
   INFO,
 ];
