@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Dashboard.css";
 import Menu from "./Menu";
 import Content from "./Content";
@@ -30,6 +30,11 @@ const Dashboard = (props) => {
       setFilteredApplications(filteredApplications);
     }
   };
+
+  useEffect(() => {
+    handleFilterByCategory(activeCategory);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [applications]);
 
   const handleVisibility = (value) => {
     setIsMoutned(value);

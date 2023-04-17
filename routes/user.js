@@ -49,7 +49,7 @@ router.post(
       res.status(200).json({
         success: true,
         message: "Application successfully added.",
-        data: user,
+        data: newApplication,
       });
     } catch (error) {
       console.error(error);

@@ -4,7 +4,10 @@ import "../styles/sdp.css";
 import DatePicker from "sassy-datepicker";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { updateCategories } from "../redux/features/userSlice.js";
+import {
+  updateCategories,
+  updateApplications,
+} from "../redux/features/userSlice.js";
 import { STATUSES } from "../utils/constants";
 import Dropdown from "./Dropdown";
 import { PlusCircle } from "react-feather";
@@ -122,12 +125,12 @@ const AddApplication = ({ handleSetVisibility }) => {
         },
       },
     };
-    console.log(newApplication);
     try {
-      await axios.post(
+      const response = await axios.post(
         `/user/${userId}/application/newapplication`,
         newApplication
       );
+      dispatch(updateApplications(response.data.data));
       handleSetVisibility(false);
     } catch (error) {
       console.log(error);
