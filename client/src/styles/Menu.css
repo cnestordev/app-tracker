@@ -48,10 +48,13 @@
   cursor: pointer;
   border-radius: 6px;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   font-size: 16px;
   padding: 8px 0 8px 8px;
   position: relative;
+}
+.menu-container .menu-footer svg {
+  width: 18px;
 }
 .menu-container .menu-footer .user-settings {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;

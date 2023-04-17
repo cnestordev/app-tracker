@@ -4,16 +4,24 @@ import { Plus, Settings, LogOut } from "react-feather";
 import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Menu = ({
   handleFilter,
   categories,
   activeCategory,
   setAppVisibility,
+  handleVisibility,
 }) => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const menuFooterRef = useRef(null);
   const navigate = useNavigate();
+  const username = useSelector((state) => state.user.username);
+
+  const handleCreateClick = () => {
+    handleVisibility(true);
+    setAppVisibility(true);
+  };
 
   const handleUserLogout = async () => {
     setToggleMenu(false);
@@ -42,12 +50,11 @@ const Menu = ({
     };
   }, [menuFooterRef, toggleMenu]);
 
-  console.log(categories);
   return (
     <div className="menu-container light">
       <div className="menu-header">
         <h2>Dashboard</h2>
-        <button onClick={() => setAppVisibility(true)}>
+        <button onClick={() => handleCreateClick()}>
           <span>Create</span>
           <Plus />
         </button>
@@ -85,7 +92,7 @@ const Menu = ({
           </div>
         </div>
         <Settings />
-        <h2>User</h2>
+        <h2>{username}</h2>
       </div>
     </div>
   );

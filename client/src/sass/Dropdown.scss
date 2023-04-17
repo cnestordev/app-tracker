@@ -24,6 +24,30 @@ $menu-padding: 10px;
     flex-direction: column;
     justify-content: flex-start;
     gap: 1px;
+    .new-list-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 10px $menu-padding;
+      cursor: pointer;
+      position: relative;
+      span {
+        font-size: 15px;
+      }
+      svg {
+        width: 18px;
+        position: absolute;
+        left: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      input {
+        padding-left: 9%;
+      }
+      &:hover {
+        background-color: shared.$theme-light-bg-blue;
+      }
+    }
     .dropdown-item {
       box-sizing: border-box;
       cursor: pointer;

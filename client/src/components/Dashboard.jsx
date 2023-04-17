@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import AddApplication from "./AddApplication";
 
 const Dashboard = (props) => {
-  console.log("%c dashboard component rendered", "color: green;");
   const categories = useSelector((state) => state.user.categories);
   const applications = useSelector((state) => state.user.applications);
 
@@ -15,6 +14,7 @@ const Dashboard = (props) => {
   const [filteredApplications, setFilteredApplications] =
     useState(applications);
   const [appVisibility, setAppVisibility] = useState(false);
+  const [isMounted, setIsMoutned] = useState(true);
 
   const handleFilterByCategory = (category) => {
     if (category._id === activeCategory._id) {
@@ -29,6 +29,10 @@ const Dashboard = (props) => {
     }
   };
 
+  const handleVisibility = (value) => {
+    setIsMoutned(value);
+  };
+
   return (
     <div className="dashboard-container">
       <Menu
@@ -36,12 +40,16 @@ const Dashboard = (props) => {
         handleFilter={handleFilterByCategory}
         categories={categories}
         setAppVisibility={setAppVisibility}
+        handleVisibility={handleVisibility}
       />
       <Content applications={filteredApplications} />
-      <AddApplication
-        setAppVisibility={setAppVisibility}
-        appVisibility={appVisibility}
-      />
+      {isMounted && (
+        <AddApplication
+          setAppVisibility={setAppVisibility}
+          appVisibility={appVisibility}
+          handleVisibility={handleVisibility}
+        />
+      )}
     </div>
   );
 };

@@ -4,7 +4,6 @@ import { DATE, HEADERS, LOCATION } from "../utils/constants";
 import { Settings } from "react-feather";
 
 const Content = ({ applications }) => {
-  console.log(applications);
   const [headers] = useState(HEADERS);
 
   return (

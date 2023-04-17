@@ -29,9 +29,13 @@ export const userSlice = createSlice({
     updateUserTheme: (state, action) => {
       state.theme.type = action.payload.theme.type;
     },
+    updateCategories: (state, action) => {
+      state.categories = [...state.categories, action.payload];
+    },
   },
 });
 
-export const { login, logout, updateUserTheme } = userSlice.actions;
+export const { login, logout, updateUserTheme, updateCategories } =
+  userSlice.actions;
 
 export default userSlice.reducer;

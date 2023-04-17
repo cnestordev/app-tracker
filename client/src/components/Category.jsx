@@ -10,7 +10,7 @@ const Category = ({ handleFilter, category, activeCategory }) => {
       }`}
     >
       <Tag />
-      <h3>{category.name}</h3>
+      <h3>{category.value}</h3>
     </div>
   );
 };

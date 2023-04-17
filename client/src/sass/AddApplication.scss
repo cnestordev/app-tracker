@@ -15,14 +15,12 @@
   width: 400px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   &.hidden {
-    right: -400px;
-    transition: 200ms;
+    animation: slideOut 200ms forwards;
   }
   &.active {
-    right: 15px;
-    transition: 200ms;
+    animation: slideIn 200ms forwards;
   }
   .new-app-heading {
     font-size: shared.$font-size-heading;
@@ -87,4 +85,26 @@
   border: 1px solid rgb(216, 216, 216) !important;
   --theme-color: #cacaca !important;
   --font: shared.$font-sans-serif !important;
+}
+
+@keyframes slideIn {
+  0% {
+    right: -400px;
+    transition: 200ms;
+  }
+  100% {
+    right: 15px;
+    transition: 200ms;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    right: 15px;
+    transition: 200ms;
+  }
+  100% {
+    right: -400px;
+    transition: 200ms;
+  }
 }

@@ -3,15 +3,27 @@ import "../styles/AddApplication.css";
 import "../styles/sdp.css";
 import DatePicker from "sassy-datepicker";
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCategories } from "../redux/features/userSlice.js";
 import { STATUSES } from "../utils/constants";
 import Dropdown from "./Dropdown";
+import { PlusCircle } from "react-feather";
 
-const AddApplication = ({ appVisibility, setAppVisibility }) => {
+const AddApplication = ({
+  appVisibility,
+  setAppVisibility,
+  handleVisibility,
+}) => {
   const [showCalendar, setShowCalendar] = useState(false);
   const calendarWrapperRef = useRef(null);
   const calendarRef = useRef(null);
   const userId = useSelector((state) => state.user._id);
+  const categories = useSelector((state) => state.user.categories);
+  const dispatch = useDispatch();
+
+  const handleAnimationEnd = () => {
+    handleVisibility(false);
+  };
 
   const [formValues, setFormValues] = useState({
     role: {
@@ -39,7 +51,7 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
       value: "",
     },
     category: {
-      id: "643881e7b9e21479a1f77c67",
+      id: "",
     },
     user: {
       id: userId,
@@ -50,7 +62,7 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
     setFormValues((prevValues) => ({
       ...prevValues,
       status: {
-        value: item,
+        value: item.value,
       },
     }));
   };
@@ -118,8 +130,12 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
         },
       },
     };
+    console.log(newApplication);
     try {
-      await axios.post(`/user/${userId}/newapplication`, newApplication);
+      await axios.post(
+        `/user/${userId}/application/newapplication`,
+        newApplication
+      );
       setAppVisibility(false);
     } catch (error) {
       console.log(error);
@@ -130,10 +146,61 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
     e.stopPropagation();
   };
 
+  const handleCreateNewCategory = async (category) => {
+    console.log(category);
+    try {
+      const response = await axios.put(
+        `/user/${userId}/application/newcategory`,
+        { value: category }
+      );
+      console.log(response.data.data);
+      dispatch(updateCategories(response.data.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // Config object for status Dropdown list options
+  const statusListConfig = {
+    title: "Application status",
+    listitems: STATUSES,
+    handler: handleStatusChange,
+    addNewItem: {
+      isActive: false,
+      description: "",
+      icon: null,
+      handler: null,
+    },
+  };
+
+  const handleCategoryChange = (item) => {
+    console.log(item);
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      category: {
+        id: item._id,
+      },
+    }));
+  };
+
+  // Config object for category Dropdown list options
+  const categoryListConfig = {
+    title: "Role category",
+    listitems: categories,
+    handler: handleCategoryChange,
+    addNewItem: {
+      isActive: true,
+      description: "Add new category",
+      icon: <PlusCircle />,
+      handler: handleCreateNewCategory,
+    },
+  };
+
   return (
     <form
       className={`new-app-container ${appVisibility ? "active" : "hidden"}`}
       onSubmit={handleSubmit}
+      onAnimationEnd={appVisibility ? undefined : handleAnimationEnd}
     >
       <h2 className="new-app-heading">AddApplication</h2>
       <div className="new-app-input">
@@ -162,6 +229,9 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
           value={formValues.location.value}
           onChange={handleInputChange}
         />
+      </div>
+      <div className="new-app-input">
+        <Dropdown listConfig={categoryListConfig} />
       </div>
       <div className="new-app-input">
         <input
@@ -220,7 +290,11 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
             placeholder="date"
             type="text"
             name="date"
-            value={formValues.date.value}
+            value={
+              formValues.date.value
+                ? formValues.date.value.toLocaleDateString()
+                : ""
+            }
             onChange={handleInputChange}
           />
           {showCalendar && (
@@ -234,11 +308,7 @@ const AddApplication = ({ appVisibility, setAppVisibility }) => {
         </div>
       </div>
       <div className="new-app-input">
-        <Dropdown
-          title="Application Status"
-          listitems={STATUSES}
-          selectedHandler={handleStatusChange}
-        />
+        <Dropdown listConfig={statusListConfig} />
       </div>
       <div className="new-app-input">
         <textarea

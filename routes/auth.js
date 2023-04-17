@@ -87,7 +87,7 @@ router.get("/getuser", checkAuth, async (req, res) => {
     const user = await User.findOne({ username })
       .populate({
         path: "categories",
-        select: "name",
+        select: "value",
       })
       .populate("applications");
     res.status(200).json({ success: true, user });

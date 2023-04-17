@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
 
 const CategorySchema = mongoose.Schema({
-  name: {
+  value: {
     type: String,
   },
   isActive: {

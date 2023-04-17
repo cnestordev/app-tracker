@@ -19,17 +19,17 @@ const seedDB = async () => {
 
   // Create a new job category and associate it with the job application
   const dummyCategory = new Category({
-    name: "Back End Developer",
+    value: "Back End Developer",
     isActive: true,
   });
 
   const frontEndDevCategory = new Category({
-    name: "Front End Developer",
+    value: "Front End Developer",
     isActive: true,
   });
 
   const uiDevCategory = new Category({
-    name: "UI Developer",
+    value: "UI Developer",
     isActive: true,
   });
 
@@ -235,9 +235,9 @@ const seedDB = async () => {
   dummyUser.categories.push(uiDevCategory._id);
 
   dummyCategory.applications.push(dummyApplication._id);
-  dummyCategory.applications.push(frontEndDevApp1._id);
-  dummyCategory.applications.push(frontEndDevApp2._id);
-  dummyCategory.applications.push(uiDevApp._id);
+  frontEndDevCategory.applications.push(frontEndDevApp1._id);
+  frontEndDevCategory.applications.push(frontEndDevApp2._id);
+  uiDevCategory.applications.push(uiDevApp._id);
 
   // Save the models to the database
   (async () => {

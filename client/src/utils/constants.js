@@ -41,12 +41,36 @@ export const ACCEPTED = "Applied Offer";
 export const DECLINED = "Declined Offer";
 
 export const STATUSES = [
-  APPLIED,
-  FIRST_INTERVIEW,
-  SECOND_INTERVIEW,
-  THIRD_INTERVIEW,
-  REJECTED,
-  JOB_OFFER,
-  ACCEPTED,
-  DECLINED,
+  {
+    _id: 1,
+    value: APPLIED,
+  },
+  {
+    _id: 2,
+    value: FIRST_INTERVIEW,
+  },
+  {
+    _id: 3,
+    value: SECOND_INTERVIEW,
+  },
+  {
+    _id: 4,
+    value: THIRD_INTERVIEW,
+  },
+  {
+    _id: 5,
+    value: REJECTED,
+  },
+  {
+    _id: 6,
+    value: JOB_OFFER,
+  },
+  {
+    _id: 7,
+    value: ACCEPTED,
+  },
+  {
+    _id: 8,
+    value: DECLINED,
+  },
 ];

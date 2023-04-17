@@ -26,16 +26,23 @@ router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
 });
 
 router.post(
-  "/:id/newapplication",
+  "/:id/application/newapplication",
   checkAuth,
   checkIdMatch,
   async (req, res) => {
+    console.log(req.body);
+    const categoryId = req.body.category.id;
     const newApplication = new Application(req.body);
     await newApplication.save();
     const userId = req.params.id;
     try {
       const user = await User.findOneAndUpdate(
         { _id: userId },
+        { $push: { applications: newApplication } },
+        { new: true }
+      );
+      await Category.findOneAndUpdate(
+        { _id: categoryId },
         { $push: { applications: newApplication } },
         { new: true }
       );
@@ -54,19 +61,29 @@ router.post(
   }
 );
 
-// router.get("/:id/userdata", checkAuth, checkIdMatch, async (req, res) => {
-//   const userId = req.params.id;
-//   try {
-//     const user = await User.findById(userId)
-//       .populate({
-//         path: "categories",
-//         select: "name",
-//       })
-//       .populate("applications");
-//     res.status(200).json({ success: true, user });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
+router.put("/:id/application/newcategory", async (req, res) => {
+  const userId = req.params.id;
+  const { value } = req.body;
+  try {
+    const user = await User.findById(userId);
+    const newCategory = new Category({
+      value,
+    });
+    const savedCategory = await newCategory.save();
+    await user.categories.push(savedCategory._id);
+    await user.save();
+    res.status(200).json({
+      success: true,
+      message: "category was saved successfully!",
+      data: {
+        _id: savedCategory._id,
+        value: savedCategory.value,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Server Error");
+  }
+});
 
 module.exports = router;
