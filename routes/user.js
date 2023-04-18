@@ -78,6 +78,7 @@ router.put("/:id/application/newcategory", async (req, res) => {
       data: {
         _id: savedCategory._id,
         value: savedCategory.value,
+        applications: savedCategory.applications,
       },
     });
   } catch (error) {

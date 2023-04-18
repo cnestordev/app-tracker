@@ -30,8 +30,8 @@ router.post("/register", async (req, res) => {
       if (err) {
         return next(err);
       }
-      const { hash, salt, ...newUserObj } = newUser.toObject();
-      return res.status(201).json({ success: true, newUserObj });
+      const { hash, salt, ...populatedUser } = newUser.toObject();
+      return res.status(201).json({ success: true, populatedUser });
     });
   } catch (err) {
     res.status(401).json({ message: err.message, success: false });
@@ -67,7 +67,7 @@ router.post("/login", (req, res, next) => {
       const populatedUser = await User.findById(signedInUser._id)
         .populate({
           path: "categories",
-          select: "name",
+          select: "value applications",
         })
         .populate("applications")
         .exec();

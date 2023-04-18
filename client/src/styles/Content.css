@@ -12,6 +12,32 @@
   font-weight: 600;
   margin-bottom: 10px;
 }
+.content-container .content-header .header-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-basis: 85%;
+}
+.content-container .content-header .header-title .searchbar {
+  background-color: #f6f6f6;
+  border: none;
+  font-size: 16px;
+  padding: 15px 10px 15px 20px;
+  border-radius: 10px;
+  flex-basis: 60%;
+}
+.content-container .content-header .header-title h3 {
+  flex-direction: 30%;
+}
+.content-container .content-header .header-settings {
+  flex-basis: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.content-container .content-header .header-settings svg {
+  width: 25px;
+}
 .content-container .table-header,
 .content-container .table-row {
   display: grid;

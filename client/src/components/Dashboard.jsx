@@ -53,6 +53,7 @@ const Dashboard = (props) => {
         applications={filteredApplications}
         setAppVisibility={setAppVisibility}
         setComponentName={setComponentName}
+        activeCategory={activeCategory}
       />
       {isMounted && (
         <View

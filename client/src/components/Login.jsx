@@ -39,7 +39,7 @@ const Login = (props) => {
       }
     };
     getUser();
-  }, [navigate]);
+  }, [navigate, isLoading]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -50,8 +50,8 @@ const Login = (props) => {
         darkModeTheme,
         isRegistering
       );
-      dispatch(login(res.data.signedInUser));
-      // navigate("/dashboard");
+      dispatch(login(res.data.populatedUser));
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
       const responseMessage = error.response.data.message;

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import "../styles/Menu.css";
-import { Plus, Settings, LogOut } from "react-feather";
+import { Plus, LogOut, User } from "react-feather";
 import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
@@ -94,7 +94,7 @@ const Menu = ({
             <span>Sign Out</span>
           </div>
         </div>
-        <Settings />
+        <User />
         <h2>{username}</h2>
       </div>
     </div>
