@@ -14,7 +14,7 @@ const Dashboard = (props) => {
   const [filteredApplications, setFilteredApplications] =
     useState(applications);
   const [appVisibility, setAppVisibility] = useState(false);
-  const [isMounted, setIsMoutned] = useState(true);
+  const [isMounted, setIsMoutned] = useState(false);
   const [componentName, setComponentName] = useState(CREATE);
 
   const handleFilterByCategory = (category) => {

@@ -6,6 +6,12 @@
   display: flex;
   flex-direction: column;
 }
+.view-app-container .view-title .header {
+  font-size: 30px;
+  font-family: "DM Serif Display", serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 .view-app-container .view-header {
   display: flex;
   justify-content: space-between;
@@ -14,12 +20,6 @@
 .view-app-container .view-header .header-left {
   display: flex;
   flex-direction: column;
-}
-.view-app-container .view-header .header-left .header {
-  font-size: 30px;
-  font-family: "DM Serif Display", serif;
-  font-weight: bold;
-  margin-bottom: 8px;
 }
 .view-app-container .view-header .header-left .subheader {
   font-family: "DM Sans", sans-serif;
@@ -34,7 +34,6 @@
 .view-app-container .view-header .header-right {
   display: flex;
   flex-direction: column;
-  margin-top: 3px;
 }
 .view-app-container .view-header .header-right .metadata {
   margin-bottom: 5px;

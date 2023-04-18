@@ -7,10 +7,12 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   updateCategories,
   updateApplications,
+  replaceApplication,
 } from "../redux/features/userSlice.js";
-import { STATUSES } from "../utils/constants";
+import { STATUSES, FORM_VALUES } from "../utils/constants";
 import Dropdown from "./Dropdown";
-import { PlusCircle } from "react-feather";
+import { PlusCircle, Save, Trash, X } from "react-feather";
+import { deselectApplication } from "../redux/features/applicationSlice";
 
 const AddApplication = ({ handleSetVisibility }) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -18,40 +20,50 @@ const AddApplication = ({ handleSetVisibility }) => {
   const calendarRef = useRef(null);
   const userId = useSelector((state) => state.user._id);
   const categories = useSelector((state) => state.user.categories);
+  const selectedApplication = useSelector((state) => state.application);
   const dispatch = useDispatch();
 
-  const [formValues, setFormValues] = useState({
-    role: {
-      value: "",
-    },
-    company: {
-      value: "",
-    },
-    location: {
-      value: "",
-    },
-    date: {
-      value: "",
-    },
-    source: {
-      value: "",
-    },
-    status: {
-      value: "",
-    },
-    commute: {
-      value: "",
-    },
-    info: {
-      value: "",
-    },
-    category: {
-      id: "",
-    },
-    user: {
-      id: userId,
-    },
-  });
+  const [formValues, setFormValues] = useState(FORM_VALUES);
+
+  const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+    console.log("useeffect");
+    if (selectedApplication._id) {
+      console.log("...editing....");
+      setIsEditing(true);
+      setFormValues({
+        role: {
+          value: selectedApplication.role,
+        },
+        company: {
+          value: selectedApplication.company,
+        },
+        location: {
+          value: selectedApplication.location,
+        },
+        date: {
+          value: new Date(selectedApplication.date),
+        },
+        source: {
+          value: selectedApplication.source,
+        },
+        status: {
+          value: selectedApplication.status,
+        },
+        commute: {
+          value: selectedApplication.commute,
+        },
+        info: {
+          value: selectedApplication.info,
+        },
+        _id: selectedApplication._id,
+      });
+    } else {
+      setFormValues(FORM_VALUES);
+      setIsEditing(false);
+    }
+  }, [selectedApplication]);
 
   const handleStatusChange = (item) => {
     setFormValues((prevValues) => ({
@@ -124,16 +136,32 @@ const AddApplication = ({ handleSetVisibility }) => {
           value: state,
         },
       },
+      user: {
+        id: userId,
+      },
     };
-    try {
-      const response = await axios.post(
-        `/user/${userId}/application/newapplication`,
-        newApplication
-      );
-      dispatch(updateApplications(response.data.data));
-      handleSetVisibility(false);
-    } catch (error) {
-      console.log(error);
+    if (isEditing) {
+      try {
+        const response = await axios.put(
+          `/user/${userId}/application/${formValues._id}/editapplication`,
+          newApplication
+        );
+        dispatch(replaceApplication(response.data.data));
+        handleSetVisibility(false);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const response = await axios.post(
+          `/user/${userId}/application/newapplication`,
+          newApplication
+        );
+        dispatch(updateApplications(response.data.data));
+        handleSetVisibility(false);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -189,6 +217,16 @@ const AddApplication = ({ handleSetVisibility }) => {
       icon: <PlusCircle />,
       handler: handleCreateNewCategory,
     },
+  };
+
+  const handleCancelAction = () => {
+    setIsEditing(false);
+    dispatch(deselectApplication());
+    handleSetVisibility(false);
+  };
+
+  const handleDeleteAction = () => {
+    console.log("Deleting...");
   };
 
   return (
@@ -312,14 +350,26 @@ const AddApplication = ({ handleSetVisibility }) => {
       </div>
       <div className="form-actions">
         <button
-          onClick={() => handleSetVisibility(false)}
+          onClick={() => handleCancelAction()}
           className="cancel-btn"
           type="button"
         >
+          <X />
           Cancel
         </button>
+        {isEditing && (
+          <button
+            onClick={() => handleDeleteAction()}
+            className="delete-btn"
+            type="button"
+          >
+            <Trash />
+            Delete
+          </button>
+        )}
         <button className="submit-btn" type="submit">
-          Save Application
+          <Save />
+          Save
         </button>
       </div>
     </form>

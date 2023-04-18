@@ -1,7 +1,14 @@
 import { useState } from "react";
 import "../styles/Content.css";
-import { DATE, HEADERS, INFO, LOCATION, VIEW } from "../utils/constants";
-import { Settings, MoreHorizontal } from "react-feather";
+import {
+  CREATE,
+  DATE,
+  HEADERS,
+  INFO,
+  LOCATION,
+  VIEW,
+} from "../utils/constants";
+import { Settings, Edit } from "react-feather";
 import {
   deselectApplication,
   selectApplication,
@@ -50,6 +57,14 @@ const Content = ({
   });
 
   const title = activeCategory ? activeCategory.value : "Job Applications";
+
+  const handleEditForm = (e, app) => {
+    e.stopPropagation();
+    dispatch(selectApplication(app));
+    setComponentName(CREATE);
+    handleVisibility(true);
+    setAppVisibility(true);
+  };
 
   return (
     <div className="content-container light blue">
@@ -105,8 +120,12 @@ const Content = ({
                   );
                 } else if (key === INFO) {
                   return (
-                    <div key={`${key}-${i}`} className="header-item">
-                      <MoreHorizontal />
+                    <div
+                      onClick={(e) => handleEditForm(e, app)}
+                      key={`${key}-${i}`}
+                      className="header-item"
+                    >
+                      <Edit />
                     </div>
                   );
                 } else {

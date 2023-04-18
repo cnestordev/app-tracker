@@ -48,12 +48,21 @@
   justify-content: space-between;
 }
 .new-app-container .form-actions .submit-btn,
-.new-app-container .form-actions .cancel-btn {
+.new-app-container .form-actions .cancel-btn,
+.new-app-container .form-actions .delete-btn {
   cursor: pointer;
   font-weight: 500;
   border: none;
   padding: 16px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.new-app-container .form-actions .submit-btn svg,
+.new-app-container .form-actions .cancel-btn svg,
+.new-app-container .form-actions .delete-btn svg {
+  width: 15px;
 }
 .new-app-container.light .new-app-heading {
   color: #3a414a;
@@ -74,6 +83,10 @@
 .new-app-container.blue .form-actions .cancel-btn {
   background-color: #eef6ff;
   color: #3f84f2;
+}
+.new-app-container.blue .form-actions .delete-btn {
+  background-color: #ffeeee;
+  color: #f23f3f;
 }
 
 .sdp {

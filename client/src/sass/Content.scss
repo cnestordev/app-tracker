@@ -63,6 +63,9 @@ $left-padding: 25px;
 
   .table-row {
     cursor: pointer;
+    svg {
+      width: 19px;
+    }
   }
   &.light {
     .content-header {

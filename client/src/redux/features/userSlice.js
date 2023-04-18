@@ -35,6 +35,15 @@ export const userSlice = createSlice({
     updateApplications: (state, action) => {
       state.applications = [...state.applications, action.payload];
     },
+    replaceApplication: (state, action) => {
+      const updatedApplication = action.payload;
+      const index = state.applications.findIndex(
+        (app) => app._id === updatedApplication._id
+      );
+      if (index !== -1) {
+        state.applications[index] = updatedApplication;
+      }
+    },
   },
 });
 
@@ -44,6 +53,7 @@ export const {
   updateUserTheme,
   updateCategories,
   updateApplications,
+  replaceApplication,
 } = userSlice.actions;
 
 export default userSlice.reducer;

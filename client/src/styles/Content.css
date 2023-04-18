@@ -58,6 +58,9 @@
 .content-container .table-row {
   cursor: pointer;
 }
+.content-container .table-row svg {
+  width: 19px;
+}
 .content-container.light .content-header {
   color: #3a414a;
 }

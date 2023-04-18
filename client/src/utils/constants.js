@@ -78,3 +78,36 @@ export const STATUSES = [
     value: DECLINED,
   },
 ];
+
+export const FORM_VALUES = {
+  role: {
+    value: "",
+  },
+  company: {
+    value: "",
+  },
+  location: {
+    value: "",
+  },
+  date: {
+    value: "",
+  },
+  source: {
+    value: "",
+  },
+  status: {
+    value: "",
+  },
+  commute: {
+    value: "",
+  },
+  info: {
+    value: "",
+  },
+  category: {
+    id: "",
+  },
+  user: {
+    id: "",
+  },
+};

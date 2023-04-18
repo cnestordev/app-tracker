@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CREATE } from "../utils/constants";
 
+import { useDispatch } from "react-redux";
+import { deselectApplication } from "../redux/features/applicationSlice";
+
 const Menu = ({
   handleFilter,
   activeCategory,
@@ -19,8 +22,10 @@ const Menu = ({
   const navigate = useNavigate();
   const username = useSelector((state) => state.user.username);
   const categories = useSelector((state) => state.user.categories);
+  const dispatch = useDispatch();
 
   const handleCreateClick = () => {
+    dispatch(deselectApplication());
     setComponentName(CREATE);
     handleVisibility(true);
     setAppVisibility(true);

@@ -9,6 +9,7 @@ const initialState = {
   status: "",
   commute: "",
   info: "",
+  _id: null,
 };
 
 export const applicationSlice = createSlice({
@@ -24,6 +25,7 @@ export const applicationSlice = createSlice({
       state.status = action.payload.status.value;
       state.commute = action.payload.commute.value;
       state.info = action.payload.info.value;
+      state._id = action.payload._id;
     },
     deselectApplication: (state) => {
       return initialState;

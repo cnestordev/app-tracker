@@ -9,9 +9,11 @@ const ViewApplication = ({ handleSetVisibility }) => {
 
   return (
     <div className="view-app-container">
+      <div className="view-title">
+        <h2 className="header">{app.role}</h2>
+      </div>
       <div className="view-header">
         <div className="header-left">
-          <h2 className="header">{app.role}</h2>
           <h3 className="subheader company">{app.company}</h3>
           <h4 className="subheader location">{app.location}</h4>
         </div>

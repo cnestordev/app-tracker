@@ -8,6 +8,14 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  .view-title {
+    .header {
+      font-size: shared.$font-size-heading-large;
+      font-family: shared.$font-serif;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
   .view-header {
     display: flex;
     justify-content: space-between;
@@ -15,12 +23,6 @@
     .header-left {
       display: flex;
       flex-direction: column;
-      .header {
-        font-size: shared.$font-size-heading-large;
-        font-family: shared.$font-serif;
-        font-weight: bold;
-        margin-bottom: 8px;
-      }
       .subheader {
         font-family: shared.$font-sans-serif;
         margin-bottom: 2px;
@@ -35,7 +37,6 @@
     .header-right {
       display: flex;
       flex-direction: column;
-      margin-top: 3px;
       .metadata {
         margin-bottom: 5px;
         font-size: 14px;

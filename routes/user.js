@@ -61,6 +61,40 @@ router.post(
   }
 );
 
+router.put(
+  "/:id/application/:applicationId/editapplication",
+  checkAuth,
+  checkIdMatch,
+  async (req, res) => {
+    const applicationId = req.params.applicationId;
+    const updatedApplication = req.body;
+    const userId = req.params.userId;
+    try {
+      const application = await Application.findOneAndUpdate(
+        { _id: applicationId },
+        updatedApplication,
+        { new: true, lean: true }
+      );
+      await User.findOneAndUpdate(
+        { _id: userId, "applications._id": applicationId },
+        { $set: { "applications.$": updatedApplication } },
+        { new: true }
+      );
+      res.status(200).json({
+        success: true,
+        message: "Application successfully updated.",
+        data: application,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        success: false,
+        message: "An error occurred while updating your application.",
+      });
+    }
+  }
+);
+
 router.put("/:id/application/newcategory", async (req, res) => {
   const userId = req.params.id;
   const { value } = req.body;
