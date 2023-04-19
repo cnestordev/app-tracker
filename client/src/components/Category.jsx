@@ -5,7 +5,7 @@ const Category = ({ handleFilter, category, activeCategory }) => {
   return (
     <div
       onClick={() => handleFilter(category)}
-      className={`category-container light blue ${
+      className={`category-container lightblue ${
         activeCategory._id === category._id ? ACTIVE : ""
       }`}
     >

@@ -1,4 +1,5 @@
 @use "shared.scss";
+@use "bluetheme.scss";
 
 $left-padding: 25px;
 
@@ -20,7 +21,6 @@ $left-padding: 25px;
       gap: 20px;
       flex-basis: 85%;
       .searchbar {
-        background-color: #f6f6f6;
         border: none;
         font-size: 16px;
         padding: 15px 10px 15px 20px;
@@ -54,6 +54,9 @@ $left-padding: 25px;
     padding: 18px 0;
     padding-left: $left-padding;
     padding-right: $left-padding;
+    &:nth-child(even) {
+      background-color: transparent;
+    }
   }
 
   .table-header {
@@ -70,30 +73,54 @@ $left-padding: 25px;
       }
     }
   }
-  &.light {
+  &.lightblue {
     .content-header {
-      color: shared.$theme-light-header;
+      color: bluetheme.$theme-light-header-text;
+      .header-title {
+        .searchbar {
+          background-color: bluetheme.$theme-light-table-searchbar-bg;
+        }
+      }
     }
     .table-header,
     .table-row {
-      background-color: #fff;
+      background-color: transparent;
     }
 
     .table-header {
-      color: #686868;
+      color: bluetheme.$theme-light-table-header-text-color;
     }
 
     .table-row {
-      &:nth-child(even) {
-        background-color: #fff;
+      color: bluetheme.$theme-light-table-row-text;
+      &:nth-child(odd) {
+        background-color: bluetheme.$theme-light-table-row-bg;
       }
     }
   }
-
-  &.blue {
+  // dark blue theme
+  &.darkblue {
+    .content-header {
+      color: bluetheme.$theme-dark-header-text;
+      .header-title {
+        .searchbar {
+          background-color: bluetheme.$theme-dark-table-searchbar-bg;
+        }
+      }
+    }
+    .table-header,
     .table-row {
+      background-color: transparent;
+    }
+
+    .table-header {
+      color: bluetheme.$theme-dark-table-header-text-color;
+    }
+
+    .table-row {
+      color: bluetheme.$theme-dark-table-row-text;
       &:nth-child(odd) {
-        background-color: shared.$theme-light-bg-blue;
+        background-color: bluetheme.$theme-dark-table-row-bg;
       }
     }
   }

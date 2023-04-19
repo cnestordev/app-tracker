@@ -19,7 +19,6 @@
   flex-basis: 85%;
 }
 .content-container .content-header .header-title .searchbar {
-  background-color: #f6f6f6;
   border: none;
   font-size: 16px;
   padding: 15px 10px 15px 20px;
@@ -51,6 +50,10 @@
   padding-left: 25px;
   padding-right: 25px;
 }
+.content-container .table-header:nth-child(even),
+.content-container .table-row:nth-child(even) {
+  background-color: transparent;
+}
 .content-container .table-header {
   font-weight: 600;
   margin-bottom: 0;
@@ -62,19 +65,41 @@
   width: 24px;
   opacity: 0.7;
 }
-.content-container.light .content-header {
+.content-container.lightblue .content-header {
   color: #3a414a;
 }
-.content-container.light .table-header,
-.content-container.light .table-row {
-  background-color: #fff;
+.content-container.lightblue .content-header .header-title .searchbar {
+  background-color: #f6f6f6;
 }
-.content-container.light .table-header {
+.content-container.lightblue .table-header,
+.content-container.lightblue .table-row {
+  background-color: transparent;
+}
+.content-container.lightblue .table-header {
   color: #686868;
 }
-.content-container.light .table-row:nth-child(even) {
-  background-color: #fff;
+.content-container.lightblue .table-row {
+  color: #2a2a2a;
 }
-.content-container.blue .table-row:nth-child(odd) {
+.content-container.lightblue .table-row:nth-child(odd) {
   background-color: #eef6ff;
+}
+.content-container.darkblue .content-header {
+  color: #e0e6f3;
+}
+.content-container.darkblue .content-header .header-title .searchbar {
+  background-color: #1c2434;
+}
+.content-container.darkblue .table-header,
+.content-container.darkblue .table-row {
+  background-color: transparent;
+}
+.content-container.darkblue .table-header {
+  color: #a2a5ad;
+}
+.content-container.darkblue .table-row {
+  color: #a9aaad;
+}
+.content-container.darkblue .table-row:nth-child(odd) {
+  background-color: #1e293b;
 }

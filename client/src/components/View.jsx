@@ -2,6 +2,7 @@ import "../styles/View.css";
 import { ACTIVE, CREATE, HIDDEN } from "../utils/constants";
 import AddApplication from "./AddApplication";
 import ViewApplication from "./ViewApplication";
+// import Settings from "./Settings";
 
 const View = ({
   appVisibility,
@@ -23,6 +24,7 @@ const View = ({
       onAnimationEnd={appVisibility ? undefined : handleAnimationEnd}
     >
       {componentName.includes(CREATE) ? (
+        // <Settings />
         <AddApplication handleSetVisibility={handleSetVisibility} />
       ) : (
         <ViewApplication handleSetVisibility={handleSetVisibility} />

@@ -40,7 +40,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="dashboard-container light blue">
+    <div className="dashboard-container light lightblue">
       <Menu
         activeCategory={activeCategory}
         handleFilter={handleFilterByCategory}

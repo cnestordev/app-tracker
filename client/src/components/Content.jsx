@@ -96,7 +96,7 @@ const Content = ({
   };
 
   return (
-    <div className="content-container light blue">
+    <div className="content-container lightblue">
       <div className="content-header">
         <div className="header-title">
           <h3>{title}</h3>

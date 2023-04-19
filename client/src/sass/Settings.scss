@@ -1,0 +1,23 @@
+@use "shared.scss";
+
+.settings-container {
+  .settings-header {
+    h2 {
+      font-size: shared.$font-size-heading;
+      font-weight: 600;
+    }
+  }
+  .settings-body {
+    .settings-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+      h3 {
+        font-size: shared.$font-size-subheading;
+        font-weight: 500;
+      }
+    }
+  }
+}

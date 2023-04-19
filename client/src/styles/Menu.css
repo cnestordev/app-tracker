@@ -88,27 +88,46 @@
   background-color: #ebebeb;
   transition: 200ms;
 }
-.menu-container.light .menu-header {
+.menu-container.lightblue .menu-header {
   color: #3a414a;
 }
-.menu-container.light .menu-header button {
+.menu-container.lightblue .menu-header button {
   color: #fff;
+  background-color: #3c82f5;
 }
-.menu-container.light .menu-footer .user-settings {
+.menu-container.lightblue .menu-footer {
+  background-color: #dbeafe;
+}
+.menu-container.lightblue .menu-footer .user-settings {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   background-color: #fff;
 }
-.menu-container.light .menu-footer .user-settings .user-setting {
+.menu-container.lightblue .menu-footer .user-settings .user-setting {
   color: #575757;
 }
-.menu-container.light .menu-footer .user-settings .user-setting:hover {
+.menu-container.lightblue .menu-footer .user-settings .user-setting:hover {
   background-color: #ebebeb;
 }
-.menu-container.blue .menu-header button {
-  background-color: #3c82f5;
+.menu-container.darkblue .menu-header {
+  color: #b2bcc9;
 }
-.menu-container.blue .menu-footer {
-  background-color: #dbeafe;
+.menu-container.darkblue .menu-header button {
+  color: #fff;
+  background-color: #324c76;
+}
+.menu-container.darkblue .menu-footer {
+  background-color: #293c5a;
+  color: #b1c2dd;
+}
+.menu-container.darkblue .menu-footer .user-settings {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #324462;
+}
+.menu-container.darkblue .menu-footer .user-settings .user-setting {
+  color: #b1c2dd;
+}
+.menu-container.darkblue .menu-footer .user-settings .user-setting:hover {
+  background-color: #26344a;
 }
 
 @keyframes slideUp {

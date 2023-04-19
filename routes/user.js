@@ -14,7 +14,12 @@ router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
       { _id: req.params.id },
       { $set: { "theme.type": type } },
       { new: true }
-    );
+    )
+      .populate({
+        path: "categories",
+        select: "value applications",
+      })
+      .populate("applications");
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.error(error);

@@ -8,7 +8,6 @@
   width: 100%;
 }
 .category-container .cat-count {
-  background-color: #3c82f5;
   border-radius: 50px;
   font-size: 12px;
   color: #fff;
@@ -22,18 +21,21 @@
   font-size: 15px;
   font-weight: 600;
 }
-.category-container.light {
+.category-container.lightblue {
   color: #3a414a;
 }
-.category-container.light.active svg {
-  fill-rule: evenodd;
+.category-container.lightblue .cat-count {
+  background-color: #3c82f5;
 }
-.category-container.blue.active {
+.category-container.lightblue.active {
   background-color: #dbeafe;
 }
-.category-container.blue.active svg {
-  fill: #3f84f2;
+.category-container.darkblue {
+  color: #b2bcc9;
 }
-.category-container.blue svg {
-  color: #3f84f2;
+.category-container.darkblue .cat-count {
+  background-color: #3d4f6c;
+}
+.category-container.darkblue.active {
+  background-color: #293c5a;
 }

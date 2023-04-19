@@ -1,0 +1,65 @@
+// ---- Dark mode & Light mode BLUE VERSION -----
+
+// Light---------------------------------------------------------
+
+// Dashboard
+$theme-light-bg-blue: #eef6ff;
+
+// Menu
+$theme-light-menu-text: #3a414a;
+$theme-light-action-button-bg: #3c82f5;
+$theme-light-action-button-text: #fff;
+$theme-light-category-active-bg: #dbeafe;
+$theme-light-category-count-bg: #3c82f5;
+$theme-light-footer-menu-bg: $theme-light-category-active-bg;
+$theme-light-settings-menu-bg: #fff;
+$theme-light-settings-menu-active-bg: #ebebeb;
+$theme-light-settings-menu-text-color: #575757;
+
+// Content
+$theme-light-bg-white: #fff;
+$theme-light-header-text: #3a414a;
+$theme-light-table-header-bg: transparent;
+$theme-light-table-header-text-color: #686868;
+$theme-light-table-row-bg: #eef6ff;
+$theme-light-table-row-text: #2a2a2a;
+$theme-light-table-searchbar-bg: #f6f6f6;
+
+// View > Application
+$theme-light-view-bg-color: #fff;
+$theme-light-view-header-text: #3a414a;
+$theme-light-view-subheader-text: #6b6b6b;
+$theme-light-view-info-bg: #f1f1f1;
+$theme-light-view-info-text: #555555;
+
+// Dark--------------------------------------------------------------
+
+// Dashboard
+$theme-dark-bg-blue: #1e293b;
+
+// Menu
+$theme-dark-menu-text: #b2bcc9;
+$theme-dark-action-button-bg: #324c76;
+$theme-dark-action-button-text: #fff;
+$theme-dark-category-active-bg: #293c5a;
+$theme-dark-category-count-bg: #3d4f6c;
+$theme-dark-footer-menu-bg: $theme-dark-category-active-bg;
+$theme-dark-settings-menu-bg: #324462;
+$theme-dark-settings-menu-active-bg: #26344a;
+$theme-dark-settings-menu-text-color: #b1c2dd;
+
+// Content
+$theme-dark-content-bg-blue: #2b3448;
+$theme-dark-header-text: #e0e6f3;
+$theme-dark-table-header-bg: transparent;
+$theme-dark-table-header-text-color: #a2a5ad;
+$theme-dark-table-row-bg: $theme-dark-bg-blue;
+$theme-dark-table-row-text: #a9aaad;
+$theme-dark-table-searchbar-bg: #1c2434;
+
+// View > Application
+$theme-dark-view-bg-color: #282e3a;
+$theme-dark-view-header-text: #a9aeb9;
+$theme-dark-view-subheader-text: #60697c;
+$theme-dark-view-info-bg: #262930;
+$theme-light-view-info-text: #939292;

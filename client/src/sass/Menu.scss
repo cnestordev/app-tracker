@@ -1,4 +1,5 @@
 @use "shared.scss";
+@use "bluetheme.scss";
 
 .menu-container {
   display: flex;
@@ -92,35 +93,50 @@
       }
     }
   }
-  &.light {
+  &.lightblue {
     .menu-header {
-      color: shared.$theme-light-header;
+      color: bluetheme.$theme-light-menu-text;
       button {
-        color: #fff;
+        color: bluetheme.$theme-light-action-button-text;
+        background-color: bluetheme.$theme-light-action-button-bg;
       }
     }
     .menu-footer {
+      background-color: bluetheme.$theme-light-footer-menu-bg;
       .user-settings {
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        background-color: #fff;
+        background-color: bluetheme.$theme-light-settings-menu-bg;
         .user-setting {
-          color: #575757;
+          color: bluetheme.$theme-light-settings-menu-text-color;
           &:hover {
-            background-color: #ebebeb;
+            background-color: bluetheme.$theme-light-settings-menu-active-bg;
           }
         }
       }
     }
   }
-
-  &.blue {
+  // dark blue theme
+  &.darkblue {
     .menu-header {
+      color: bluetheme.$theme-dark-menu-text;
       button {
-        background-color: shared.$theme-light-dark-btn-bg-blue;
+        color: bluetheme.$theme-dark-action-button-text;
+        background-color: bluetheme.$theme-dark-action-button-bg;
       }
     }
     .menu-footer {
-      background-color: shared.$theme-light-btn-bg-blue;
+      background-color: bluetheme.$theme-dark-footer-menu-bg;
+      color: bluetheme.$theme-dark-settings-menu-text-color;
+      .user-settings {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        background-color: bluetheme.$theme-dark-settings-menu-bg;
+        .user-setting {
+          color: bluetheme.$theme-dark-settings-menu-text-color;
+          &:hover {
+            background-color: bluetheme.$theme-dark-settings-menu-active-bg;
+          }
+        }
+      }
     }
   }
 }
