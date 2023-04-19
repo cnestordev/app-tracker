@@ -5,10 +5,11 @@ import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { CREATE } from "../utils/constants";
+import { CREATE, DANGER, SUCCESS } from "../utils/constants";
 
 import { useDispatch } from "react-redux";
 import { deselectApplication } from "../redux/features/applicationSlice";
+import { setMessage } from "../redux/features/messageSlice";
 
 const Menu = ({
   handleFilter,
@@ -43,8 +44,11 @@ const Menu = ({
       const res = await handleLogout();
       console.log(res);
       navigate("/login");
+      const message = res.data.message;
+      dispatch(setMessage({ message, type: SUCCESS }));
     } catch (error) {
-      console.log(error);
+      const message = error.response.data.message;
+      dispatch(setMessage({ message, type: DANGER }));
     }
   };
 

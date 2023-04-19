@@ -30,7 +30,6 @@ router.post(
   checkAuth,
   checkIdMatch,
   async (req, res) => {
-    console.log(req.body);
     const categoryId = req.body.category.id;
     const newApplication = new Application(req.body);
     await newApplication.save();
@@ -48,7 +47,7 @@ router.post(
       );
       res.status(200).json({
         success: true,
-        message: "Application successfully added.",
+        message: "Application successfully created.",
         data: newApplication,
       });
     } catch (error) {
@@ -153,7 +152,10 @@ router.put("/:id/application/newcategory", async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).send("Server Error");
+    res.status(500).json({
+      success: false,
+      message: "An error occurred while creating the category.",
+    });
   }
 });
 

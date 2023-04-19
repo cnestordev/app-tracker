@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import "../styles/Content.css";
 import {
   CREATE,
@@ -26,15 +26,18 @@ const Content = ({
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
-  const handleSelectedApplication = async (application) => {
-    dispatch(deselectApplication());
-    dispatch(selectApplication(application));
-    setComponentName(VIEW);
-    handleVisibility(true);
-    setAppVisibility(true);
-  };
+  const handleSelectedApplication = useCallback(
+    async (application) => {
+      dispatch(deselectApplication());
+      dispatch(selectApplication(application));
+      setComponentName(VIEW);
+      handleVisibility(true);
+      setAppVisibility(true);
+    },
+    [dispatch, setComponentName, handleVisibility, setAppVisibility]
+  );
 
-  const recursiveSearch = (obj, term) => {
+  const recursiveSearch = useCallback((obj, term) => {
     if (typeof obj === "object") {
       for (let prop in obj) {
         if (recursiveSearch(obj[prop], term)) {
@@ -45,26 +48,31 @@ const Content = ({
       return obj.toLowerCase().includes(term.toLowerCase());
     }
     return false;
-  };
+  }, []);
 
-  const filteredApplications = applications.filter((app) => {
-    for (let prop in app) {
-      if (app[prop].isShown && recursiveSearch(app[prop].value, searchTerm)) {
-        return true;
+  const filteredApplications = useMemo(() => {
+    return applications.filter((app) => {
+      for (let prop in app) {
+        if (app[prop].isShown && recursiveSearch(app[prop].value, searchTerm)) {
+          return true;
+        }
       }
-    }
-    return false;
-  });
+      return false;
+    });
+  }, [applications, recursiveSearch, searchTerm]);
 
   const title = activeCategory ? activeCategory.value : "Job Applications";
 
-  const handleEditForm = (e, app) => {
-    e.stopPropagation();
-    dispatch(selectApplication(app));
-    setComponentName(CREATE);
-    handleVisibility(true);
-    setAppVisibility(true);
-  };
+  const handleEditForm = useCallback(
+    (e, app) => {
+      e.stopPropagation();
+      dispatch(selectApplication(app));
+      setComponentName(CREATE);
+      handleVisibility(true);
+      setAppVisibility(true);
+    },
+    [dispatch, setComponentName, handleVisibility, setAppVisibility]
+  );
 
   return (
     <div className="content-container light blue">

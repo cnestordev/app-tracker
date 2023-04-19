@@ -10,7 +10,7 @@ import {
   replaceApplication,
   removeApplication,
 } from "../redux/features/userSlice.js";
-import { STATUSES, SUCCESS, FORM_VALUES } from "../utils/constants";
+import { STATUSES, SUCCESS, FORM_VALUES, DANGER } from "../utils/constants";
 import Dropdown from "./Dropdown";
 import { PlusCircle, Save, Trash, X } from "react-feather";
 import { deselectApplication } from "../redux/features/applicationSlice";
@@ -148,8 +148,10 @@ const AddApplication = ({ handleSetVisibility }) => {
         );
         dispatch(replaceApplication(response.data.data));
         handleSetVisibility(false);
+        dispatch(setMessage({ message: response.data.message, type: SUCCESS }));
       } catch (error) {
-        console.log(error);
+        const message = error.response.data.message;
+        dispatch(setMessage({ message, type: DANGER }));
       }
     } else {
       try {
@@ -159,8 +161,10 @@ const AddApplication = ({ handleSetVisibility }) => {
         );
         dispatch(updateApplications(response.data.data));
         handleSetVisibility(false);
+        dispatch(setMessage({ message: response.data.message, type: SUCCESS }));
       } catch (error) {
-        console.log(error);
+        const message = error.response.data.message;
+        dispatch(setMessage({ message, type: DANGER }));
       }
     }
   };
@@ -176,10 +180,12 @@ const AddApplication = ({ handleSetVisibility }) => {
         `/user/${userId}/application/newcategory`,
         { value: category }
       );
-      console.log(response.data.data);
+      const message = response.data.message;
       dispatch(updateCategories(response.data.data));
+      dispatch(setMessage({ message, type: SUCCESS }));
     } catch (error) {
-      console.log(error);
+      const message = error.response.data.message;
+      dispatch(setMessage({ message, type: DANGER }));
     }
   };
 
@@ -235,7 +241,8 @@ const AddApplication = ({ handleSetVisibility }) => {
       dispatch(removeApplication(response.data.applicationId));
       handleCancelAction();
     } catch (error) {
-      console.log(error);
+      const message = error.response.data.message;
+      dispatch(setMessage({ message, type: DANGER }));
     }
   };
 
