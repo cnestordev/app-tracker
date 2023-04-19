@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useState } from "react";
 import "../styles/Content.css";
 import {
   CREATE,
@@ -7,13 +7,18 @@ import {
   INFO,
   LOCATION,
   VIEW,
+  COMMUTE,
 } from "../utils/constants";
-import { Settings, Edit } from "react-feather";
+import { Settings } from "react-feather";
 import {
   deselectApplication,
   selectApplication,
 } from "../redux/features/applicationSlice";
 import { useDispatch } from "react-redux";
+import hybrid from "../assets/hybrid.svg";
+import remote from "../assets/home.svg";
+import onsite from "../assets/building.svg";
+import edit from "../assets/edit.svg";
 
 const Content = ({
   handleVisibility,
@@ -26,18 +31,15 @@ const Content = ({
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
 
-  const handleSelectedApplication = useCallback(
-    async (application) => {
-      dispatch(deselectApplication());
-      dispatch(selectApplication(application));
-      setComponentName(VIEW);
-      handleVisibility(true);
-      setAppVisibility(true);
-    },
-    [dispatch, setComponentName, handleVisibility, setAppVisibility]
-  );
+  const handleSelectedApplication = async (application) => {
+    dispatch(deselectApplication());
+    dispatch(selectApplication(application));
+    setComponentName(VIEW);
+    handleVisibility(true);
+    setAppVisibility(true);
+  };
 
-  const recursiveSearch = useCallback((obj, term) => {
+  const recursiveSearch = (obj, term) => {
     if (typeof obj === "object") {
       for (let prop in obj) {
         if (recursiveSearch(obj[prop], term)) {
@@ -48,31 +50,50 @@ const Content = ({
       return obj.toLowerCase().includes(term.toLowerCase());
     }
     return false;
-  }, []);
+  };
 
-  const filteredApplications = useMemo(() => {
-    return applications.filter((app) => {
-      for (let prop in app) {
-        if (app[prop].isShown && recursiveSearch(app[prop].value, searchTerm)) {
-          return true;
-        }
+  const filteredApplications = applications.filter((app) => {
+    for (let prop in app) {
+      if (app[prop].isShown && recursiveSearch(app[prop].value, searchTerm)) {
+        return true;
       }
-      return false;
-    });
-  }, [applications, recursiveSearch, searchTerm]);
+    }
+    return false;
+  });
 
   const title = activeCategory ? activeCategory.value : "Job Applications";
 
-  const handleEditForm = useCallback(
-    (e, app) => {
-      e.stopPropagation();
-      dispatch(selectApplication(app));
-      setComponentName(CREATE);
-      handleVisibility(true);
-      setAppVisibility(true);
-    },
-    [dispatch, setComponentName, handleVisibility, setAppVisibility]
-  );
+  const handleEditForm = (e, app) => {
+    e.stopPropagation();
+    dispatch(selectApplication(app));
+    setComponentName(CREATE);
+    handleVisibility(true);
+    setAppVisibility(true);
+  };
+
+  const renderIcon = (key, value, app, i) => {
+    const COMMUTE_ICONS = {
+      onsite: onsite,
+      hybrid: hybrid,
+      remote: remote,
+    };
+
+    if (key === INFO) {
+      return (
+        <div className="header-item" onClick={(e) => handleEditForm(e, app)}>
+          <img src={edit} alt="info" />
+        </div>
+      );
+    }
+    if (key === COMMUTE) {
+      const icon = COMMUTE_ICONS[value];
+      return (
+        <div className="header-item" key={`${key}-${i}`}>
+          <img src={icon} alt={value} />
+        </div>
+      );
+    }
+  };
 
   return (
     <div className="content-container light blue">
@@ -126,16 +147,9 @@ const Content = ({
                       {formattedDate}
                     </div>
                   );
-                } else if (key === INFO) {
-                  return (
-                    <div
-                      onClick={(e) => handleEditForm(e, app)}
-                      key={`${key}-${i}`}
-                      className="header-item"
-                    >
-                      <Edit />
-                    </div>
-                  );
+                } else if (key === INFO || key === COMMUTE) {
+                  const value = app[key].value;
+                  return renderIcon(key, value, app, i);
                 } else {
                   const value = app[key].value;
                   return (
