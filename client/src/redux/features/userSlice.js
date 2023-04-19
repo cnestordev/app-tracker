@@ -44,6 +44,25 @@ export const userSlice = createSlice({
         state.applications[index] = updatedApplication;
       }
     },
+    removeApplication: (state, action) => {
+      const applicationId = action.payload;
+
+      // Remove the application from the user's `applications` array
+      state.applications = state.applications.filter(
+        (app) => app._id !== applicationId
+      );
+
+      // Find the category that contains the application
+      const category = state.categories.find((cat) =>
+        cat.applications.includes(applicationId)
+      );
+      if (category) {
+        // Remove the application from the category's `applications` array
+        category.applications = category.applications.filter(
+          (appId) => appId !== applicationId
+        );
+      }
+    },
   },
 });
 
@@ -54,6 +73,7 @@ export const {
   updateCategories,
   updateApplications,
   replaceApplication,
+  removeApplication,
 } = userSlice.actions;
 
 export default userSlice.reducer;

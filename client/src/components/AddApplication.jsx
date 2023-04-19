@@ -8,11 +8,13 @@ import {
   updateCategories,
   updateApplications,
   replaceApplication,
+  removeApplication,
 } from "../redux/features/userSlice.js";
-import { STATUSES, FORM_VALUES } from "../utils/constants";
+import { STATUSES, SUCCESS, FORM_VALUES } from "../utils/constants";
 import Dropdown from "./Dropdown";
 import { PlusCircle, Save, Trash, X } from "react-feather";
 import { deselectApplication } from "../redux/features/applicationSlice";
+import { setMessage } from "../redux/features/messageSlice";
 
 const AddApplication = ({ handleSetVisibility }) => {
   const [showCalendar, setShowCalendar] = useState(false);
@@ -28,9 +30,7 @@ const AddApplication = ({ handleSetVisibility }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    console.log("useeffect");
     if (selectedApplication._id) {
-      console.log("...editing....");
       setIsEditing(true);
       setFormValues({
         role: {
@@ -225,8 +225,18 @@ const AddApplication = ({ handleSetVisibility }) => {
     handleSetVisibility(false);
   };
 
-  const handleDeleteAction = () => {
-    console.log("Deleting...");
+  const handleDeleteAction = async () => {
+    try {
+      const response = await axios.delete(
+        `/user/${userId}/application/${formValues._id}/deleteapplication`
+      );
+      console.log(response.data);
+      dispatch(setMessage({ message: response.data.message, type: SUCCESS }));
+      dispatch(removeApplication(response.data.applicationId));
+      handleCancelAction();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

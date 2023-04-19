@@ -95,6 +95,42 @@ router.put(
   }
 );
 
+router.delete(
+  "/:id/application/:applicationId/deleteapplication",
+  checkAuth,
+  checkIdMatch,
+  async (req, res) => {
+    const applicationId = req.params.applicationId;
+    const userId = req.params.id;
+    try {
+      const application = await Application.findOneAndDelete({
+        _id: applicationId,
+      });
+      await User.findOneAndUpdate(
+        { _id: userId },
+        { $pull: { applications: applicationId } },
+        { new: true }
+      );
+      await Category.findOneAndUpdate(
+        { _id: application.category.id },
+        { $pull: { applications: applicationId } },
+        { new: true }
+      );
+      res.status(200).json({
+        success: true,
+        message: "Application successfully deleted.",
+        applicationId,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({
+        success: false,
+        message: "An error occurred while deleting your application.",
+      });
+    }
+  }
+);
+
 router.put("/:id/application/newcategory", async (req, res) => {
   const userId = req.params.id;
   const { value } = req.body;

@@ -21,7 +21,13 @@ const Menu = ({
   const menuFooterRef = useRef(null);
   const navigate = useNavigate();
   const username = useSelector((state) => state.user.username);
-  const categories = useSelector((state) => state.user.categories);
+  const userCategories = useSelector((state) => state.user.categories);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    setCategories(userCategories);
+  }, [userCategories]);
+
   const dispatch = useDispatch();
 
   const handleCreateClick = () => {
