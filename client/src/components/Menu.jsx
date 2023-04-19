@@ -5,7 +5,7 @@ import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { CREATE, DANGER, SUCCESS } from "../utils/constants";
+import { ACTIVE, CREATE, DANGER, HIDDEN, SUCCESS } from "../utils/constants";
 
 import { useDispatch } from "react-redux";
 import { deselectApplication } from "../redux/features/applicationSlice";
@@ -99,7 +99,7 @@ const Menu = ({
         }}
         className="menu-footer"
       >
-        <div className={`user-settings ${toggleMenu ? "active" : "hidden"}`}>
+        <div className={`user-settings ${toggleMenu ? ACTIVE : HIDDEN}`}>
           <div onClick={() => handleUserLogout()} className="user-setting">
             <LogOut />
             <span>Sign Out</span>

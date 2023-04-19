@@ -1,11 +1,12 @@
 import "../styles/Category.css";
+import { ACTIVE } from "../utils/constants";
 
 const Category = ({ handleFilter, category, activeCategory }) => {
   return (
     <div
       onClick={() => handleFilter(category)}
       className={`category-container light blue ${
-        activeCategory._id === category._id ? "active" : ""
+        activeCategory._id === category._id ? ACTIVE : ""
       }`}
     >
       <span className="cat-count">{category.applications.length}</span>

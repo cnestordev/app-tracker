@@ -14,6 +14,10 @@ export const BLUE = "blue";
 export const CREATE = "create";
 export const VIEW = "view";
 
+// Common variables
+export const ACTIVE = "active";
+export const HIDDEN = "hidden";
+
 // HEADERS
 export const ROLE = "role";
 export const COMPANY = "company";

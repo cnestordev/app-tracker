@@ -1,5 +1,5 @@
 import "../styles/View.css";
-import { CREATE } from "../utils/constants";
+import { ACTIVE, CREATE, HIDDEN } from "../utils/constants";
 import AddApplication from "./AddApplication";
 import ViewApplication from "./ViewApplication";
 
@@ -19,7 +19,7 @@ const View = ({
 
   return (
     <div
-      className={`view-container ${appVisibility ? "active" : "hidden"}`}
+      className={`view-container ${appVisibility ? ACTIVE : HIDDEN}`}
       onAnimationEnd={appVisibility ? undefined : handleAnimationEnd}
     >
       {componentName.includes(CREATE) ? (

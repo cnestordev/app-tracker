@@ -10,7 +10,13 @@ import {
   replaceApplication,
   removeApplication,
 } from "../redux/features/userSlice.js";
-import { STATUSES, SUCCESS, FORM_VALUES, DANGER } from "../utils/constants";
+import {
+  STATUSES,
+  SUCCESS,
+  FORM_VALUES,
+  DANGER,
+  ACTIVE,
+} from "../utils/constants";
 import Dropdown from "./Dropdown";
 import { PlusCircle, Save, Trash, X } from "react-feather";
 import { deselectApplication } from "../redux/features/applicationSlice";
@@ -292,7 +298,7 @@ const AddApplication = ({ handleSetVisibility }) => {
         <div className="radio-options">
           <div
             className={`radio-input ${
-              formValues.commute.value === "remote" ? "active" : ""
+              formValues.commute.value === "remote" ? ACTIVE : ""
             }`}
             role="radio"
             tabIndex={0}
@@ -303,7 +309,7 @@ const AddApplication = ({ handleSetVisibility }) => {
           </div>
           <div
             className={`radio-input ${
-              formValues.commute.value === "onsite" ? "active" : ""
+              formValues.commute.value === "onsite" ? ACTIVE : ""
             }`}
             role="radio"
             tabIndex={0}
@@ -314,7 +320,7 @@ const AddApplication = ({ handleSetVisibility }) => {
           </div>
           <div
             className={`radio-input ${
-              formValues.commute.value === "hybrid" ? "active" : ""
+              formValues.commute.value === "hybrid" ? ACTIVE : ""
             }`}
             role="radio"
             tabIndex={0}
