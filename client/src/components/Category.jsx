@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 const Category = ({ handleFilter, category, activeCategory }) => {
   const theme = useSelector((state) => state.user.theme.type);
 
+  const count = category.applications.filter((app) => !app.isHidden).length;
+
   return (
     <div
       onClick={() => handleFilter(category)}
@@ -12,7 +14,7 @@ const Category = ({ handleFilter, category, activeCategory }) => {
         activeCategory._id === category._id ? ACTIVE : ""
       }`}
     >
-      <span className="cat-count">{category.applications.length}</span>
+      <span className="cat-count">{count}</span>
       <h3>{category.value}</h3>
     </div>
   );

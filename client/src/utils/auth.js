@@ -11,6 +11,10 @@ export const handleLoginSubmit = (
   return axios.post(endpoint, newUser);
 };
 
+export const handlePurgeContent = (userId) => {
+  return axios.delete(`/user/${userId}/application/purgeapplications`);
+};
+
 export const handleLogout = () => {
   return axios.post("/auth/logout");
 };

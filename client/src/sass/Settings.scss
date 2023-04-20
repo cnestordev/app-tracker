@@ -9,6 +9,8 @@
   }
   .settings-body {
     .settings-item {
+      padding: 15px;
+      border-radius: 10px;
       .item-title {
         display: flex;
         align-items: center;
@@ -17,6 +19,9 @@
           font-size: shared.$font-size-subheading;
           font-weight: 500;
         }
+      }
+      .item-action {
+        cursor: pointer;
       }
       display: flex;
       align-items: center;

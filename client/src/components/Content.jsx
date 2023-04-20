@@ -37,17 +37,21 @@ const Content = ({
     dispatch(deselectApplication());
     dispatch(selectApplication(application));
     setComponentName(VIEW);
+    // handleVisibility will mount or unmount the component
     handleVisibility(true);
+    // setAppVisibility will trigger the animation to display or "hide" the component
     setAppVisibility(true);
   };
 
   const recursiveSearch = (obj, term) => {
+    // if an application's property is a nested objects, loop through the fn again to check it's nested values.
     if (typeof obj === "object") {
       for (let prop in obj) {
         if (recursiveSearch(obj[prop], term)) {
           return true;
         }
       }
+      // if the application's property is not a nested object, check the value of the property
     } else if (typeof obj === "string") {
       return obj.toLowerCase().includes(term.toLowerCase());
     }
@@ -55,6 +59,11 @@ const Content = ({
   };
 
   const filteredApplications = applications.filter((app) => {
+    // hide applications with their isHidden property set to true
+    if (app.isHidden && app.isHidden.value) {
+      return false;
+    }
+
     for (let prop in app) {
       if (app[prop].isShown && recursiveSearch(app[prop].value, searchTerm)) {
         return true;

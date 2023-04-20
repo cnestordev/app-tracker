@@ -15,6 +15,18 @@ const CategorySchema = mongoose.Schema({
       ref: "Application",
     },
   ],
+  hiddenApplications: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Application",
+    },
+  ],
+  archivedApplications: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Application",
+    },
+  ],
 });
 
 module.exports = mongoose.model("Category", CategorySchema);

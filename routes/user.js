@@ -18,8 +18,15 @@ router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
       .populate({
         path: "categories",
         select: "value applications",
+        populate: {
+          path: "applications",
+          select: "-category",
+        },
       })
-      .populate("applications");
+      .populate({
+        path: "applications",
+        select: "-category",
+      });
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.error(error);
@@ -107,29 +114,100 @@ router.delete(
     const applicationId = req.params.applicationId;
     const userId = req.params.id;
     try {
-      const application = await Application.findOneAndDelete({
-        _id: applicationId,
-      });
-      await User.findOneAndUpdate(
-        { _id: userId },
-        { $pull: { applications: applicationId } },
+      const application = await Application.findOneAndUpdate(
+        { _id: applicationId },
+        { "isHidden.value": true },
         { new: true }
       );
+      const categoryId = application.category.id;
       await Category.findOneAndUpdate(
-        { _id: application.category.id },
-        { $pull: { applications: applicationId } },
+        { _id: categoryId },
+        {
+          $pull: { applications: applicationId },
+          $addToSet: { hiddenApplications: applicationId },
+        },
         { new: true }
       );
       res.status(200).json({
         success: true,
-        message: "Application successfully deleted.",
+        message: "Application successfully hidden.",
         applicationId,
       });
     } catch (error) {
       console.error(error);
       res.status(500).json({
         success: false,
-        message: "An error occurred while deleting your application.",
+        message: "An error occurred while hiding your application.",
+      });
+    }
+  }
+);
+
+router.delete(
+  "/:id/application/purgeapplications",
+  checkAuth,
+  checkIdMatch,
+  async (req, res) => {
+    try {
+      const user = await User.findById(req.params.id)
+        .populate({
+          path: "categories",
+          populate: {
+            path: "applications",
+            model: "Application",
+          },
+        })
+        .populate({
+          path: "applications",
+          select: "-category",
+        });
+
+      if (!user) return res.status(404).json({ msg: "User not found" });
+
+      for (let i = 0; i < user.categories.length; i++) {
+        const category = user.categories[i];
+        const applicationsToHide = category.applications.filter(
+          (application) => !application.isHidden.value
+        );
+
+        // Update isHidden value of applicationsToHide
+        applicationsToHide.forEach(async (application) => {
+          application.isHidden.value = true;
+          await application.save();
+        });
+
+        category.applications = category.applications.filter(
+          (application) => !application.isHidden.value
+        );
+        category.hiddenApplications =
+          category.hiddenApplications.concat(applicationsToHide);
+
+        await category.save();
+      }
+
+      const updatedUser = await User.findById(req.params.id)
+        .populate({
+          path: "categories",
+          populate: {
+            path: "applications",
+            model: "Application",
+          },
+        })
+        .populate({
+          path: "applications",
+          select: "-category",
+        });
+
+      return res.json({
+        success: true,
+        message: "Applications successfully deleted",
+        data: updatedUser,
+      });
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).json({
+        success: false,
+        message: "There was a problem deleting your applications",
       });
     }
   }
