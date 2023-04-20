@@ -10,11 +10,15 @@ import { CREATE } from "../utils/constants";
 const Dashboard = (props) => {
   const applications = useSelector((state) => state.user.applications);
 
+  // the selected category to filter by
   const [activeCategory, setActiveCategory] = useState("");
   const [filteredApplications, setFilteredApplications] =
     useState(applications);
+
+  // control visibility animations
   const [appVisibility, setAppVisibility] = useState(false);
   const [isMounted, setIsMoutned] = useState(false);
+  // string for determining which component gets displayed
   const [componentName, setComponentName] = useState(CREATE);
 
   const theme = useSelector((state) => state.user.theme.type);

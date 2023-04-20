@@ -10,6 +10,7 @@ const Dropdown = ({ listConfig }) => {
   const [selectedItem, setSelectedItem] = useState("");
   const theme = useSelector((state) => state.user.theme.type);
 
+  // callback for when option is selected
   const handleItemSelection = (item) => {
     setSelectedItem(item.value);
     listConfig.handler(item);
@@ -20,6 +21,7 @@ const Dropdown = ({ listConfig }) => {
     setIsOpen(!isOpen);
   };
 
+  // listening for the Eneter key, calls cb fn passing along the value of input
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       addNewItem.handler(event.target.value);

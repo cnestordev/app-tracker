@@ -29,6 +29,7 @@ const Login = (props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // if user is logged in, navigate to dashboard
     const getUser = async () => {
       try {
         await fetchUser();

@@ -78,10 +78,13 @@ const Content = ({
     e.stopPropagation();
     dispatch(selectApplication(app));
     setComponentName(CREATE);
+    // animates the component to hide
     handleVisibility(true);
+    // unmounts the component after animation ends
     setAppVisibility(true);
   };
 
+  // icons to display on the Content row
   const renderIcon = (key, value, app, i) => {
     const COMMUTE_ICONS = {
       onsite: onsite,

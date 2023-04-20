@@ -37,6 +37,8 @@ const AddApplication = ({ handleSetVisibility }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
+    // if an application is selected, populate form with its values
+    // and use isEditing to render the edit form instead of the "add new application" form.
     if (selectedApplication._id) {
       setIsEditing(true);
       setFormValues({
@@ -82,6 +84,7 @@ const AddApplication = ({ handleSetVisibility }) => {
   };
 
   useEffect(() => {
+    // click outside of the calendar to close it
     const handleClickOutside = (e) => {
       if (
         calendarWrapperRef.current &&
@@ -197,6 +200,13 @@ const AddApplication = ({ handleSetVisibility }) => {
   };
 
   // Config object for status Dropdown list options
+  // title = dropdown menu header name
+  // listitems = array of items to display on the dropdown options
+  // handler = cb function to handle when user clicks on option, passes the value as an argument
+  // isActive = boolean value for determining whether to add option to add new dropdown option
+  // description = placeholder instructions
+  // icon = icon to display
+  // handler = cb function that passes the value the user entered in text input
   const statusListConfig = {
     title: "Application status",
     listitems: STATUSES,
@@ -232,6 +242,9 @@ const AddApplication = ({ handleSetVisibility }) => {
     },
   };
 
+  // cancel (close modal) will:
+  // deselect the applicaton
+  // hide the applicaiton
   const handleCancelAction = () => {
     setIsEditing(false);
     dispatch(deselectApplication());
