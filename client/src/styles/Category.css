@@ -39,3 +39,21 @@
 .category-container.darkblue.active {
   background-color: #293c5a;
 }
+.category-container.lightgreen {
+  color: #3a414a;
+}
+.category-container.lightgreen .cat-count {
+  background-color: #77d387;
+}
+.category-container.lightgreen.active {
+  background-color: #cefbd6;
+}
+.category-container.darkgreen {
+  color: #fff;
+}
+.category-container.darkgreen .cat-count {
+  background-color: #0a5807;
+}
+.category-container.darkgreen.active {
+  background-color: #073409;
+}

@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 @use "mixins.scss";
 
 .new-app-container {
@@ -64,6 +65,7 @@
       }
     }
   }
+  // light blue theme
   &.lightblue {
     .new-app-heading {
       color: bluetheme.$theme-light-addapp-header-color;
@@ -134,6 +136,82 @@
         @include mixins.themeButton(
           bluetheme.$theme-dark-red-btn-bg-color,
           bluetheme.$theme-dark-red-btn-text-color
+        );
+      }
+    }
+  }
+
+  // light green
+  &.lightgreen {
+    .new-app-heading {
+      color: greentheme.$theme-light-addapp-header-color;
+    }
+    .new-app-input {
+      input[type="text"],
+      .job-info-textarea {
+        background-color: greentheme.$theme-light-addapp-input-bg;
+      }
+      .radio-options {
+        .radio-input {
+          background-color: greentheme.$theme-light-addapp-radio-inactive-bg;
+          color: greentheme.$theme-light-addapp-radio-inactive-text;
+          &.active {
+            background-color: greentheme.$theme-light-btn-bg-color;
+            color: greentheme.$theme-light-btn-text-color;
+          }
+        }
+      }
+    }
+    .form-actions {
+      .submit-btn,
+      .cancel-btn {
+        @include mixins.themeButton(
+          greentheme.$theme-light-btn-bg-color,
+          greentheme.$theme-light-btn-text-color
+        );
+      }
+      .delete-btn {
+        @include mixins.themeButton(
+          greentheme.$theme-light-red-btn-bg-color,
+          greentheme.$theme-light-red-btn-text-color
+        );
+      }
+    }
+  }
+
+  // dark blue theme
+  &.darkgreen {
+    .new-app-heading {
+      color: greentheme.$theme-dark-addapp-header-color;
+    }
+    .new-app-input {
+      input[type="text"],
+      .job-info-textarea {
+        background-color: greentheme.$theme-dark-addapp-input-bg;
+      }
+      .radio-options {
+        .radio-input {
+          background-color: greentheme.$theme-dark-addapp-radio-inactive-bg;
+          color: greentheme.$theme-dark-addapp-radio-inactive-text;
+          &.active {
+            background-color: greentheme.$theme-dark-btn-bg-color;
+            color: greentheme.$theme-dark-btn-text-color;
+          }
+        }
+      }
+    }
+    .form-actions {
+      .submit-btn,
+      .cancel-btn {
+        @include mixins.themeButton(
+          greentheme.$theme-dark-btn-bg-color,
+          greentheme.$theme-dark-btn-text-color
+        );
+      }
+      .delete-btn {
+        @include mixins.themeButton(
+          greentheme.$theme-dark-red-btn-bg-color,
+          greentheme.$theme-dark-red-btn-text-color
         );
       }
     }

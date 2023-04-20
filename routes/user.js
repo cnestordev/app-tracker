@@ -6,7 +6,7 @@ const User = require("../models/User");
 const Category = require("../models/Category");
 const Application = require("../models/Application");
 
-router.put("/:id/toggledarkmode", checkAuth, async (req, res) => {
+router.put("/:id/toggleColorTheme", checkAuth, async (req, res) => {
   const { type } = req.body;
   console.log(req.params.id);
   try {

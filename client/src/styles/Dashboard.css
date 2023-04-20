@@ -30,3 +30,17 @@
 .dashboard-container.darkblue > :nth-child(2) {
   background-color: #2b3448;
 }
+.dashboard-container.lightgreen {
+  /* Styles for content */
+  background-color: #eefff1;
+}
+.dashboard-container.lightgreen > :nth-child(2) {
+  background-color: #fff;
+}
+.dashboard-container.darkgreen {
+  /* Styles for content */
+  background-color: #041e05;
+}
+.dashboard-container.darkgreen > :nth-child(2) {
+  background-color: #09240e;
+}

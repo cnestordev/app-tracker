@@ -1,5 +1,6 @@
 import React from "react";
 import DarkModeToggle from "./DarkModeToggle";
+import ColorToggle from "./ColorToggle";
 import "../styles/Settings.css";
 import { Trash } from "react-feather";
 import { handlePurgeContent } from "../utils/auth";
@@ -38,6 +39,14 @@ const Settings = (props) => {
           </span>
           <div className="item-action">
             <DarkModeToggle />
+          </div>
+        </div>
+        <div className="settings-item">
+          <span className="item-title">
+            <h3>Color Mode</h3>
+          </span>
+          <div className="item-action">
+            <ColorToggle />
           </div>
         </div>
         <div className="settings-item">

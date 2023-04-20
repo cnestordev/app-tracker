@@ -111,3 +111,57 @@
   border-radius: 10px;
   width: 100%;
 }
+.view-app-container.lightgreen .view-title .header {
+  color: #3a414a;
+}
+.view-app-container.lightgreen .view-header {
+  color: #6b6b6b;
+}
+.view-app-container.lightgreen .view-header .header-right .metadata {
+  color: #6b6b6b;
+}
+.view-app-container.lightgreen .view-header .header-right .view-app-status {
+  background-color: #a5ffd0;
+  color: #0c5c32;
+}
+.view-app-container.lightgreen .view-body {
+  background-color: #f1f1f1;
+  color: #555555;
+}
+.view-app-container.lightgreen .view-footer button {
+  background-color: #eefff6;
+  color: #32ad1c;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+}
+.view-app-container.darkgreen .view-title .header {
+  color: #e3fde3;
+}
+.view-app-container.darkgreen .view-header {
+  color: #e1ffe5;
+}
+.view-app-container.darkgreen .view-header .header-right .metadata {
+  color: #e1ffe5;
+}
+.view-app-container.darkgreen .view-header .header-right .view-app-status {
+  background-color: #0d4416;
+  color: #339d65;
+}
+.view-app-container.darkgreen .view-body {
+  background-color: #022c05;
+  color: #9fc7a2;
+}
+.view-app-container.darkgreen .view-footer button {
+  background-color: #003602;
+  color: #62ad55;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+}

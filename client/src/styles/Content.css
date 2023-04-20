@@ -103,3 +103,41 @@
 .content-container.darkblue .table-row:nth-child(odd) {
   background-color: #1e293b;
 }
+.content-container.lightgreen .content-header {
+  color: #3a414a;
+}
+.content-container.lightgreen .content-header .header-title .searchbar {
+  background-color: #f6f6f6;
+}
+.content-container.lightgreen .table-header,
+.content-container.lightgreen .table-row {
+  background-color: transparent;
+}
+.content-container.lightgreen .table-header {
+  color: #686868;
+}
+.content-container.lightgreen .table-row {
+  color: #2a2a2a;
+}
+.content-container.lightgreen .table-row:nth-child(odd) {
+  background-color: #eefff1;
+}
+.content-container.darkgreen .content-header {
+  color: #ebffee;
+}
+.content-container.darkgreen .content-header .header-title .searchbar {
+  background-color: #1c3421;
+}
+.content-container.darkgreen .table-header,
+.content-container.darkgreen .table-row {
+  background-color: transparent;
+}
+.content-container.darkgreen .table-header {
+  color: #e6ffe9;
+}
+.content-container.darkgreen .table-row {
+  color: #eff3ff;
+}
+.content-container.darkgreen .table-row:nth-child(odd) {
+  background-color: #041e05;
+}

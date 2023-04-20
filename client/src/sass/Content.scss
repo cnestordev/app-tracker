@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 
 $left-padding: 25px;
 
@@ -121,6 +122,58 @@ $left-padding: 25px;
       color: bluetheme.$theme-dark-table-row-text;
       &:nth-child(odd) {
         background-color: bluetheme.$theme-dark-table-row-bg;
+      }
+    }
+  }
+  // light green theme
+  &.lightgreen {
+    .content-header {
+      color: greentheme.$theme-light-header-text;
+      .header-title {
+        .searchbar {
+          background-color: greentheme.$theme-light-table-searchbar-bg;
+        }
+      }
+    }
+    .table-header,
+    .table-row {
+      background-color: transparent;
+    }
+
+    .table-header {
+      color: greentheme.$theme-light-table-header-text-color;
+    }
+
+    .table-row {
+      color: greentheme.$theme-light-table-row-text;
+      &:nth-child(odd) {
+        background-color: greentheme.$theme-light-table-row-bg;
+      }
+    }
+  }
+  // dark green theme
+  &.darkgreen {
+    .content-header {
+      color: greentheme.$theme-dark-header-text;
+      .header-title {
+        .searchbar {
+          background-color: greentheme.$theme-dark-table-searchbar-bg;
+        }
+      }
+    }
+    .table-header,
+    .table-row {
+      background-color: transparent;
+    }
+
+    .table-header {
+      color: greentheme.$theme-dark-table-header-text-color;
+    }
+
+    .table-row {
+      color: greentheme.$theme-dark-table-row-text;
+      &:nth-child(odd) {
+        background-color: greentheme.$theme-dark-table-row-bg;
       }
     }
   }

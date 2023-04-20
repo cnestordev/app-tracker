@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 
 .menu-container {
   display: flex;
@@ -134,6 +135,53 @@
           color: bluetheme.$theme-dark-settings-menu-text-color;
           &:hover {
             background-color: bluetheme.$theme-dark-settings-menu-active-bg;
+          }
+        }
+      }
+    }
+  }
+  // light green
+  &.lightgreen {
+    .menu-header {
+      color: greentheme.$theme-light-menu-text;
+      button {
+        color: greentheme.$theme-light-action-button-text;
+        background-color: greentheme.$theme-light-action-button-bg;
+      }
+    }
+    .menu-footer {
+      background-color: greentheme.$theme-light-footer-menu-bg;
+      .user-settings {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        background-color: greentheme.$theme-light-settings-menu-bg;
+        .user-setting {
+          color: greentheme.$theme-light-settings-menu-text-color;
+          &:hover {
+            background-color: greentheme.$theme-light-settings-menu-active-bg;
+          }
+        }
+      }
+    }
+  }
+  // dark green theme
+  &.darkgreen {
+    .menu-header {
+      color: greentheme.$theme-dark-menu-text;
+      button {
+        color: greentheme.$theme-dark-action-button-text;
+        background-color: greentheme.$theme-dark-action-button-bg;
+      }
+    }
+    .menu-footer {
+      background-color: greentheme.$theme-dark-footer-menu-bg;
+      color: greentheme.$theme-dark-settings-menu-text-color;
+      .user-settings {
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        background-color: greentheme.$theme-dark-settings-menu-bg;
+        .user-setting {
+          color: greentheme.$theme-dark-settings-menu-text-color;
+          &:hover {
+            background-color: greentheme.$theme-dark-settings-menu-active-bg;
           }
         }
       }

@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 
 .category-container {
   display: flex;
@@ -23,6 +24,7 @@
     font-size: 15px;
     font-weight: 600;
   }
+  // light blue theme
   &.lightblue {
     color: bluetheme.$theme-light-menu-text;
     .cat-count {
@@ -40,6 +42,26 @@
     }
     &.active {
       background-color: bluetheme.$theme-dark-category-active-bg;
+    }
+  }
+  // light green theme
+  &.lightgreen {
+    color: greentheme.$theme-light-menu-text;
+    .cat-count {
+      background-color: greentheme.$theme-light-category-count-bg;
+    }
+    &.active {
+      background-color: greentheme.$theme-light-category-active-bg;
+    }
+  }
+  // dark green theme
+  &.darkgreen {
+    color: greentheme.$theme-dark-menu-text;
+    .cat-count {
+      background-color: greentheme.$theme-dark-category-count-bg;
+    }
+    &.active {
+      background-color: greentheme.$theme-dark-category-active-bg;
     }
   }
 }

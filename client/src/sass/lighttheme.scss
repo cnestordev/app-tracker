@@ -3,7 +3,7 @@
 // Light---------------------------------------------------------
 
 // Dashboard
-$theme-light-bg-blue: #eef6ff;
+$theme-light-bg-themeColor: #eef6ff;
 
 // Menu
 $theme-light-menu-text: #3a414a;
@@ -35,7 +35,7 @@ $theme-light-view-info-text: #555555;
 // Dark--------------------------------------------------------------
 
 // Dashboard
-$theme-dark-bg-blue: #1e293b;
+$theme-dark-bg-themeColor: #1e293b;
 
 // Menu
 $theme-dark-menu-text: #b2bcc9;
@@ -49,11 +49,11 @@ $theme-dark-settings-menu-active-bg: #26344a;
 $theme-dark-settings-menu-text-color: #b1c2dd;
 
 // Content
-$theme-dark-content-bg-blue: #2b3448;
+$theme-dark-content-bg-themeColor: #2b3448;
 $theme-dark-header-text: #e0e6f3;
 $theme-dark-table-header-bg: transparent;
 $theme-dark-table-header-text-color: #a2a5ad;
-$theme-dark-table-row-bg: $theme-dark-bg-blue;
+$theme-dark-table-row-bg: $theme-dark-bg-themeColor;
 $theme-dark-table-row-text: #a9aaad;
 $theme-dark-table-searchbar-bg: #1c2434;
 

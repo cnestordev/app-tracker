@@ -1,16 +1,16 @@
-// ---- Dark mode & Light mode BLUE VERSION -----
+// ---- Dark mode & Light mode GREEN VERSION -----
 
 // Light---------------------------------------------------------
 
 // Dashboard
-$theme-light-bg-themeColor: #eef6ff;
+$theme-light-bg-themeColor: #eefff1;
 
 // Menu
 $theme-light-menu-text: #3a414a;
-$theme-light-action-button-bg: #3c82f5;
+$theme-light-action-button-bg: #228b40;
 $theme-light-action-button-text: #fff;
-$theme-light-category-active-bg: #dbeafe;
-$theme-light-category-count-bg: #3c82f5;
+$theme-light-category-active-bg: #cefbd6;
+$theme-light-category-count-bg: #77d387;
 $theme-light-footer-menu-bg: $theme-light-category-active-bg;
 $theme-light-settings-menu-bg: #fff;
 $theme-light-settings-menu-active-bg: #ebebeb;
@@ -21,7 +21,7 @@ $theme-light-bg-white: #fff;
 $theme-light-header-text: #3a414a;
 $theme-light-table-header-bg: transparent;
 $theme-light-table-header-text-color: #686868;
-$theme-light-table-row-bg: #eef6ff;
+$theme-light-table-row-bg: $theme-light-bg-themeColor;
 $theme-light-table-row-text: #2a2a2a;
 $theme-light-table-searchbar-bg: #f6f6f6;
 
@@ -34,9 +34,9 @@ $theme-light-view-subheader-text: #6b6b6b;
 $theme-light-view-info-bg: #f1f1f1;
 $theme-light-view-info-text: #555555;
 
-// Blue button
-$theme-light-btn-bg-color: #eef6ff;
-$theme-light-btn-text-color: #3f84f2;
+// Green button
+$theme-light-btn-bg-color: #eefff6;
+$theme-light-btn-text-color: #32ad1c;
 // Red button
 $theme-light-red-btn-bg-color: #ffeeee;
 $theme-light-red-btn-text-color: #f23f3f;
@@ -57,53 +57,53 @@ $theme-light-dropdown-focus-item: $theme-light-btn-bg-color;
 // Dark--------------------------------------------------------------
 
 // Dashboard
-$theme-dark-bg-themeColor: #1e293b;
+$theme-dark-bg-themeColor: #041e05;
 
 // Menu
-$theme-dark-menu-text: #b2bcc9;
-$theme-dark-action-button-bg: #324c76;
+$theme-dark-menu-text: #fff;
+$theme-dark-action-button-bg: #0d4210;
 $theme-dark-action-button-text: #fff;
-$theme-dark-category-active-bg: #293c5a;
-$theme-dark-category-count-bg: #3d4f6c;
+$theme-dark-category-active-bg: #073409;
+$theme-dark-category-count-bg: #0a5807;
 $theme-dark-footer-menu-bg: $theme-dark-category-active-bg;
-$theme-dark-settings-menu-bg: #324462;
-$theme-dark-settings-menu-active-bg: #26344a;
-$theme-dark-settings-menu-text-color: #b1c2dd;
+$theme-dark-settings-menu-bg: #1a4a24;
+$theme-dark-settings-menu-active-bg: #31703e;
+$theme-dark-settings-menu-text-color: #c8f5cb;
 
 // Content
-$theme-dark-content-bg-themeColor: #2b3448;
-$theme-dark-header-text: #e0e6f3;
+$theme-dark-content-bg-themeColor: #09240e;
+$theme-dark-header-text: #ebffee;
 $theme-dark-table-header-bg: transparent;
-$theme-dark-table-header-text-color: #a2a5ad;
+$theme-dark-table-header-text-color: #e6ffe9;
 $theme-dark-table-row-bg: $theme-dark-bg-themeColor;
-$theme-dark-table-row-text: #a9aaad;
-$theme-dark-table-searchbar-bg: #1c2434;
+$theme-dark-table-row-text: #eff3ff;
+$theme-dark-table-searchbar-bg: #1c3421;
 
 // View > Application
-$theme-dark-view-bg-color: #282e3a;
+$theme-dark-view-bg-color: $theme-dark-bg-themeColor;
 $theme-dark-view-bg-shadow: rgb(4 4 4 / 35%) 0px 2px 5px 0px,
   rgb(16 16 16 / 42%) 0px 1px 1px 0px;
-$theme-dark-view-header-text: #a9aeb9;
-$theme-dark-view-subheader-text: #60697c;
-$theme-dark-view-info-bg: #262930;
-$theme-dark-view-info-text: #939292;
+$theme-dark-view-header-text: #e3fde3;
+$theme-dark-view-subheader-text: #e1ffe5;
+$theme-dark-view-info-bg: #022c05;
+$theme-dark-view-info-text: #9fc7a2;
 
 // Buttons
-$theme-dark-btn-bg-color: #2a3c60;
-$theme-dark-btn-text-color: #82a0cf;
+$theme-dark-btn-bg-color: #003602;
+$theme-dark-btn-text-color: #62ad55;
 // Red button
 $theme-dark-red-btn-bg-color: #602a2a;
 $theme-dark-red-btn-text-color: #f16f6f;
 
 // Add Application
-$theme-dark-addapp-header-color: #e0e6f3;
-$theme-dark-addapp-input-bg: #1c2434;
+$theme-dark-addapp-header-color: #ebffef;
+$theme-dark-addapp-input-bg: #162819;
 $theme-dark-addapp-dropdown-bg: $theme-dark-btn-bg-color;
-$theme-dark-addapp-radio-inactive-bg: #2f3c56;
-$theme-dark-addapp-radio-inactive-text: #4e638d;
+$theme-dark-addapp-radio-inactive-bg: #142817;
+$theme-dark-addapp-radio-inactive-text: #487259;
 
 // Dropdown
 $theme-dark-dropdown-bg: $theme-dark-addapp-input-bg;
 $theme-dark-dropdown-text: $theme-dark-table-row-text;
 $theme-dark-dropdown-input-bg: $theme-dark-dropdown-bg;
-$theme-dark-dropdown-focus-item: #4b5872;
+$theme-dark-dropdown-focus-item: #143213;

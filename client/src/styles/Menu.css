@@ -129,6 +129,47 @@
 .menu-container.darkblue .menu-footer .user-settings .user-setting:hover {
   background-color: #26344a;
 }
+.menu-container.lightgreen .menu-header {
+  color: #3a414a;
+}
+.menu-container.lightgreen .menu-header button {
+  color: #fff;
+  background-color: #228b40;
+}
+.menu-container.lightgreen .menu-footer {
+  background-color: #cefbd6;
+}
+.menu-container.lightgreen .menu-footer .user-settings {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #fff;
+}
+.menu-container.lightgreen .menu-footer .user-settings .user-setting {
+  color: #575757;
+}
+.menu-container.lightgreen .menu-footer .user-settings .user-setting:hover {
+  background-color: #ebebeb;
+}
+.menu-container.darkgreen .menu-header {
+  color: #fff;
+}
+.menu-container.darkgreen .menu-header button {
+  color: #fff;
+  background-color: #0d4210;
+}
+.menu-container.darkgreen .menu-footer {
+  background-color: #073409;
+  color: #c8f5cb;
+}
+.menu-container.darkgreen .menu-footer .user-settings {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background-color: #1a4a24;
+}
+.menu-container.darkgreen .menu-footer .user-settings .user-setting {
+  color: #c8f5cb;
+}
+.menu-container.darkgreen .menu-footer .user-settings .user-setting:hover {
+  background-color: #31703e;
+}
 
 @keyframes slideUp {
   0% {

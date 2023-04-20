@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 
 .view-container {
   border-radius: 10px;
@@ -29,6 +30,17 @@
   &.darkblue {
     background-color: bluetheme.$theme-dark-view-bg-color;
     box-shadow: bluetheme.$theme-dark-view-bg-shadow;
+  }
+  // light green
+  &.lightgreen {
+    background-color: greentheme.$theme-light-view-bg-color;
+    box-shadow: greentheme.$theme-light-view-bg-shadow;
+  }
+
+  // dark green theme
+  &.darkgreen {
+    background-color: greentheme.$theme-dark-view-bg-color;
+    box-shadow: greentheme.$theme-dark-view-bg-shadow;
   }
 }
 

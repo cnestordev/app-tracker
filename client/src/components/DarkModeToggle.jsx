@@ -17,7 +17,7 @@ const DarkModeToggle = ({ component }) => {
     try {
       if (userId) {
         // There is a logged-in user, so update their theme
-        const response = await axios.put(`/user/${userId}/toggledarkmode`, {
+        const response = await axios.put(`/user/${userId}/toggleColorTheme`, {
           type: newTheme,
         });
         dispatch(login(response.data.user));

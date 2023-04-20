@@ -1,0 +1,27 @@
+.color-toggle-container {
+  background-color: rgba(255, 255, 255, 0.3490196078);
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  display: flex;
+  gap: 8px;
+}
+.color-toggle-container .color-option {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  background-color: blue;
+  position: relative;
+}
+.color-toggle-container .color-option.lightblue {
+  background-color: #95c6ff;
+}
+.color-toggle-container .color-option.darkblue {
+  background-color: #1b54b3;
+}
+.color-toggle-container .color-option.lightgreen {
+  background-color: #c1ffcc;
+}
+.color-toggle-container .color-option.darkgreen {
+  background-color: #297c49;
+}

@@ -79,3 +79,35 @@
 .dropdown-container.darkblue .dropdown-list .new-list-item:hover {
   background-color: transparent;
 }
+.dropdown-container.lightgreen {
+  color: #3a414a;
+}
+.dropdown-container.lightgreen .dropdown-header {
+  background-color: #f6f6f6;
+}
+.dropdown-container.lightgreen .dropdown-list {
+  background-color: transparent;
+  border: 1px solid #e3e3e3;
+}
+.dropdown-container.lightgreen .dropdown-list .dropdown-item:hover {
+  background-color: #eefff6;
+}
+.dropdown-container.lightgreen .dropdown-list .new-list-item:hover {
+  background-color: transparent;
+}
+.dropdown-container.darkgreen {
+  color: #eff3ff;
+}
+.dropdown-container.darkgreen .dropdown-header {
+  background-color: #162819;
+}
+.dropdown-container.darkgreen .dropdown-list {
+  background-color: transparent;
+  border: 1px solid #e3e3e3;
+}
+.dropdown-container.darkgreen .dropdown-list .dropdown-item:hover {
+  background-color: #143213;
+}
+.dropdown-container.darkgreen .dropdown-list .new-list-item:hover {
+  background-color: transparent;
+}

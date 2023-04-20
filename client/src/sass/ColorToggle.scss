@@ -1,0 +1,27 @@
+.color-toggle-container {
+  background-color: #ffffff59;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  display: flex;
+  gap: 8px;
+  .color-option {
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: blue;
+    position: relative;
+    &.lightblue {
+      background-color: #95c6ff;
+    }
+    &.darkblue {
+      background-color: #1b54b3;
+    }
+    &.lightgreen {
+      background-color: #c1ffcc;
+    }
+    &.darkgreen {
+      background-color: #297c49;
+    }
+  }
+}

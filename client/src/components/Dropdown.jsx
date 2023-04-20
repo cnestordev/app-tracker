@@ -50,7 +50,7 @@ const Dropdown = ({ listConfig }) => {
           {listConfig.listitems.map((item, index) => {
             return (
               <span
-                key={item._id}
+                key={index}
                 onClick={() => handleItemSelection(item)}
                 className="dropdown-item"
               >

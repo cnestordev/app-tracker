@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 
 .dashboard-container {
   font-family: shared.$font-sans-serif;
@@ -21,7 +22,7 @@
   }
   &.lightblue {
     /* Styles for content */
-    background-color: bluetheme.$theme-light-bg-blue;
+    background-color: bluetheme.$theme-light-bg-themeColor;
     > :nth-child(2) {
       background-color: #fff;
     }
@@ -30,9 +31,26 @@
   // dark blue theme
   &.darkblue {
     /* Styles for content */
-    background-color: bluetheme.$theme-dark-bg-blue;
+    background-color: bluetheme.$theme-dark-bg-themeColor;
     > :nth-child(2) {
-      background-color: bluetheme.$theme-dark-content-bg-blue;
+      background-color: bluetheme.$theme-dark-content-bg-themeColor;
+    }
+  }
+  // light green
+  &.lightgreen {
+    /* Styles for content */
+    background-color: greentheme.$theme-light-bg-themeColor;
+    > :nth-child(2) {
+      background-color: #fff;
+    }
+  }
+
+  // dark green theme
+  &.darkgreen {
+    /* Styles for content */
+    background-color: greentheme.$theme-dark-bg-themeColor;
+    > :nth-child(2) {
+      background-color: greentheme.$theme-dark-content-bg-themeColor;
     }
   }
 }

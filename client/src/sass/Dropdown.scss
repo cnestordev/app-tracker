@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "bluetheme.scss";
+@use "greentheme.scss";
 
 $menu-padding: 10px;
 
@@ -82,6 +83,48 @@ $menu-padding: 10px;
       .dropdown-item {
         &:hover {
           background-color: bluetheme.$theme-dark-dropdown-focus-item;
+        }
+      }
+      .new-list-item {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  // light green theme
+  &.lightgreen {
+    color: greentheme.$theme-light-dropdown-text;
+    .dropdown-header {
+      background-color: greentheme.$theme-light-dropdown-bg;
+    }
+    .dropdown-list {
+      background-color: transparent;
+      border: 1px solid #e3e3e3;
+      .dropdown-item {
+        &:hover {
+          background-color: greentheme.$theme-light-dropdown-focus-item;
+        }
+      }
+      .new-list-item {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  // dark green theme
+  &.darkgreen {
+    color: greentheme.$theme-dark-dropdown-text;
+    .dropdown-header {
+      background-color: greentheme.$theme-dark-dropdown-bg;
+    }
+    .dropdown-list {
+      background-color: transparent;
+      border: 1px solid #e3e3e3;
+      .dropdown-item {
+        &:hover {
+          background-color: greentheme.$theme-dark-dropdown-focus-item;
         }
       }
       .new-list-item {

@@ -8,6 +8,9 @@ export const SUCCESS = "success";
 // UI Themes
 export const LIGHTBLUE = "lightblue";
 export const DARKBLUE = "darkblue";
+export const LIGHTGREEN = "lightgreen";
+export const DARKGREEN = "darkgreen";
+export const COLOR_OPTIONS = [LIGHTBLUE, DARKBLUE, LIGHTGREEN, DARKGREEN];
 
 // Sidemenu Component Selection
 export const CREATE = "create";
