@@ -48,7 +48,7 @@ export const SECOND_INTERVIEW = "2nd Interview";
 export const THIRD_INTERVIEW = "3rd Interview";
 export const REJECTED = "Rejected";
 export const JOB_OFFER = "Job Offer";
-export const ACCEPTED = "Applied Offer";
+export const ACCEPTED = "Accepted Offer";
 export const DECLINED = "Declined Offer";
 
 export const STATUSES = [
