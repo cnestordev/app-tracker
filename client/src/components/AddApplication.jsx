@@ -29,6 +29,7 @@ const AddApplication = ({ handleSetVisibility }) => {
   const userId = useSelector((state) => state.user._id);
   const categories = useSelector((state) => state.user.categories);
   const selectedApplication = useSelector((state) => state.application);
+  const theme = useSelector((state) => state.user.theme.type);
   const dispatch = useDispatch();
 
   const [formValues, setFormValues] = useState(FORM_VALUES);
@@ -253,7 +254,7 @@ const AddApplication = ({ handleSetVisibility }) => {
   };
 
   return (
-    <form className="new-app-container light blue" onSubmit={handleSubmit}>
+    <form className={`new-app-container ${theme}`} onSubmit={handleSubmit}>
       <h2 className="new-app-heading">AddApplication</h2>
       <div className="new-app-input">
         <input

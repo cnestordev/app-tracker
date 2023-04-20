@@ -57,24 +57,53 @@
   display: flex;
   margin-top: auto;
 }
-
-.light {
+.view-app-container.lightblue .view-title .header {
   color: #3a414a;
 }
-.light .view-header .header-right .metadata {
+.view-app-container.lightblue .view-header {
   color: #6b6b6b;
 }
-.light .view-header .header-right .view-app-status {
-  background-color: #50ff7c;
+.view-app-container.lightblue .view-header .header-right .metadata {
+  color: #6b6b6b;
 }
-.light .view-body {
+.view-app-container.lightblue .view-header .header-right .view-app-status {
+  background-color: #a5ffd0;
+  color: #0c5c32;
+}
+.view-app-container.lightblue .view-body {
   background-color: #f1f1f1;
   color: #555555;
 }
-
-.blue .view-footer button {
+.view-app-container.lightblue .view-footer button {
   background-color: #eef6ff;
   color: #3f84f2;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+  width: 100%;
+}
+.view-app-container.darkblue .view-title .header {
+  color: #a9aeb9;
+}
+.view-app-container.darkblue .view-header {
+  color: #60697c;
+}
+.view-app-container.darkblue .view-header .header-right .metadata {
+  color: #60697c;
+}
+.view-app-container.darkblue .view-header .header-right .view-app-status {
+  background-color: #0d4416;
+  color: #339d65;
+}
+.view-app-container.darkblue .view-body {
+  background-color: #262930;
+  color: #939292;
+}
+.view-app-container.darkblue .view-footer button {
+  background-color: #2a3c60;
+  color: #82a0cf;
   cursor: pointer;
   font-weight: 500;
   border: none;

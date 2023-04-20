@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 const ViewApplication = ({ handleSetVisibility }) => {
   //   const dispatch = useDispatch();
   const app = useSelector((state) => state.application);
-  console.log(app);
+  const theme = useSelector((state) => state.user.theme.type);
 
   return (
-    <div className="view-app-container">
+    <div className={`view-app-container ${theme}`}>
       <div className="view-title">
         <h2 className="header">{app.role}</h2>
       </div>

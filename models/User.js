@@ -11,11 +11,7 @@ const UserSchema = Schema({
   theme: {
     type: {
       type: String,
-      default: "light",
-    },
-    color: {
-      type: String,
-      default: "blue",
+      default: "lightblue",
     },
   },
   created: String,

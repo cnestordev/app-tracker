@@ -6,13 +6,13 @@ export const WARNING = "warning";
 export const DANGER = "danger";
 export const SUCCESS = "success";
 // UI Themes
-export const LIGHT = "light";
-export const DARK = "dark";
-export const BLUE = "blue";
+export const LIGHTBLUE = "lightblue";
+export const DARKBLUE = "darkblue";
 
 // Sidemenu Component Selection
 export const CREATE = "create";
 export const VIEW = "view";
+export const SETTINGS = "settings";
 
 // Common variables
 export const ACTIVE = "active";

@@ -1,4 +1,5 @@
 @use "shared.scss";
+@use "bluetheme.scss";
 
 @mixin button($width, $bgColor, $textColor, $fontSize) {
   border: none;
@@ -12,9 +13,9 @@
   color: $textColor;
 }
 
-@mixin themeButton {
-  background-color: shared.$theme-light-bg-blue;
-  color: shared.$theme-light-dark-blue-text-btn;
+@mixin themeButton($bg, $text) {
+  background-color: $bg;
+  color: $text;
   cursor: pointer;
   font-weight: 500;
   border: none;

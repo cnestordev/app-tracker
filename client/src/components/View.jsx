@@ -1,8 +1,9 @@
 import "../styles/View.css";
-import { ACTIVE, CREATE, HIDDEN } from "../utils/constants";
+import { ACTIVE, CREATE, HIDDEN, SETTINGS, VIEW } from "../utils/constants";
 import AddApplication from "./AddApplication";
 import ViewApplication from "./ViewApplication";
-// import Settings from "./Settings";
+import Settings from "./Settings";
+import { useSelector } from "react-redux";
 
 const View = ({
   appVisibility,
@@ -10,6 +11,8 @@ const View = ({
   setAppVisibility,
   componentName,
 }) => {
+  const theme = useSelector((state) => state.user.theme.type);
+
   const handleAnimationEnd = () => {
     handleVisibility(false);
   };
@@ -20,15 +23,18 @@ const View = ({
 
   return (
     <div
-      className={`view-container ${appVisibility ? ACTIVE : HIDDEN}`}
+      className={`view-container ${theme} ${appVisibility ? ACTIVE : HIDDEN}`}
       onAnimationEnd={appVisibility ? undefined : handleAnimationEnd}
     >
-      {componentName.includes(CREATE) ? (
-        // <Settings />
-        <AddApplication handleSetVisibility={handleSetVisibility} />
-      ) : (
-        <ViewApplication handleSetVisibility={handleSetVisibility} />
-      )}
+      {
+        componentName === CREATE ? (
+          <AddApplication handleSetVisibility={handleSetVisibility} />
+        ) : componentName === VIEW ? (
+          <ViewApplication handleSetVisibility={handleSetVisibility} />
+        ) : componentName === SETTINGS ? (
+          <Settings handleSetVisibility={handleSetVisibility} />
+        ) : null // Return null if componentName doesn't match any of the conditions
+      }
     </div>
   );
 };

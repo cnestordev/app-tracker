@@ -1,4 +1,6 @@
 @use "shared.scss";
+@use "bluetheme.scss";
+@use "mixins.scss";
 
 .new-app-container {
   font-family: shared.$font-sans-serif;
@@ -52,7 +54,6 @@
     .delete-btn {
       cursor: pointer;
       font-weight: 500;
-      border: none;
       padding: 16px;
       border-radius: 10px;
       display: flex;
@@ -63,31 +64,22 @@
       }
     }
   }
-  &.light {
+  &.lightblue {
     .new-app-heading {
-      color: shared.$theme-light-header;
+      color: bluetheme.$theme-light-addapp-header-color;
     }
     .new-app-input {
       input[type="text"],
       .job-info-textarea {
-        background-color: #f6f6f6;
+        background-color: bluetheme.$theme-light-addapp-input-bg;
       }
       .radio-options {
         .radio-input {
-          background-color: shared.$input-background-light-gray;
-          color: shared.$input-text-light-gray;
-        }
-      }
-    }
-  }
-
-  &.blue {
-    .new-app-input {
-      .radio-options {
-        .radio-input {
+          background-color: bluetheme.$theme-light-addapp-radio-inactive-bg;
+          color: bluetheme.$theme-light-addapp-radio-inactive-text;
           &.active {
-            background-color: shared.$theme-light-bg-blue;
-            color: shared.$theme-light-dark-blue-text-btn;
+            background-color: bluetheme.$theme-light-btn-bg-color;
+            color: bluetheme.$theme-light-btn-text-color;
           }
         }
       }
@@ -95,12 +87,54 @@
     .form-actions {
       .submit-btn,
       .cancel-btn {
-        background-color: shared.$theme-light-bg-blue;
-        color: shared.$theme-light-dark-blue-text-btn;
+        @include mixins.themeButton(
+          bluetheme.$theme-light-btn-bg-color,
+          bluetheme.$theme-light-btn-text-color
+        );
       }
       .delete-btn {
-        background-color: #ffeeee;
-        color: #f23f3f;
+        @include mixins.themeButton(
+          bluetheme.$theme-light-red-btn-bg-color,
+          bluetheme.$theme-light-red-btn-text-color
+        );
+      }
+    }
+  }
+
+  // dark blue theme
+  &.darkblue {
+    .new-app-heading {
+      color: bluetheme.$theme-dark-addapp-header-color;
+    }
+    .new-app-input {
+      input[type="text"],
+      .job-info-textarea {
+        background-color: bluetheme.$theme-dark-addapp-input-bg;
+      }
+      .radio-options {
+        .radio-input {
+          background-color: bluetheme.$theme-dark-addapp-radio-inactive-bg;
+          color: bluetheme.$theme-dark-addapp-radio-inactive-text;
+          &.active {
+            background-color: bluetheme.$theme-dark-btn-bg-color;
+            color: bluetheme.$theme-dark-btn-text-color;
+          }
+        }
+      }
+    }
+    .form-actions {
+      .submit-btn,
+      .cancel-btn {
+        @include mixins.themeButton(
+          bluetheme.$theme-dark-btn-bg-color,
+          bluetheme.$theme-dark-btn-text-color
+        );
+      }
+      .delete-btn {
+        @include mixins.themeButton(
+          bluetheme.$theme-dark-red-btn-bg-color,
+          bluetheme.$theme-dark-red-btn-text-color
+        );
       }
     }
   }

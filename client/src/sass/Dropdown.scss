@@ -1,4 +1,5 @@
 @use "shared.scss";
+@use "bluetheme.scss";
 
 $menu-padding: 10px;
 
@@ -50,27 +51,42 @@ $menu-padding: 10px;
       display: none;
     }
   }
-  &.light {
-    color: shared.$theme-light-input-text;
+  &.lightblue {
+    color: bluetheme.$theme-light-dropdown-text;
     .dropdown-header {
-      background-color: #f6f6f6;
+      background-color: bluetheme.$theme-light-dropdown-bg;
     }
     .dropdown-list {
-      background-color: #fff;
+      background-color: transparent;
       border: 1px solid #e3e3e3;
-    }
-  }
-
-  &.blue {
-    .dropdown-list {
-      .new-list-item {
-        &:hover {
-          background-color: shared.$theme-light-bg-blue;
-        }
-      }
       .dropdown-item {
         &:hover {
-          background-color: shared.$theme-light-bg-blue;
+          background-color: bluetheme.$theme-light-dropdown-focus-item;
+        }
+      }
+      .new-list-item {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  &.darkblue {
+    color: bluetheme.$theme-dark-dropdown-text;
+    .dropdown-header {
+      background-color: bluetheme.$theme-dark-dropdown-bg;
+    }
+    .dropdown-list {
+      background-color: transparent;
+      border: 1px solid #e3e3e3;
+      .dropdown-item {
+        &:hover {
+          background-color: bluetheme.$theme-dark-dropdown-focus-item;
+        }
+      }
+      .new-list-item {
+        &:hover {
+          background-color: transparent;
         }
       }
     }

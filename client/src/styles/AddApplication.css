@@ -52,7 +52,6 @@
 .new-app-container .form-actions .delete-btn {
   cursor: pointer;
   font-weight: 500;
-  border: none;
   padding: 16px;
   border-radius: 10px;
   display: flex;
@@ -64,29 +63,73 @@
 .new-app-container .form-actions .delete-btn svg {
   width: 15px;
 }
-.new-app-container.light .new-app-heading {
+.new-app-container.lightblue .new-app-heading {
   color: #3a414a;
 }
-.new-app-container.light .new-app-input input[type=text],
-.new-app-container.light .new-app-input .job-info-textarea {
+.new-app-container.lightblue .new-app-input input[type=text],
+.new-app-container.lightblue .new-app-input .job-info-textarea {
   background-color: #f6f6f6;
 }
-.new-app-container.light .new-app-input .radio-options .radio-input {
+.new-app-container.lightblue .new-app-input .radio-options .radio-input {
   background-color: #ededed;
   color: #979ea8;
 }
-.new-app-container.blue .new-app-input .radio-options .radio-input.active {
+.new-app-container.lightblue .new-app-input .radio-options .radio-input.active {
   background-color: #eef6ff;
   color: #3f84f2;
 }
-.new-app-container.blue .form-actions .submit-btn,
-.new-app-container.blue .form-actions .cancel-btn {
+.new-app-container.lightblue .form-actions .submit-btn,
+.new-app-container.lightblue .form-actions .cancel-btn {
   background-color: #eef6ff;
   color: #3f84f2;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
 }
-.new-app-container.blue .form-actions .delete-btn {
+.new-app-container.lightblue .form-actions .delete-btn {
   background-color: #ffeeee;
   color: #f23f3f;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+}
+.new-app-container.darkblue .new-app-heading {
+  color: #e0e6f3;
+}
+.new-app-container.darkblue .new-app-input input[type=text],
+.new-app-container.darkblue .new-app-input .job-info-textarea {
+  background-color: #1c2434;
+}
+.new-app-container.darkblue .new-app-input .radio-options .radio-input {
+  background-color: #2f3c56;
+  color: #4e638d;
+}
+.new-app-container.darkblue .new-app-input .radio-options .radio-input.active {
+  background-color: #2a3c60;
+  color: #82a0cf;
+}
+.new-app-container.darkblue .form-actions .submit-btn,
+.new-app-container.darkblue .form-actions .cancel-btn {
+  background-color: #2a3c60;
+  color: #82a0cf;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
+}
+.new-app-container.darkblue .form-actions .delete-btn {
+  background-color: #602a2a;
+  color: #f16f6f;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  padding: 16px;
+  border-radius: 10px;
 }
 
 .sdp {

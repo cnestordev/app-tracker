@@ -47,19 +47,35 @@
 .dropdown-container .dropdown-list.hidden {
   display: none;
 }
-.dropdown-container.light {
+.dropdown-container.lightblue {
   color: #3a414a;
 }
-.dropdown-container.light .dropdown-header {
+.dropdown-container.lightblue .dropdown-header {
   background-color: #f6f6f6;
 }
-.dropdown-container.light .dropdown-list {
-  background-color: #fff;
+.dropdown-container.lightblue .dropdown-list {
+  background-color: transparent;
   border: 1px solid #e3e3e3;
 }
-.dropdown-container.blue .dropdown-list .new-list-item:hover {
+.dropdown-container.lightblue .dropdown-list .dropdown-item:hover {
   background-color: #eef6ff;
 }
-.dropdown-container.blue .dropdown-list .dropdown-item:hover {
-  background-color: #eef6ff;
+.dropdown-container.lightblue .dropdown-list .new-list-item:hover {
+  background-color: transparent;
+}
+.dropdown-container.darkblue {
+  color: #a9aaad;
+}
+.dropdown-container.darkblue .dropdown-header {
+  background-color: #1c2434;
+}
+.dropdown-container.darkblue .dropdown-list {
+  background-color: transparent;
+  border: 1px solid #e3e3e3;
+}
+.dropdown-container.darkblue .dropdown-list .dropdown-item:hover {
+  background-color: #4b5872;
+}
+.dropdown-container.darkblue .dropdown-list .new-list-item:hover {
+  background-color: transparent;
 }

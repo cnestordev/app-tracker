@@ -27,10 +27,32 @@ $theme-light-table-searchbar-bg: #f6f6f6;
 
 // View > Application
 $theme-light-view-bg-color: #fff;
+$theme-light-view-bg-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
+  rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
 $theme-light-view-header-text: #3a414a;
 $theme-light-view-subheader-text: #6b6b6b;
 $theme-light-view-info-bg: #f1f1f1;
 $theme-light-view-info-text: #555555;
+
+// Blue button
+$theme-light-btn-bg-color: #eef6ff;
+$theme-light-btn-text-color: #3f84f2;
+// Red button
+$theme-light-red-btn-bg-color: #ffeeee;
+$theme-light-red-btn-text-color: #f23f3f;
+
+// Add Application
+$theme-light-addapp-header-color: #3a414a;
+$theme-light-addapp-input-bg: #f6f6f6;
+$theme-light-addapp-dropdown-bg: $theme-light-btn-bg-color;
+$theme-light-addapp-radio-inactive-bg: #ededed;
+$theme-light-addapp-radio-inactive-text: #979ea8;
+
+// Dropdown
+$theme-light-dropdown-bg: #f6f6f6;
+$theme-light-dropdown-text: #3a414a;
+$theme-light-dropdown-input-bg: $theme-light-dropdown-bg;
+$theme-light-dropdown-focus-item: $theme-light-btn-bg-color;
 
 // Dark--------------------------------------------------------------
 
@@ -59,7 +81,29 @@ $theme-dark-table-searchbar-bg: #1c2434;
 
 // View > Application
 $theme-dark-view-bg-color: #282e3a;
+$theme-dark-view-bg-shadow: rgb(4 4 4 / 35%) 0px 2px 5px 0px,
+  rgb(16 16 16 / 42%) 0px 1px 1px 0px;
 $theme-dark-view-header-text: #a9aeb9;
 $theme-dark-view-subheader-text: #60697c;
 $theme-dark-view-info-bg: #262930;
-$theme-light-view-info-text: #939292;
+$theme-dark-view-info-text: #939292;
+
+// Buttons
+$theme-dark-btn-bg-color: #2a3c60;
+$theme-dark-btn-text-color: #82a0cf;
+// Red button
+$theme-dark-red-btn-bg-color: #602a2a;
+$theme-dark-red-btn-text-color: #f16f6f;
+
+// Add Application
+$theme-dark-addapp-header-color: #e0e6f3;
+$theme-dark-addapp-input-bg: #1c2434;
+$theme-dark-addapp-dropdown-bg: $theme-dark-btn-bg-color;
+$theme-dark-addapp-radio-inactive-bg: #2f3c56;
+$theme-dark-addapp-radio-inactive-text: #4e638d;
+
+// Dropdown
+$theme-dark-dropdown-bg: $theme-dark-addapp-input-bg;
+$theme-dark-dropdown-text: $theme-dark-table-row-text;
+$theme-dark-dropdown-input-bg: $theme-dark-dropdown-bg;
+$theme-dark-dropdown-focus-item: #4b5872;

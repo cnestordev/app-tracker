@@ -1,9 +1,7 @@
 @use "shared.scss";
+@use "bluetheme.scss";
 
 .view-container {
-  background-color: #fff;
-  box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px,
-    rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
   border-radius: 10px;
   position: absolute;
   padding: 15px;
@@ -21,6 +19,16 @@
   }
   &.active {
     animation: slideIn 200ms forwards;
+  }
+  &.lightblue {
+    background-color: bluetheme.$theme-light-view-bg-color;
+    box-shadow: bluetheme.$theme-light-view-bg-shadow;
+  }
+
+  // dark blue theme
+  &.darkblue {
+    background-color: bluetheme.$theme-dark-view-bg-color;
+    box-shadow: bluetheme.$theme-dark-view-bg-shadow;
   }
 }
 

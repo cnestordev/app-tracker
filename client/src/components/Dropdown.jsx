@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "react-feather";
 import "../styles/Dropdown.css";
+import { useSelector } from "react-redux";
 
 const Dropdown = ({ listConfig }) => {
   const addNewItem = listConfig.addNewItem;
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState("");
+  const theme = useSelector((state) => state.user.theme.type);
 
   const handleItemSelection = (item) => {
     setSelectedItem(item.value);
@@ -26,7 +28,7 @@ const Dropdown = ({ listConfig }) => {
   };
 
   return (
-    <div className="dropdown-container light blue">
+    <div className={`dropdown-container ${theme}`}>
       <div className="dropdown-header" onClick={handleToggle}>
         <span className="selected-item">
           {selectedItem || listConfig.title || "title prop"}

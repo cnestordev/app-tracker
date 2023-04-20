@@ -14,7 +14,7 @@ import {
   deselectApplication,
   selectApplication,
 } from "../redux/features/applicationSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import hybrid from "../assets/hybrid.svg";
 import remote from "../assets/home.svg";
 import onsite from "../assets/building.svg";
@@ -30,6 +30,8 @@ const Content = ({
   const [headers] = useState(HEADERS);
   const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
+
+  const theme = useSelector((state) => state.user.theme.type);
 
   const handleSelectedApplication = async (application) => {
     dispatch(deselectApplication());
@@ -96,7 +98,7 @@ const Content = ({
   };
 
   return (
-    <div className="content-container lightblue">
+    <div className={`content-container ${theme}`}>
       <div className="content-header">
         <div className="header-title">
           <h3>{title}</h3>

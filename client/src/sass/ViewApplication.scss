@@ -1,5 +1,6 @@
 @use "shared.scss";
 @use "mixins.scss";
+@use "bluetheme.scss";
 
 .view-app-container {
   font-family: shared.$font-sans-serif;
@@ -61,31 +62,69 @@
     display: flex;
     margin-top: auto;
   }
-}
-
-.light {
-  color: shared.$theme-light-header;
-  .view-header {
-    .header-right {
-      .metadata {
-        color: #6b6b6b;
+  &.lightblue {
+    .view-title {
+      .header {
+        color: bluetheme.$theme-light-view-header-text;
       }
-      .view-app-status {
-        background-color: #50ff7c;
+    }
+    .view-header {
+      color: bluetheme.$theme-light-view-subheader-text;
+      .header-right {
+        .metadata {
+          color: bluetheme.$theme-light-view-subheader-text;
+        }
+        .view-app-status {
+          background-color: #a5ffd0;
+          color: #0c5c32;
+        }
+      }
+    }
+    .view-body {
+      background-color: bluetheme.$theme-light-view-info-bg;
+      color: bluetheme.$theme-light-view-info-text;
+    }
+    .view-footer {
+      button {
+        @include mixins.themeButton(
+          bluetheme.$theme-light-btn-bg-color,
+          bluetheme.$theme-light-btn-text-color
+        );
+        width: 100%;
       }
     }
   }
-  .view-body {
-    background-color: #f1f1f1;
-    color: #555555;
-  }
-}
-
-.blue {
-  .view-footer {
-    button {
-      @include mixins.themeButton;
-      width: 100%;
+  // dark theme
+  &.darkblue {
+    .view-title {
+      .header {
+        color: bluetheme.$theme-dark-view-header-text;
+      }
+    }
+    .view-header {
+      color: bluetheme.$theme-dark-view-subheader-text;
+      .header-right {
+        .metadata {
+          color: bluetheme.$theme-dark-view-subheader-text;
+        }
+        .view-app-status {
+          background-color: #0d4416;
+          color: #339d65;
+        }
+      }
+    }
+    .view-body {
+      background-color: bluetheme.$theme-dark-view-info-bg;
+      color: bluetheme.$theme-dark-view-info-text;
+    }
+    .view-footer {
+      button {
+        @include mixins.themeButton(
+          bluetheme.$theme-dark-btn-bg-color,
+          bluetheme.$theme-dark-btn-text-color
+        );
+        width: 100%;
+      }
     }
   }
 }

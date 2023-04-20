@@ -17,6 +17,8 @@ const Dashboard = (props) => {
   const [isMounted, setIsMoutned] = useState(false);
   const [componentName, setComponentName] = useState(CREATE);
 
+  const theme = useSelector((state) => state.user.theme.type);
+
   const handleFilterByCategory = (category) => {
     if (category._id === activeCategory._id) {
       setActiveCategory("");
@@ -40,7 +42,7 @@ const Dashboard = (props) => {
   };
 
   return (
-    <div className="dashboard-container light lightblue">
+    <div className={`dashboard-container ${theme}`}>
       <Menu
         activeCategory={activeCategory}
         handleFilter={handleFilterByCategory}

@@ -1,11 +1,18 @@
 import { useState, useRef, useEffect } from "react";
 import "../styles/Menu.css";
-import { Plus, LogOut, User } from "react-feather";
+import { Settings, LogOut, User, Plus } from "react-feather";
 import Category from "./Category";
 import { handleLogout } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { ACTIVE, CREATE, DANGER, HIDDEN, SUCCESS } from "../utils/constants";
+import {
+  ACTIVE,
+  CREATE,
+  SETTINGS,
+  DANGER,
+  HIDDEN,
+  SUCCESS,
+} from "../utils/constants";
 
 import { useDispatch } from "react-redux";
 import { deselectApplication } from "../redux/features/applicationSlice";
@@ -24,6 +31,7 @@ const Menu = ({
   const username = useSelector((state) => state.user.username);
   const userCategories = useSelector((state) => state.user.categories);
   const [categories, setCategories] = useState([]);
+  const theme = useSelector((state) => state.user.theme.type);
 
   useEffect(() => {
     setCategories(userCategories);
@@ -31,9 +39,9 @@ const Menu = ({
 
   const dispatch = useDispatch();
 
-  const handleCreateClick = () => {
+  const handleCreateClick = (componentName) => {
     dispatch(deselectApplication());
-    setComponentName(CREATE);
+    setComponentName(componentName);
     handleVisibility(true);
     setAppVisibility(true);
   };
@@ -69,10 +77,10 @@ const Menu = ({
   }, [menuFooterRef, toggleMenu]);
 
   return (
-    <div className="menu-container light lightblue">
+    <div className={`menu-container ${theme}`}>
       <div className="menu-header">
         <h2>Dashboard</h2>
-        <button onClick={() => handleCreateClick()}>
+        <button onClick={() => handleCreateClick(CREATE)}>
           <span>Create</span>
           <Plus />
         </button>
@@ -104,9 +112,13 @@ const Menu = ({
             <LogOut />
             <span>Sign Out</span>
           </div>
-          <div className="user-setting">
-            <Plus />
-            <span>Sign Out</span>
+
+          <div
+            onClick={() => handleCreateClick(SETTINGS)}
+            className="user-setting"
+          >
+            <Settings />
+            <span>Settings</span>
           </div>
         </div>
         <User />

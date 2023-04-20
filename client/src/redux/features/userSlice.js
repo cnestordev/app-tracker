@@ -1,13 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LIGHT, BLUE } from "../../utils/constants";
+import { LIGHTBLUE } from "../../utils/constants";
 
 const anonymousUser = {
   username: "anon",
   applications: [],
   _id: null,
   theme: {
-    type: LIGHT,
-    color: BLUE,
+    type: LIGHTBLUE,
   },
   categories: [],
 };

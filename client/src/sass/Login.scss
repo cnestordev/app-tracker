@@ -67,7 +67,7 @@
       }
     }
   }
-  &.light {
+  &.lightblue {
     background-color: shared.$theme-light-login-bg;
     .login-header {
       h2 {
@@ -94,7 +94,7 @@
       }
     }
   }
-  &.dark {
+  &.darkblue {
     background-color: shared.$theme-dark-login-bg;
     .login-header {
       h2 {
