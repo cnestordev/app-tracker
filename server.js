@@ -28,7 +28,7 @@ app.use(
   session({
     store,
     name: "pfil",
-    secret: "These violent delights have violent ends",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -40,7 +40,7 @@ app.use(
   })
 );
 
-app.use(cookieParser("These violent delights have violent ends"));
+app.use(cookieParser(process.env.SECRET));
 app.use(passport.initialize());
 app.use(passport.session());
 

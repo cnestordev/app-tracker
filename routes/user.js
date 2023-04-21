@@ -6,6 +6,7 @@ const User = require("../models/User");
 const Category = require("../models/Category");
 const Application = require("../models/Application");
 
+// Theme color toggle
 router.put("/:id/toggleColorTheme", checkAuth, async (req, res) => {
   const { type } = req.body;
   console.log(req.params.id);
@@ -164,6 +165,7 @@ router.delete(
 
       if (!user) return res.status(404).json({ msg: "User not found" });
 
+      // loop through Category application array, update the isHidden value
       for (let i = 0; i < user.categories.length; i++) {
         const category = user.categories[i];
         const applicationsToHide = category.applications.filter(
@@ -176,9 +178,11 @@ router.delete(
           await application.save();
         });
 
+        // update Category applications array to only have apps with an isHidden value of false
         category.applications = category.applications.filter(
           (application) => !application.isHidden.value
         );
+        // add isHidden: true apps to hiddenApplications array
         category.hiddenApplications =
           category.hiddenApplications.concat(applicationsToHide);
 

@@ -68,7 +68,7 @@
     }
   }
   &.lightblue,
-  .lightgreen {
+  &.lightgreen {
     background-color: shared.$theme-light-login-bg;
     .login-header {
       h2 {
@@ -96,7 +96,7 @@
     }
   }
   &.darkblue,
-  .darkblue {
+  &.darkgreen {
     background-color: shared.$theme-dark-login-bg;
     .login-header {
       h2 {

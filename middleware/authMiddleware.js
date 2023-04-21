@@ -1,3 +1,4 @@
+// Check if user is authenticated
 const checkAuth = (req, res, next) => {
   if (req.isAuthenticated()) {
     next();
@@ -6,6 +7,7 @@ const checkAuth = (req, res, next) => {
   }
 };
 
+// Check if the id in the params matches the User's ID
 const checkIdMatch = (req, res, next) => {
   const userId = req.params.id;
   if (req.user._id.equals(userId)) {

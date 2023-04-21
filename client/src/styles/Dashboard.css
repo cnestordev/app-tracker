@@ -39,8 +39,8 @@
 }
 .dashboard-container.darkgreen {
   /* Styles for content */
-  background-color: #041e05;
+  background-color: #071808;
 }
 .dashboard-container.darkgreen > :nth-child(2) {
-  background-color: #09240e;
+  background-color: #1c281e;
 }

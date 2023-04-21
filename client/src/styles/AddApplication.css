@@ -177,12 +177,12 @@
   color: #487259;
 }
 .new-app-container.darkgreen .new-app-input .radio-options .radio-input.active {
-  background-color: #003602;
+  background-color: #2c4a2d;
   color: #62ad55;
 }
 .new-app-container.darkgreen .form-actions .submit-btn,
 .new-app-container.darkgreen .form-actions .cancel-btn {
-  background-color: #003602;
+  background-color: #2c4a2d;
   color: #62ad55;
   cursor: pointer;
   font-weight: 500;
