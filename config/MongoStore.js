@@ -6,7 +6,7 @@ const MongoStore = MongoStoreFactory;
 
 const store = MongoStore.create({
   mongoUrl: process.env.MONGO_URL,
-  secret: "These violent delights have violent ends",
+  secret: process.env.SECRET,
   touchAfter: 24 * 60 * 60,
 });
 
