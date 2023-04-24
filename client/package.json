@@ -28,7 +28,7 @@
     "compile:sass": "sass src/sass:src/styles",
     "watch:sass": "gulp watch"
   },
-  "proxy": "http://localhost:5000",
+  "proxy": "https://japp-tracker.herokuapp.com/",
   "eslintConfig": {
     "extends": [
       "react-app",

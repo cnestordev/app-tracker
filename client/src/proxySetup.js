@@ -1,10 +1,10 @@
 const proxy = require("http-proxy-middleware");
 
 module.exports = function (app) {
-  const target = "http://localhost:5000";
+  const target = "https://japp-tracker.herokuapp.com/";
 
   app.use(
-    ["/api", "/user", "/auth"],
+    ["/user", "/auth"],
     proxy({
       target,
       changeOrigin: true,
